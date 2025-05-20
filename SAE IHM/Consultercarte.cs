@@ -15,9 +15,16 @@ namespace SAE_IHM
         public Consultercarte()
         {
             InitializeComponent();
+            this.BackgroundImage = Image.FromFile("fond.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Consultercarte_Load(object sender, EventArgs e)
         {
 
         }

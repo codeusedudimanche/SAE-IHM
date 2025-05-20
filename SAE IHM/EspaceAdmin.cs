@@ -15,6 +15,18 @@ namespace SAE_IHM
         public EspaceAdmin()
         {
             InitializeComponent();
+            this.BackgroundImage = Image.FromFile("fond.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

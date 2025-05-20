@@ -15,6 +15,18 @@ namespace SAE_IHM
         public AccesAdmin()
         {
             InitializeComponent();
+            this.BackgroundImage = Image.FromFile("fond.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Titre_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

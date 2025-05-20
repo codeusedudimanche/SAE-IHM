@@ -34,17 +34,19 @@
             textBoxArretDepart = new TextBox();
             textBoxArretArrivee = new TextBox();
             checkBoxHoraire = new CheckBox();
+            panel1 = new Panel();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 30F, FontStyle.Bold);
-            label1.Location = new Point(158, 46);
+            label1.Location = new Point(296, 194);
             label1.Name = "label1";
             label1.Size = new Size(504, 67);
             label1.TabIndex = 0;
             label1.Text = "Rechercher un trajet";
+            label1.Click += label1_Click;
             // 
             // linkLabel1
             // 
@@ -67,7 +69,7 @@
             // 
             // textBoxArretDepart
             // 
-            textBoxArretDepart.Location = new Point(189, 196);
+            textBoxArretDepart.Location = new Point(327, 344);
             textBoxArretDepart.Name = "textBoxArretDepart";
             textBoxArretDepart.Size = new Size(165, 27);
             textBoxArretDepart.TabIndex = 3;
@@ -75,7 +77,7 @@
             // 
             // textBoxArretArrivee
             // 
-            textBoxArretArrivee.Location = new Point(435, 196);
+            textBoxArretArrivee.Location = new Point(573, 344);
             textBoxArretArrivee.Name = "textBoxArretArrivee";
             textBoxArretArrivee.Size = new Size(165, 27);
             textBoxArretArrivee.TabIndex = 4;
@@ -84,7 +86,7 @@
             // checkBoxHoraire
             // 
             checkBoxHoraire.AutoSize = true;
-            checkBoxHoraire.Location = new Point(256, 285);
+            checkBoxHoraire.Location = new Point(394, 433);
             checkBoxHoraire.Name = "checkBoxHoraire";
             checkBoxHoraire.Size = new Size(277, 24);
             checkBoxHoraire.TabIndex = 5;
@@ -92,11 +94,19 @@
             checkBoxHoraire.UseVisualStyleBackColor = true;
             checkBoxHoraire.CheckedChanged += checkBox1_CheckedChanged;
             // 
+            // panel1
+            // 
+            panel1.Location = new Point(140, 46);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(510, 159);
+            panel1.TabIndex = 6;
+            // 
             // RechercherTrajet
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(panel1);
             Controls.Add(checkBoxHoraire);
             Controls.Add(textBoxArretArrivee);
             Controls.Add(textBoxArretDepart);
@@ -117,5 +127,6 @@
         private TextBox textBoxArretDepart;
         private TextBox textBoxArretArrivee;
         private CheckBox checkBoxHoraire;
+        private Panel panel1;
     }
 }

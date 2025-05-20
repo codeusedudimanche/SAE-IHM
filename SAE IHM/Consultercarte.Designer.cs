@@ -35,22 +35,24 @@
             linkLabel1 = new LinkLabel();
             label2 = new Label();
             btnRetour = new Button();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 30F, FontStyle.Bold);
-            label1.Location = new Point(200, 73);
+            label1.Font = new Font("Segoe UI Semibold", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(0, 31);
             label1.Name = "label1";
-            label1.Size = new Size(440, 67);
+            label1.Size = new Size(429, 67);
             label1.TabIndex = 0;
             label1.Text = "Consulter la carte";
             label1.Click += label1_Click;
             // 
             // btnReseauComplet
             // 
-            btnReseauComplet.Location = new Point(74, 225);
+            btnReseauComplet.Location = new Point(112, 236);
             btnReseauComplet.Name = "btnReseauComplet";
             btnReseauComplet.Size = new Size(198, 29);
             btnReseauComplet.TabIndex = 1;
@@ -59,7 +61,7 @@
             // 
             // btnLigne
             // 
-            btnLigne.Location = new Point(316, 225);
+            btnLigne.Location = new Point(112, 136);
             btnLigne.Name = "btnLigne";
             btnLigne.Size = new Size(198, 29);
             btnLigne.TabIndex = 2;
@@ -68,7 +70,7 @@
             // 
             // btnHoraires
             // 
-            btnHoraires.Location = new Point(553, 225);
+            btnHoraires.Location = new Point(112, 185);
             btnHoraires.Name = "btnHoraires";
             btnHoraires.Size = new Size(198, 29);
             btnHoraires.TabIndex = 3;
@@ -103,20 +105,32 @@
             btnRetour.Text = "<   Retour";
             btnRetour.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(btnLigne);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(btnReseauComplet);
+            panel1.Controls.Add(btnHoraires);
+            panel1.Location = new Point(209, 34);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(424, 379);
+            panel1.TabIndex = 7;
+            // 
             // Consultercarte
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(panel1);
             Controls.Add(btnRetour);
             Controls.Add(label2);
             Controls.Add(linkLabel1);
-            Controls.Add(btnHoraires);
-            Controls.Add(btnLigne);
-            Controls.Add(btnReseauComplet);
-            Controls.Add(label1);
             Name = "Consultercarte";
             Text = "Consultercarte";
+            Load += Consultercarte_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -130,5 +144,6 @@
         private LinkLabel linkLabel1;
         private Label label2;
         private Button btnRetour;
+        private Panel panel1;
     }
 }
