@@ -15,6 +15,28 @@ namespace SAE_IHM
         public EspaceBillets()
         {
             InitializeComponent();
+            this.BackgroundImage = Image.FromFile("fond.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void radioButtonEnfant_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EspaceBillets_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -36,13 +36,14 @@
             label2 = new Label();
             btnRetour = new Button();
             panel1 = new Panel();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI Semibold", 30F);
             label1.Location = new Point(0, 31);
             label1.Name = "label1";
             label1.Size = new Size(429, 67);
@@ -82,23 +83,20 @@
             linkLabel1.AutoSize = true;
             linkLabel1.Location = new Point(12, 9);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(57, 20);
+            linkLabel1.Size = new Size(0, 20);
             linkLabel1.TabIndex = 4;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Accueil";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(65, 9);
             label2.Name = "label2";
-            label2.Size = new Size(138, 20);
+            label2.Size = new Size(0, 20);
             label2.TabIndex = 5;
-            label2.Text = "> Consulter la carte";
             // 
             // btnRetour
             // 
-            btnRetour.Location = new Point(12, 384);
+            btnRetour.Location = new Point(21, 331);
             btnRetour.Name = "btnRetour";
             btnRetour.Size = new Size(127, 29);
             btnRetour.TabIndex = 6;
@@ -108,6 +106,8 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(btnRetour);
             panel1.Controls.Add(btnLigne);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnReseauComplet);
@@ -117,17 +117,23 @@
             panel1.Size = new Size(424, 379);
             panel1.TabIndex = 7;
             // 
+            // panel2
+            // 
+            panel2.Location = new Point(342, 313);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(64, 47);
+            panel2.TabIndex = 8;
+            panel2.Paint += panel2_Paint;
+            // 
             // Consultercarte
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
-            Controls.Add(btnRetour);
             Controls.Add(label2);
             Controls.Add(linkLabel1);
             Name = "Consultercarte";
-            Text = "Consultercarte";
             Load += Consultercarte_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -145,5 +151,6 @@
         private Label label2;
         private Button btnRetour;
         private Panel panel1;
+        private Panel panel2;
     }
 }

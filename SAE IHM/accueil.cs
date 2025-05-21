@@ -131,23 +131,27 @@ namespace SAE_IHM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Consultercarte f2 = new Consultercarte();   
-            f2.Show();                
-            this.Close();             
+            Consultercarte Formconsulte = new Consultercarte();   
+            Formconsulte.Show();                
+            this.Hide();             
         }
 
         private Button btnConfigTrajet;
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            RechercherTrajet FormConfigTrajet = new RechercherTrajet();
+            FormConfigTrajet.Show();
+            this.Hide();
         }
 
         private Button btnEspaceBillets;
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-
+            EspaceBillets FormEspaceBillet = new EspaceBillets();
+            FormEspaceBillet.Show();
+            this.Hide();
         }
 
         private Panel panel1;

@@ -49,7 +49,7 @@
             // 
             // btnAjouter
             // 
-            btnAjouter.Location = new Point(145, 87);
+            btnAjouter.Location = new Point(145, 97);
             btnAjouter.Name = "btnAjouter";
             btnAjouter.Size = new Size(94, 29);
             btnAjouter.TabIndex = 1;
@@ -58,18 +58,19 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.ControlLightLight;
             panel1.Controls.Add(btnSupprimer);
             panel1.Controls.Add(btnModifier);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnAjouter);
             panel1.Location = new Point(223, 42);
             panel1.Name = "panel1";
-            panel1.Size = new Size(389, 257);
+            panel1.Size = new Size(389, 267);
             panel1.TabIndex = 2;
             // 
             // btnSupprimer
             // 
-            btnSupprimer.Location = new Point(145, 182);
+            btnSupprimer.Location = new Point(145, 196);
             btnSupprimer.Name = "btnSupprimer";
             btnSupprimer.Size = new Size(94, 29);
             btnSupprimer.TabIndex = 3;
@@ -78,7 +79,7 @@
             // 
             // btnModifier
             // 
-            btnModifier.Location = new Point(145, 132);
+            btnModifier.Location = new Point(145, 147);
             btnModifier.Name = "btnModifier";
             btnModifier.Size = new Size(94, 29);
             btnModifier.TabIndex = 2;
