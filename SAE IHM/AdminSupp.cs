@@ -10,30 +10,18 @@ using System.Windows.Forms;
 
 namespace SAE_IHM
 {
-    public partial class RechercherTrajet : Form
+    public partial class AdminSupp : Form
     {
-        public RechercherTrajet()
+        public AdminSupp()
         {
             InitializeComponent();
             this.BackgroundImage = Image.FromFile("fond.jpg");
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void AdminSupp_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            accueil Home = new accueil();
-            Home.Show();
-            this.Hide();
         }
     }
 }

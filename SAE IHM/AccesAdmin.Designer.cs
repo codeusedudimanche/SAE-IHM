@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccesAdmin));
             label1 = new Label();
             textBoxIdentifiant = new TextBox();
             textBoxMdp = new TextBox();
@@ -35,7 +36,9 @@
             linkLabel1 = new LinkLabel();
             label2 = new Label();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -96,6 +99,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(textBoxMdp);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(textBoxIdentifiant);
@@ -104,6 +108,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(402, 379);
             panel1.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
+            pictureBox1.Location = new Point(340, 322);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(43, 42);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
             // 
             // AccesAdmin
             // 
@@ -117,6 +132,7 @@
             Text = "AccesAdmin";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -130,5 +146,6 @@
         private LinkLabel linkLabel1;
         private Label label2;
         private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

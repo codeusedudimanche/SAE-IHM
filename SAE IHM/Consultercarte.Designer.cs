@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consultercarte));
             label1 = new Label();
             btnReseauComplet = new Button();
             btnLigne = new Button();
             btnHoraires = new Button();
             linkLabel1 = new LinkLabel();
             label2 = new Label();
-            btnRetour = new Button();
             panel1 = new Panel();
-            panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -94,20 +95,10 @@
             label2.Size = new Size(0, 20);
             label2.TabIndex = 5;
             // 
-            // btnRetour
-            // 
-            btnRetour.Location = new Point(21, 331);
-            btnRetour.Name = "btnRetour";
-            btnRetour.Size = new Size(127, 29);
-            btnRetour.TabIndex = 6;
-            btnRetour.Text = "<   Retour";
-            btnRetour.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(btnRetour);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnLigne);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnReseauComplet);
@@ -117,13 +108,17 @@
             panel1.Size = new Size(424, 379);
             panel1.TabIndex = 7;
             // 
-            // panel2
+            // pictureBox1
             // 
-            panel2.Location = new Point(342, 313);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(64, 47);
-            panel2.TabIndex = 8;
-            panel2.Paint += panel2_Paint;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
+            pictureBox1.Location = new Point(361, 318);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(43, 42);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // Consultercarte
             // 
@@ -137,6 +132,7 @@
             Load += Consultercarte_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -152,5 +148,6 @@
         private Button btnRetour;
         private Panel panel1;
         private Panel panel2;
+        private PictureBox pictureBox1;
     }
 }

@@ -21,12 +21,33 @@ namespace SAE_IHM
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            AdminModifier Formmodif = new AdminModifier();
+            Formmodif.Show();
+            this.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void EspaceAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            AdminAjout Formajout = new AdminAjout();
+            Formajout.Show();
+            this.Hide();
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            AdminSupp Formsupp = new AdminSupp();
+            Formsupp.Show();
+            this.Hide();
         }
     }
 }

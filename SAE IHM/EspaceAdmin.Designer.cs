@@ -39,22 +39,23 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 30F, FontStyle.Bold);
-            label1.Location = new Point(15, 17);
+            label1.Font = new Font("Segoe UI Semibold", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(22, 18);
             label1.Name = "label1";
-            label1.Size = new Size(357, 67);
+            label1.Size = new Size(347, 67);
             label1.TabIndex = 0;
             label1.Text = "Espace Admin";
             label1.Click += label1_Click;
             // 
             // btnAjouter
             // 
-            btnAjouter.Location = new Point(145, 97);
+            btnAjouter.Location = new Point(147, 141);
             btnAjouter.Name = "btnAjouter";
             btnAjouter.Size = new Size(94, 29);
             btnAjouter.TabIndex = 1;
             btnAjouter.Text = "Ajouter";
             btnAjouter.UseVisualStyleBackColor = true;
+            btnAjouter.Click += btnAjouter_Click;
             // 
             // panel1
             // 
@@ -65,21 +66,22 @@
             panel1.Controls.Add(btnAjouter);
             panel1.Location = new Point(223, 42);
             panel1.Name = "panel1";
-            panel1.Size = new Size(389, 267);
+            panel1.Size = new Size(389, 350);
             panel1.TabIndex = 2;
             // 
             // btnSupprimer
             // 
-            btnSupprimer.Location = new Point(145, 196);
+            btnSupprimer.Location = new Point(147, 239);
             btnSupprimer.Name = "btnSupprimer";
             btnSupprimer.Size = new Size(94, 29);
             btnSupprimer.TabIndex = 3;
             btnSupprimer.Text = "Supprimer";
             btnSupprimer.UseVisualStyleBackColor = true;
+            btnSupprimer.Click += btnSupprimer_Click;
             // 
             // btnModifier
             // 
-            btnModifier.Location = new Point(145, 147);
+            btnModifier.Location = new Point(147, 190);
             btnModifier.Name = "btnModifier";
             btnModifier.Size = new Size(94, 29);
             btnModifier.TabIndex = 2;
@@ -95,6 +97,7 @@
             Controls.Add(panel1);
             Name = "EspaceAdmin";
             Text = "EspaceAdmin";
+            Load += EspaceAdmin_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

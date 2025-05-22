@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RechercherTrajet));
             label1 = new Label();
             linkLabel1 = new LinkLabel();
             label2 = new Label();
@@ -35,7 +36,9 @@
             textBoxArretArrivee = new TextBox();
             checkBoxHoraire = new CheckBox();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -67,19 +70,24 @@
             // 
             // textBoxArretDepart
             // 
+            textBoxArretDepart.ForeColor = Color.Gray;
             textBoxArretDepart.Location = new Point(59, 137);
             textBoxArretDepart.Name = "textBoxArretDepart";
+            textBoxArretDepart.PlaceholderText = "Arrêt de départ";
             textBoxArretDepart.Size = new Size(165, 27);
             textBoxArretDepart.TabIndex = 3;
-            textBoxArretDepart.Text = "Entrer l'arrêt de départ";
+
             // 
             // textBoxArretArrivee
             // 
+            textBoxArretArrivee.ForeColor = Color.Gray;
             textBoxArretArrivee.Location = new Point(280, 137);
             textBoxArretArrivee.Name = "textBoxArretArrivee";
+            textBoxArretArrivee.PlaceholderText = "Arrêt d'arrivée";
             textBoxArretArrivee.Size = new Size(165, 27);
             textBoxArretArrivee.TabIndex = 4;
-            textBoxArretArrivee.Text = "Entrer l'arrêt d'arrivée";
+            textBoxArretArrivee.Tag = "";
+
             // 
             // checkBoxHoraire
             // 
@@ -95,6 +103,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(checkBoxHoraire);
             panel1.Controls.Add(textBoxArretDepart);
@@ -103,6 +112,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(498, 364);
             panel1.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
+            pictureBox1.Location = new Point(432, 303);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(43, 42);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // RechercherTrajet
             // 
@@ -116,6 +137,7 @@
             Text = "RechercherTrajet";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,5 +151,6 @@
         private TextBox textBoxArretArrivee;
         private CheckBox checkBoxHoraire;
         private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

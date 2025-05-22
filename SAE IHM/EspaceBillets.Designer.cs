@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EspaceBillets));
             label1 = new Label();
             label2 = new Label();
             groupBox1 = new GroupBox();
@@ -41,9 +42,10 @@
             checkBoxCB = new CheckBox();
             linkLabel1 = new LinkLabel();
             panel1 = new Panel();
-            btnRetour = new Button();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -73,7 +75,7 @@
             groupBox1.Controls.Add(radioButtonVeteran);
             groupBox1.Controls.Add(radioButtonAdulte);
             groupBox1.Controls.Add(radioButtonHandicape);
-            groupBox1.Location = new Point(3, 137);
+            groupBox1.Location = new Point(13, 137);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(435, 44);
             groupBox1.TabIndex = 2;
@@ -179,26 +181,29 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(btnRetour);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(checkBoxCB);
             panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(label3);
-            panel1.Location = new Point(207, 39);
+            panel1.Location = new Point(197, 39);
             panel1.Name = "panel1";
-            panel1.Size = new Size(441, 379);
+            panel1.Size = new Size(461, 379);
             panel1.TabIndex = 8;
             panel1.Paint += panel1_Paint;
             // 
-            // btnRetour
+            // pictureBox1
             // 
-            btnRetour.Location = new Point(21, 331);
-            btnRetour.Name = "btnRetour";
-            btnRetour.Size = new Size(127, 29);
-            btnRetour.TabIndex = 6;
-            btnRetour.Text = "<   Retour";
-            btnRetour.UseVisualStyleBackColor = true;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
+            pictureBox1.Location = new Point(22, 318);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(43, 42);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // EspaceBillets
             // 
@@ -215,6 +220,7 @@
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -236,5 +242,6 @@
         private Label label4;
         private Panel panel1;
         private Button btnRetour;
+        private PictureBox pictureBox1;
     }
 }
