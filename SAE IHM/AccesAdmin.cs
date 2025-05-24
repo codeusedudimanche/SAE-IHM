@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Base;
 
 namespace SAE_IHM
 {
@@ -15,8 +16,7 @@ namespace SAE_IHM
         public AccesAdmin()
         {
             InitializeComponent();
-            this.BackgroundImage = Image.FromFile("fond.jpg");
-            this.BackgroundImageLayout = ImageLayout.Stretch;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -27,6 +27,33 @@ namespace SAE_IHM
         private void Titre_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBoxIdentifiant_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnValider_Click(object sender, EventArgs e)
+        {
+            string identifiant = textBoxIdentifiant.Text;
+            string motDePasse = textBoxMdp.Text;
+            if (BD.VerificationConnexion(identifiant, motDePasse))
+            {
+                MessageBox.Show("Connexion réussie !");
+                this.Hide();
+                EspaceAdmin espaceA = new EspaceAdmin();
+                espaceA.Show();
+            }
+            else
+            {
+                MessageBox.Show("Identifiant ou mot de passe incorrect.");
+            }
         }
     }
 }

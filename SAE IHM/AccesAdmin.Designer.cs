@@ -54,19 +54,20 @@
             // 
             // textBoxIdentifiant
             // 
-            textBoxIdentifiant.Location = new Point(124, 142);
+            textBoxIdentifiant.Location = new Point(44, 142);
             textBoxIdentifiant.Name = "textBoxIdentifiant";
-            textBoxIdentifiant.Size = new Size(160, 27);
+            textBoxIdentifiant.PlaceholderText = "Identifiant";
+            textBoxIdentifiant.Size = new Size(316, 27);
             textBoxIdentifiant.TabIndex = 1;
-            textBoxIdentifiant.Text = "Identifiant";
+            textBoxIdentifiant.TextChanged += textBoxIdentifiant_TextChanged;
             // 
             // textBoxMdp
             // 
-            textBoxMdp.Location = new Point(125, 204);
+            textBoxMdp.Location = new Point(44, 204);
             textBoxMdp.Name = "textBoxMdp";
-            textBoxMdp.Size = new Size(159, 27);
+            textBoxMdp.PlaceholderText = "Mot de passe";
+            textBoxMdp.Size = new Size(316, 27);
             textBoxMdp.TabIndex = 2;
-            textBoxMdp.Text = "Mot de passe";
             // 
             // buttonValider
             // 
@@ -76,6 +77,7 @@
             buttonValider.TabIndex = 3;
             buttonValider.Text = "Valider";
             buttonValider.UseVisualStyleBackColor = true;
+            buttonValider.Click += btnValider_Click;
             // 
             // linkLabel1
             // 
@@ -108,6 +110,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(402, 379);
             panel1.TabIndex = 6;
+            panel1.Paint += panel1_Paint;
             // 
             // pictureBox1
             // 

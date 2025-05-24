@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace SAE_IHM
 {
     public partial class EspaceBillets : Form
-    {
+    { 
         public EspaceBillets()
         {
             InitializeComponent();

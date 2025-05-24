@@ -1,4 +1,5 @@
 using System.Windows.Forms;
+using Base;
 using static System.Windows.Forms.DataFormats;
 
 namespace SAE_IHM
@@ -8,8 +9,7 @@ namespace SAE_IHM
         public accueil()
         {
             InitializeComponent();
-            this.BackgroundImage = Image.FromFile("fond.jpg");
-            this.BackgroundImageLayout = ImageLayout.Stretch;
+            BD.Connexion();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -50,11 +50,11 @@ namespace SAE_IHM
             btnConfigTrajet = new Button();
             btnEspaceBillets = new Button();
             panel1 = new Panel();
-            pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // Titre
@@ -116,17 +116,6 @@ namespace SAE_IHM
             panel1.TabIndex = 4;
             panel1.Paint += panel1_Paint_1;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(27, 331);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(42, 44);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 6;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
-            // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -139,6 +128,17 @@ namespace SAE_IHM
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click_1;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(27, 331);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(42, 44);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBoxConnexion_Click;
+            // 
             // accueil
             // 
             BackgroundImageLayout = ImageLayout.None;
@@ -148,8 +148,8 @@ namespace SAE_IHM
             Load += accueil_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -211,13 +211,14 @@ namespace SAE_IHM
 
         }
 
-        private PictureBox pictureBox2;
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void pictureBoxConnexion_Click(object sender, EventArgs e)
         {
-            EspaceAdmin FormAdmin = new EspaceAdmin();
-            FormAdmin.Show();
+            AccesAdmin accesAdmin = new AccesAdmin();
+            accesAdmin.Show();
             this.Hide();
         }
+
+        private PictureBox pictureBox2;
     }
 }

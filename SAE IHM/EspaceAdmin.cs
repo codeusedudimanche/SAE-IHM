@@ -9,14 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SAE_IHM
-{
+{ 
     public partial class EspaceAdmin : Form
     {
         public EspaceAdmin()
         {
             InitializeComponent();
-            this.BackgroundImage = Image.FromFile("fond.jpg");
-            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void button1_Click(object sender, EventArgs e)
