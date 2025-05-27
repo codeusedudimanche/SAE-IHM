@@ -36,7 +36,14 @@ namespace SAE_IHM
 
         private void textBoxIdentifiant_TextChanged(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(textBoxIdentifiant.Text) && !string.IsNullOrEmpty(textBoxMdp.Text))
+            {
+                buttonValider.Enabled = true;
+            }
+            else
+            {
+                buttonValider.Enabled = false;
+            }
         }
 
         private void btnValider_Click(object sender, EventArgs e)
@@ -54,6 +61,17 @@ namespace SAE_IHM
             {
                 MessageBox.Show("Identifiant ou mot de passe incorrect.");
             }
+        }
+
+        private void textBoxMdp_TextChanged(object sender, EventArgs e)
+        {
+            textBoxIdentifiant_TextChanged(sender, e);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms[0]!.Show();
+            this.Close();
         }
     }
 }

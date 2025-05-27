@@ -68,9 +68,11 @@
             textBoxMdp.PlaceholderText = "Mot de passe";
             textBoxMdp.Size = new Size(316, 27);
             textBoxMdp.TabIndex = 2;
+            textBoxMdp.TextChanged += textBoxMdp_TextChanged;
             // 
             // buttonValider
             // 
+            buttonValider.Enabled = false;
             buttonValider.Location = new Point(158, 277);
             buttonValider.Name = "buttonValider";
             buttonValider.Size = new Size(83, 29);
@@ -122,6 +124,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // AccesAdmin
             // 

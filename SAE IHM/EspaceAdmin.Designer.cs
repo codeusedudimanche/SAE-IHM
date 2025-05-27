@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EspaceAdmin));
             label1 = new Label();
             btnAjouter = new Button();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             btnSupprimer = new Button();
             btnModifier = new Button();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -60,6 +63,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnSupprimer);
             panel1.Controls.Add(btnModifier);
             panel1.Controls.Add(label1);
@@ -68,6 +72,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(389, 350);
             panel1.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
+            pictureBox1.Location = new Point(326, 292);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(43, 42);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // btnSupprimer
             // 
@@ -100,6 +116,7 @@
             Load += EspaceAdmin_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -110,5 +127,6 @@
         private Panel panel1;
         private Button btnSupprimer;
         private Button btnModifier;
+        private PictureBox pictureBox1;
     }
 }

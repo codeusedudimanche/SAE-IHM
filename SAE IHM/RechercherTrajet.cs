@@ -15,8 +15,7 @@ namespace SAE_IHM
         public RechercherTrajet()
         {
             InitializeComponent();
-            this.BackgroundImage = Image.FromFile("fond.jpg");
-            this.BackgroundImageLayout = ImageLayout.Stretch;
+          
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

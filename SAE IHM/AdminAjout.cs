@@ -15,8 +15,7 @@ namespace SAE_IHM
         public AdminAjout()
         {
             InitializeComponent();
-            this.BackgroundImage = Image.FromFile("fond.jpg");
-            this.BackgroundImageLayout = ImageLayout.Stretch;
+          
         }
 
         private void AdminAjout_Load(object sender, EventArgs e)

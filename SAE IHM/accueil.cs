@@ -50,11 +50,11 @@ namespace SAE_IHM
             btnConfigTrajet = new Button();
             btnEspaceBillets = new Button();
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // Titre
@@ -70,7 +70,7 @@ namespace SAE_IHM
             // 
             // btnConsulterCarte
             // 
-            btnConsulterCarte.Location = new Point(101, 181);
+            btnConsulterCarte.Location = new Point(101, 192);
             btnConsulterCarte.Name = "btnConsulterCarte";
             btnConsulterCarte.Size = new Size(204, 29);
             btnConsulterCarte.TabIndex = 1;
@@ -81,7 +81,7 @@ namespace SAE_IHM
             // 
             // btnConfigTrajet
             // 
-            btnConfigTrajet.Location = new Point(101, 229);
+            btnConfigTrajet.Location = new Point(101, 240);
             btnConfigTrajet.Name = "btnConfigTrajet";
             btnConfigTrajet.Size = new Size(204, 29);
             btnConfigTrajet.TabIndex = 2;
@@ -92,7 +92,7 @@ namespace SAE_IHM
             // 
             // btnEspaceBillets
             // 
-            btnEspaceBillets.Location = new Point(101, 280);
+            btnEspaceBillets.Location = new Point(101, 291);
             btnEspaceBillets.Name = "btnEspaceBillets";
             btnEspaceBillets.Size = new Size(204, 29);
             btnEspaceBillets.TabIndex = 3;
@@ -110,11 +110,22 @@ namespace SAE_IHM
             panel1.Controls.Add(btnEspaceBillets);
             panel1.Controls.Add(btnConfigTrajet);
             panel1.Controls.Add(btnConsulterCarte);
-            panel1.Location = new Point(353, 63);
+            panel1.Location = new Point(347, 60);
             panel1.Name = "panel1";
             panel1.Size = new Size(402, 393);
             panel1.TabIndex = 4;
             panel1.Paint += panel1_Paint_1;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(27, 331);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(42, 44);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBoxConnexion_Click;
             // 
             // pictureBox1
             // 
@@ -128,28 +139,17 @@ namespace SAE_IHM
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click_1;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(27, 331);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(42, 44);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 6;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBoxConnexion_Click;
-            // 
             // accueil
             // 
-            BackgroundImageLayout = ImageLayout.None;
+            BackColor = Color.FromArgb(0, 64, 0);
             ClientSize = new Size(1038, 507);
             Controls.Add(panel1);
             Name = "accueil";
             Load += accueil_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 

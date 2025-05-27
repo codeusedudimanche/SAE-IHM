@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SAE_IHM
-{ 
+{
     public partial class EspaceAdmin : Form
     {
         public EspaceAdmin()
@@ -46,6 +46,12 @@ namespace SAE_IHM
             AdminSupp Formsupp = new AdminSupp();
             Formsupp.Show();
             this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms[0]!.Show();
+            this.Close();
         }
     }
 }

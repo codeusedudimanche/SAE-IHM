@@ -83,21 +83,26 @@ namespace Base
             MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
-
+            bool valide = false;
             while (reader.Read())
             {
                 if (reader.GetInt32(0) == 1)
                 {
-                    return true;
+                    valide = true;
                 }
                 else
                 {
-                    return false;
+                    valide = false;
                 }
             }
-
+            reader.Close();
             reader.Dispose();
             cmd.Dispose();
+            
+            if (valide)
+            {
+                return true;
+            }
             return false;
         }
 
