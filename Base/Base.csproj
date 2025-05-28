@@ -8,9 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="MySql.Data">
-      <HintPath>..\..\SAE-HIM3.0\MySql.Data (1).dll</HintPath>
-    </Reference>
+    <PackageReference Include="MySql.Data" Version="9.3.0" />
   </ItemGroup>
+
 
 </Project>

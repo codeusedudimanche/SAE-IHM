@@ -15,12 +15,29 @@ namespace SAE_IHM
         public AdminAjout()
         {
             InitializeComponent();
-          
+
         }
 
         private void AdminAjout_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            AjoutArret FormAjoutLigne = new AjoutArret();
+            FormAjoutLigne.Show();
+            this.Hide();
         }
     }
 }
