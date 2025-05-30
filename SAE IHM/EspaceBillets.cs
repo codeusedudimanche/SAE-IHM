@@ -40,9 +40,8 @@ namespace SAE_IHM
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            accueil Home= new accueil();
-            Home.Show();
-            this.Hide();
+            Application.OpenForms[0]!.Show();
+            this.Close();
         }
     }
 }

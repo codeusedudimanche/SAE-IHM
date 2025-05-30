@@ -33,8 +33,6 @@
             textBoxIdentifiant = new TextBox();
             textBoxMdp = new TextBox();
             buttonValider = new Button();
-            linkLabel1 = new LinkLabel();
-            label2 = new Label();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
@@ -81,25 +79,6 @@
             buttonValider.UseVisualStyleBackColor = true;
             buttonValider.Click += btnValider_Click;
             // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(12, 9);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(57, 20);
-            linkLabel1.TabIndex = 4;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Acceuil";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(66, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(109, 20);
-            label2.TabIndex = 5;
-            label2.Text = "> Accès Admin";
-            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
@@ -132,15 +111,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
-            Controls.Add(label2);
-            Controls.Add(linkLabel1);
             Name = "AccesAdmin";
             Text = "AccesAdmin";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -149,8 +125,6 @@
         private TextBox textBoxIdentifiant;
         private TextBox textBoxMdp;
         private Button buttonValider;
-        private LinkLabel linkLabel1;
-        private Label label2;
         private Panel panel1;
         private PictureBox pictureBox1;
     }

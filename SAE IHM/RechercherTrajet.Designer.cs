@@ -76,7 +76,6 @@
             textBoxArretDepart.PlaceholderText = "Arrêt de départ";
             textBoxArretDepart.Size = new Size(165, 27);
             textBoxArretDepart.TabIndex = 3;
-
             // 
             // textBoxArretArrivee
             // 
@@ -87,7 +86,6 @@
             textBoxArretArrivee.Size = new Size(165, 27);
             textBoxArretArrivee.TabIndex = 4;
             textBoxArretArrivee.Tag = "";
-
             // 
             // checkBoxHoraire
             // 
@@ -108,7 +106,7 @@
             panel1.Controls.Add(checkBoxHoraire);
             panel1.Controls.Add(textBoxArretDepart);
             panel1.Controls.Add(textBoxArretArrivee);
-            panel1.Location = new Point(163, 46);
+            panel1.Location = new Point(350, 200);
             panel1.Name = "panel1";
             panel1.Size = new Size(498, 364);
             panel1.TabIndex = 6;
@@ -129,7 +127,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fond_d_application;
+            ClientSize = new Size(1182, 753);
             Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(linkLabel1);

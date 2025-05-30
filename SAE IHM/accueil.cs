@@ -110,7 +110,7 @@ namespace SAE_IHM
             panel1.Controls.Add(btnEspaceBillets);
             panel1.Controls.Add(btnConfigTrajet);
             panel1.Controls.Add(btnConsulterCarte);
-            panel1.Location = new Point(347, 60);
+            panel1.Location = new Point(400, 200);
             panel1.Name = "panel1";
             panel1.Size = new Size(402, 393);
             panel1.TabIndex = 4;
@@ -142,7 +142,8 @@ namespace SAE_IHM
             // accueil
             // 
             BackColor = Color.FromArgb(0, 64, 0);
-            ClientSize = new Size(1038, 507);
+            BackgroundImage = Properties.Resources.Fond_d_application;
+            ClientSize = new Size(1182, 753);
             Controls.Add(panel1);
             Name = "accueil";
             Load += accueil_Load;

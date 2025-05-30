@@ -68,7 +68,7 @@
             panel1.Controls.Add(btnModifier);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnAjouter);
-            panel1.Location = new Point(223, 42);
+            panel1.Location = new Point(400, 200);
             panel1.Name = "panel1";
             panel1.Size = new Size(389, 350);
             panel1.TabIndex = 2;
@@ -109,7 +109,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fond_d_application;
+            ClientSize = new Size(1182, 753);
             Controls.Add(panel1);
             Name = "EspaceAdmin";
             Text = "EspaceAdmin";

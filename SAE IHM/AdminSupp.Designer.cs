@@ -34,7 +34,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fond_d_application;
+            ClientSize = new Size(1182, 753);
             Name = "AdminSupp";
             Text = "AdminSupp";
             Load += AdminSupp_Load;

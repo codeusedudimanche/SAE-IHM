@@ -187,7 +187,7 @@
             panel1.Controls.Add(checkBoxCB);
             panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(label3);
-            panel1.Location = new Point(197, 39);
+            panel1.Location = new Point(375, 175);
             panel1.Name = "panel1";
             panel1.Size = new Size(461, 379);
             panel1.TabIndex = 8;
@@ -197,7 +197,7 @@
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-            pictureBox1.Location = new Point(22, 318);
+            pictureBox1.Location = new Point(394, 318);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(43, 42);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -209,7 +209,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fond_d_application;
+            ClientSize = new Size(1182, 753);
             Controls.Add(panel1);
             Controls.Add(linkLabel1);
             Controls.Add(checkBoxPaypal);

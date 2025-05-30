@@ -103,7 +103,7 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnReseauComplet);
             panel1.Controls.Add(btnHoraires);
-            panel1.Location = new Point(209, 34);
+            panel1.Location = new Point(402, 177);
             panel1.Name = "panel1";
             panel1.Size = new Size(424, 379);
             panel1.TabIndex = 7;
@@ -124,7 +124,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fond_d_application;
+            ClientSize = new Size(1182, 753);
             Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(linkLabel1);
