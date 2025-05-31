@@ -83,6 +83,7 @@
             txtbNomArret.PlaceholderText = "Exemple : 11th St & 129th E Ave WB";
             txtbNomArret.Size = new Size(454, 27);
             txtbNomArret.TabIndex = 13;
+            txtbNomArret.TextChanged += txtbNomArret_TextChanged;
             // 
             // txtbLatitude
             // 
@@ -91,6 +92,7 @@
             txtbLatitude.PlaceholderText = "Exemple : -95,8357";
             txtbLatitude.Size = new Size(454, 27);
             txtbLatitude.TabIndex = 15;
+            txtbLatitude.TextChanged += txtbLatitude_TextChanged;
             // 
             // lblLatitude
             // 
@@ -109,6 +111,7 @@
             txtbLongitude.PlaceholderText = "Exemple :  36,1481";
             txtbLongitude.Size = new Size(454, 27);
             txtbLongitude.TabIndex = 17;
+            txtbLongitude.TextChanged += txtbLongitude_TextChanged;
             // 
             // lblLongitude
             // 
@@ -121,6 +124,7 @@
             // 
             // btnValide
             // 
+            btnValide.Enabled = false;
             btnValide.Font = new Font("Segoe UI", 11F);
             btnValide.Location = new Point(160, 378);
             btnValide.Name = "btnValide";
@@ -146,6 +150,7 @@
             txtbNumeroArret.PlaceholderText = "Exemple : 6927";
             txtbNumeroArret.Size = new Size(454, 27);
             txtbNumeroArret.TabIndex = 20;
+            txtbNumeroArret.TextChanged += textBox_TextChanged;
             // 
             // AjoutArret
             // 

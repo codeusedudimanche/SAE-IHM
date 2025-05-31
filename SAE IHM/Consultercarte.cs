@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SAE_IHM
-{ 
+{
     public partial class Consultercarte : Form
-    { 
+    {
         public Consultercarte()
         {
             InitializeComponent();
-           
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,8 +35,17 @@ namespace SAE_IHM
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.OpenForms[0]!.Show();
             this.Close();
+        }
+
+        private void Consultercarte_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void Consultercarte_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.OpenForms[0]!.Show();
         }
     }
 }

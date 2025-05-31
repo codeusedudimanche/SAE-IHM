@@ -154,10 +154,60 @@ namespace Base
             cmd.Dispose();
             return L;
         }
-
-        public static bool AjoutLigne(int id, string nom, string destination)
+        public static bool AjoutOrdre(int nLigne, int nArret, int ordre)
         {
-            return true;
+            string requeteSQL = "INSERT INTO Ordre(`N°Ligne`, `N°Arret`, Ordre) " +
+                        "VALUES (@nLigne, @nArret, @ordre)";
+
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@nLigne", nLigne);
+            cmd.Parameters.AddWithValue("@nArret", nArret);
+            cmd.Parameters.AddWithValue("@ordre", ordre);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static bool AjoutLigne(int id, string nom, string destination, List<Arret> listeArret)
+        {
+            string requeteSQL = "INSERT INTO Ligne(`N°Ligne`, NomLigne, Destination) " +
+                        "VALUES (@idLigne, @NomLigne, @Destination)";
+
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idLigne", id);
+            cmd.Parameters.AddWithValue("@NomLigne", nom);
+            cmd.Parameters.AddWithValue("@Destination", destination);
+            bool AjoutLigneValide = false;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                AjoutLigneValide = true;
+                for (int i = 0; i < listeArret.Count; i++)
+                {
+                    int nArret = listeArret[i].Id;
+                    int ordre = i + 1;
+
+                    BD.AjoutOrdre(id, nArret, ordre);
+                } 
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                if (!AjoutLigneValide)
+                    MessageBox.Show($"Erreur lors de l'ajout de la ligne : {ex}");
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
         }
 
 

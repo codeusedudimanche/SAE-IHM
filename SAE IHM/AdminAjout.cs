@@ -13,13 +13,14 @@ namespace SAE_IHM
 {
     public partial class AdminAjout : Form
     {
+        private EspaceAdmin parentEspace;
         private ListeArret L;
-        public AdminAjout()
+        public AdminAjout(EspaceAdmin parent)
         {
             InitializeComponent();
             L = new ListeArret();
             L = BD.GetArret();
-
+            parentEspace = parent;
         }
 
         private void AdminAjout_Load(object sender, EventArgs e)
@@ -48,19 +49,24 @@ namespace SAE_IHM
 
         private void pbAjoutLigne_Click(object sender, EventArgs e)
         {
-            AjoutLigne formAjoutLigne = new AjoutLigne(L,this);
+            AjoutLigne formAjoutLigne = new AjoutLigne(L, this);
             formAjoutLigne.Show();
             this.Hide();
         }
 
         private void AdminAjout_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.OpenForms[0]!.Show();   
+            parentEspace.Show();
         }
 
         private void pbAcceuil_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

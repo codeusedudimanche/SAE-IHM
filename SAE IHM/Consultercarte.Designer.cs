@@ -130,6 +130,8 @@
             Controls.Add(label2);
             Controls.Add(linkLabel1);
             Name = "Consultercarte";
+            FormClosing += Consultercarte_FormClosing;
+            FormClosed += Consultercarte_FormClosed;
             Load += Consultercarte_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

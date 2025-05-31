@@ -134,6 +134,7 @@
             Controls.Add(linkLabel1);
             Name = "RechercherTrajet";
             Text = "RechercherTrajet";
+            FormClosing += RechercherTrajet_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

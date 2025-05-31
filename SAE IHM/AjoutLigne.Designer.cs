@@ -40,15 +40,13 @@
             button2 = new Button();
             lblNumeroLigne = new Label();
             txtbNumeroLigne = new TextBox();
-            lblDestination = new Label();
-            txtbDestinationLigne = new TextBox();
             lbNomArretAjoute = new ListBox();
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).BeginInit();
             SuspendLayout();
             // 
             // txtBNomLigne
             // 
-            txtBNomLigne.Location = new Point(396, 95);
+            txtBNomLigne.Location = new Point(398, 109);
             txtBNomLigne.Name = "txtBNomLigne";
             txtBNomLigne.Size = new Size(379, 27);
             txtBNomLigne.TabIndex = 0;
@@ -59,7 +57,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F);
-            label1.Location = new Point(295, 14);
+            label1.Location = new Point(319, 9);
             label1.Name = "label1";
             label1.Size = new Size(224, 46);
             label1.TabIndex = 1;
@@ -68,7 +66,7 @@
             // lblNom
             // 
             lblNom.AutoSize = true;
-            lblNom.Location = new Point(396, 65);
+            lblNom.Location = new Point(398, 79);
             lblNom.Name = "lblNom";
             lblNom.Size = new Size(116, 20);
             lblNom.TabIndex = 2;
@@ -97,7 +95,7 @@
             // lblNomLigne
             // 
             lblNomLigne.AutoSize = true;
-            lblNomLigne.Location = new Point(396, 248);
+            lblNomLigne.Location = new Point(398, 211);
             lblNomLigne.Name = "lblNomLigne";
             lblNomLigne.Size = new Size(123, 20);
             lblNomLigne.TabIndex = 5;
@@ -141,7 +139,7 @@
             // lblNumeroLigne
             // 
             lblNumeroLigne.AutoSize = true;
-            lblNumeroLigne.Location = new Point(396, 136);
+            lblNumeroLigne.Location = new Point(398, 150);
             lblNumeroLigne.Name = "lblNumeroLigne";
             lblNumeroLigne.Size = new Size(137, 20);
             lblNumeroLigne.TabIndex = 14;
@@ -149,35 +147,18 @@
             // 
             // txtbNumeroLigne
             // 
-            txtbNumeroLigne.Location = new Point(396, 159);
+            txtbNumeroLigne.Location = new Point(398, 173);
             txtbNumeroLigne.Name = "txtbNumeroLigne";
             txtbNumeroLigne.Size = new Size(379, 27);
             txtbNumeroLigne.TabIndex = 13;
             txtbNumeroLigne.TextChanged += NumeroLigne_TextChanged;
             // 
-            // lblDestination
-            // 
-            lblDestination.AutoSize = true;
-            lblDestination.Location = new Point(396, 189);
-            lblDestination.Name = "lblDestination";
-            lblDestination.Size = new Size(159, 20);
-            lblDestination.TabIndex = 16;
-            lblDestination.Text = "Destination de la ligne";
-            // 
-            // txtbDestinationLigne
-            // 
-            txtbDestinationLigne.Location = new Point(396, 212);
-            txtbDestinationLigne.Name = "txtbDestinationLigne";
-            txtbDestinationLigne.Size = new Size(379, 27);
-            txtbDestinationLigne.TabIndex = 15;
-            txtbDestinationLigne.TextChanged += txtbDestinationLigne_TextChanged;
-            // 
             // lbNomArretAjoute
             // 
             lbNomArretAjoute.FormattingEnabled = true;
-            lbNomArretAjoute.Location = new Point(396, 274);
+            lbNomArretAjoute.Location = new Point(398, 237);
             lbNomArretAjoute.Name = "lbNomArretAjoute";
-            lbNomArretAjoute.Size = new Size(368, 84);
+            lbNomArretAjoute.Size = new Size(379, 104);
             lbNomArretAjoute.TabIndex = 17;
             // 
             // AjoutLigne
@@ -186,8 +167,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(lbNomArretAjoute);
-            Controls.Add(lblDestination);
-            Controls.Add(txtbDestinationLigne);
             Controls.Add(lblNumeroLigne);
             Controls.Add(txtbNumeroLigne);
             Controls.Add(button2);
@@ -222,8 +201,6 @@
         private Button button2;
         private Label lblNumeroLigne;
         private TextBox txtbNumeroLigne;
-        private Label lblDestination;
-        private TextBox txtbDestinationLigne;
         private ListBox lbNomArretAjoute;
     }
 }

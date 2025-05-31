@@ -6,6 +6,7 @@ namespace SAE_IHM
 {
     public partial class accueil : Form
     {
+        
         public accueil()
         {
             InitializeComponent();
@@ -237,9 +238,7 @@ namespace SAE_IHM
 
         private void btnAdminAjout_Click(object sender, EventArgs e)
         {
-            AdminAjout adminAjout = new AdminAjout();
-            adminAjout.Show();
-            this.Hide();
+            
         }
     }
 }

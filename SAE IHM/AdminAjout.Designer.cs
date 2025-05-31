@@ -34,10 +34,10 @@
             pbAjoutArret = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
+            pbAcceuil = new PictureBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            pbAcceuil = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutArret).BeginInit();
@@ -99,6 +99,19 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(598, 372);
             panel1.TabIndex = 4;
+            panel1.Paint += panel1_Paint;
+            // 
+            // pbAcceuil
+            // 
+            pbAcceuil.Image = (Image)resources.GetObject("pbAcceuil.Image");
+            pbAcceuil.InitialImage = (Image)resources.GetObject("pbAcceuil.InitialImage");
+            pbAcceuil.Location = new Point(26, 315);
+            pbAcceuil.Name = "pbAcceuil";
+            pbAcceuil.Size = new Size(43, 42);
+            pbAcceuil.SizeMode = PictureBoxSizeMode.Zoom;
+            pbAcceuil.TabIndex = 11;
+            pbAcceuil.TabStop = false;
+            pbAcceuil.Click += pbAcceuil_Click;
             // 
             // label4
             // 
@@ -128,18 +141,6 @@
             label2.TabIndex = 4;
             label2.Text = "Arrêt";
             label2.Click += label2_Click;
-            // 
-            // pbAcceuil
-            // 
-            pbAcceuil.Image = (Image)resources.GetObject("pbAcceuil.Image");
-            pbAcceuil.InitialImage = (Image)resources.GetObject("pbAcceuil.InitialImage");
-            pbAcceuil.Location = new Point(26, 315);
-            pbAcceuil.Name = "pbAcceuil";
-            pbAcceuil.Size = new Size(43, 42);
-            pbAcceuil.SizeMode = PictureBoxSizeMode.Zoom;
-            pbAcceuil.TabIndex = 11;
-            pbAcceuil.TabStop = false;
-            pbAcceuil.Click += pbAcceuil_Click;
             // 
             // AdminAjout
             // 

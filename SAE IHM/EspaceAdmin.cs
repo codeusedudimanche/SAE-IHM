@@ -36,7 +36,7 @@ namespace SAE_IHM
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            AdminAjout Formajout = new AdminAjout();
+            AdminAjout Formajout = new AdminAjout(this);
             Formajout.Show();
             this.Hide();
         }
@@ -50,7 +50,7 @@ namespace SAE_IHM
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void EspaceAdmin_FormClosed(object sender, FormClosedEventArgs e)
@@ -61,6 +61,11 @@ namespace SAE_IHM
         private void pbAcceuil_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

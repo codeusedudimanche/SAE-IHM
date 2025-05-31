@@ -11,11 +11,11 @@ using System.Windows.Forms;
 namespace SAE_IHM
 {
     public partial class RechercherTrajet : Form
-    { 
+    {
         public RechercherTrajet()
         {
-            InitializeComponent(); 
-          
+            InitializeComponent();
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -30,8 +30,13 @@ namespace SAE_IHM
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.OpenForms[0]!.Show();
+
             this.Close();
+        }
+
+        private void RechercherTrajet_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.OpenForms[0]!.Show();
         }
     }
 }
