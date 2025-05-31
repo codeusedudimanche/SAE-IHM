@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
+            pbAjoutLigne = new PictureBox();
+            pbAjoutArret = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAjoutArret).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,24 +51,25 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // pbAjoutLigne
             // 
-            pictureBox2.BackColor = SystemColors.AppWorkspace;
-            pictureBox2.Location = new Point(238, 159);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(125, 62);
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            pbAjoutLigne.BackColor = SystemColors.AppWorkspace;
+            pbAjoutLigne.Location = new Point(238, 159);
+            pbAjoutLigne.Name = "pbAjoutLigne";
+            pbAjoutLigne.Size = new Size(125, 62);
+            pbAjoutLigne.TabIndex = 1;
+            pbAjoutLigne.TabStop = false;
+            pbAjoutLigne.Click += pbAjoutLigne_Click;
             // 
-            // pictureBox3
+            // pbAjoutArret
             // 
-            pictureBox3.BackColor = SystemColors.AppWorkspace;
-            pictureBox3.Location = new Point(52, 159);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(125, 62);
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
+            pbAjoutArret.BackColor = SystemColors.AppWorkspace;
+            pbAjoutArret.Location = new Point(52, 159);
+            pbAjoutArret.Name = "pbAjoutArret";
+            pbAjoutArret.Size = new Size(125, 62);
+            pbAjoutArret.TabIndex = 2;
+            pbAjoutArret.TabStop = false;
+            pbAjoutArret.Click += pbAjoutArret_Click;
             // 
             // label1
             // 
@@ -87,8 +88,8 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(pictureBox3);
+            panel1.Controls.Add(pbAjoutLigne);
+            panel1.Controls.Add(pbAjoutArret);
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(297, 191);
             panel1.Name = "panel1";
@@ -135,8 +136,8 @@
             Text = "AdminAjout";
             Load += AdminAjout_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAjoutArret).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -145,8 +146,8 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
+        private PictureBox pbAjoutLigne;
+        private PictureBox pbAjoutArret;
         private Label label1;
         private Panel panel1;
         private Label label2;

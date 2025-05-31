@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Base;
 
-namespace SAE_IHM
+namespace SAE_IHM 
 {
     public partial class AdminAjout : Form
     {
+        private ListeArret L;
         public AdminAjout()
         {
             InitializeComponent();
+            L = new ListeArret();
+            L = BD.GetArret();
 
         }
 
@@ -33,11 +37,20 @@ namespace SAE_IHM
 
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+
+
+        private void pbAjoutArret_Click(object sender, EventArgs e)
         {
-            AjoutArret FormAjoutLigne = new AjoutArret();
-            FormAjoutLigne.Show();
-            this.Hide();
+            AjoutArret formAjoutArret = new AjoutArret();
+            formAjoutArret.Show();
+            this.Close();
+        }
+
+        private void pbAjoutLigne_Click(object sender, EventArgs e)
+        {
+            AjoutLigne formAjoutLigne = new AjoutLigne(L);
+            formAjoutLigne.Show();
+            this.Close();
         }
     }
 }

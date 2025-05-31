@@ -14,7 +14,7 @@ namespace SAE_IHM
     { 
         public RechercherTrajet()
         {
-            InitializeComponent();
+            InitializeComponent(); 
           
         }
 

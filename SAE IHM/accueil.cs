@@ -6,7 +6,7 @@ namespace SAE_IHM
 {
     public partial class accueil : Form
     {
-        public accueil()
+        public accueil() 
         {
             InitializeComponent();
             BD.Connexion();

@@ -12,7 +12,7 @@ namespace SAE_IHM
 {
     public partial class EspaceAdmin : Form
     {
-        public EspaceAdmin()
+        public EspaceAdmin() 
         {
             InitializeComponent();
         }

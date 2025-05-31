@@ -55,7 +55,7 @@ namespace Base
             //Nombre aléatoire entre 100 000 et 999 999
             int nombre = rand.Next() % 900000 + 100000;
 
-            string to = "lescotoscar2@gmail.com";
+            string to = "lescotoscar@gmail.com";
             string from = "contactmytulsa@gmail.com\r\n";
             string subject = "Reinitialisation du Mot de passe";
             string body = $"Voici votre code de verification pour reinitialiser votre mot de passe : {nombre}";
@@ -77,16 +77,18 @@ namespace Base
                 MessageBox.Show($"Erreur : {ex}");
             }
         }
+
         public static bool VerificationConnexion(string mail, string mdp)
         {
-            string requeteSQL = $"SELECT count(*) FROM User WHERE email='{mail}' AND motDePasse='{mdp}'";
+            string requeteSQL = $"SELECT count(*) FROM User WHERE email='{mail}' " +
+                $"AND motDePasse='{mdp}' OR pseudo ='{mail}' AND  motDePasse='{mdp}'";
             MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             bool valide = false;
             while (reader.Read())
             {
-                if (reader.GetInt32(0) == 1)
+                if (reader.GetInt32(0) > 0)
                 {
                     valide = true;
                 }
@@ -98,13 +100,67 @@ namespace Base
             reader.Close();
             reader.Dispose();
             cmd.Dispose();
-            
+
             if (valide)
             {
                 return true;
             }
             return false;
         }
+        public static bool AjoutArret(int idArret, string nomArret, double latitude, double longitude)
+        {
+            string requeteSQL = "INSERT INTO Arret(`N°Arret`, NomArret, LongitudeArret, LatitudeArret) " +
+                        "VALUES (@idArret, @nomArret, @longitude, @latitude)";
+
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idArret", idArret);
+            cmd.Parameters.AddWithValue("@nomArret", nomArret);
+            cmd.Parameters.AddWithValue("@longitude", longitude);
+            cmd.Parameters.AddWithValue("@latitude", latitude);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'ajout de l'arrêt : {ex}");
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
+
+
+        }
+
+        public static ListeArret GetArret()
+        {
+            string requeteSQL = "SELECT * FROM Arret";
+            ListeArret L = new ListeArret();
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int idArret = reader.GetInt32(0);
+                string nomArret = reader.GetString(1);
+                double longitudeArret = reader.GetDouble(2);
+                double latitudeArret = reader.GetDouble(3);
+                L.AjoutArret(idArret, nomArret, longitudeArret, latitudeArret);
+            }
+            reader.Close();
+            cmd.Dispose();
+            return L;
+        }
+
+        public static bool AjoutLigne(int id, string nom, string destination)
+        {
+            return true;
+        }
+
+
 
     }
 

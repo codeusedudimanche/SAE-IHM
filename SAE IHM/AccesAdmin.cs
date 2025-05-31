@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Base;
+using Base; 
 
 namespace SAE_IHM
 {
@@ -72,6 +72,11 @@ namespace SAE_IHM
         {
             Application.OpenForms[0]!.Show();
             this.Close();
+        }
+
+        private void AccesAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

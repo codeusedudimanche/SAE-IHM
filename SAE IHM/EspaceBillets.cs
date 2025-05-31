@@ -12,7 +12,7 @@ namespace SAE_IHM
 {
     public partial class EspaceBillets : Form
     { 
-        public EspaceBillets()
+        public EspaceBillets() 
         {
             InitializeComponent();
            
