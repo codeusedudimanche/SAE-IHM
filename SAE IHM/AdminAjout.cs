@@ -41,15 +41,25 @@ namespace SAE_IHM
 
         private void pbAjoutArret_Click(object sender, EventArgs e)
         {
-            AjoutArret formAjoutArret = new AjoutArret();
+            AjoutArret formAjoutArret = new AjoutArret(this);
             formAjoutArret.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void pbAjoutLigne_Click(object sender, EventArgs e)
         {
-            AjoutLigne formAjoutLigne = new AjoutLigne(L);
+            AjoutLigne formAjoutLigne = new AjoutLigne(L,this);
             formAjoutLigne.Show();
+            this.Hide();
+        }
+
+        private void AdminAjout_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.OpenForms[0]!.Show();   
+        }
+
+        private void pbAcceuil_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

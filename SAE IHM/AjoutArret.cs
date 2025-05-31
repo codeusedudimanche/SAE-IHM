@@ -10,12 +10,17 @@ using System.Windows.Forms;
 using Base;
 
 namespace SAE_IHM
-{ 
+{
     public partial class AjoutArret : Form
+
     {
-        public AjoutArret()
+        private AdminAjout parentForm;
+
+        public AjoutArret(AdminAjout parent)
         {
+
             InitializeComponent();
+            this.parentForm = parent;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -49,11 +54,21 @@ namespace SAE_IHM
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+
+        private void pbAcceuil_Click(object sender, EventArgs e)
         {
-            EspaceAdmin espaceAdmin = new EspaceAdmin();
-            espaceAdmin.Show();
             this.Close();
+        }
+
+        private void AjoutArret_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+
+        private void AjoutArret_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Show();
         }
     }
 }

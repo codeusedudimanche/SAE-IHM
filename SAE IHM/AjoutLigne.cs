@@ -11,15 +11,17 @@ using Base;
 
 namespace SAE_IHM
 {
-     
+
     public partial class AjoutLigne : Form
     {
+        private AdminAjout parentForm;
         private ListeArret listeArret = new ListeArret();
         public List<Arret> listeArretAjouter = new List<Arret>();
         public int ordre = 1;
-        public AjoutLigne(ListeArret L)
+        public AjoutLigne(ListeArret L, AdminAjout Formparent)
         {
             InitializeComponent();
+            this.parentForm = Formparent;
             lstBArret.DataSource = L.MesArret;
             lstBArret.DisplayMember = "Nom";
             lstBArret.ValueMember = "Id";
@@ -54,15 +56,8 @@ namespace SAE_IHM
 
             if (lstBArret.SelectedItem is Arret selectedArret)
             {
-                if (lblArret.Text == "Arret : Aucun")
-                {
-                    lblArret.Text = $"Arret {ordre}  : " + selectedArret.Nom.ToString();
-                }
-                else
-                {
-                    lblArret.Text = lblArret.Text + $"\nArret {ordre}  : " + selectedArret.Nom.ToString();
-
-                }
+                
+                lbNomArretAjoute.Items.Add($"Arret {ordre}  : " + selectedArret.Nom.ToString());
                 listeArretAjouter.Add(selectedArret);
                 ordre++;
             }
@@ -75,27 +70,9 @@ namespace SAE_IHM
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            if (listeArretAjouter.Count > 1)
+            if (listeArretAjouter.Count > 0)
             {
-                lblArret.Text = "";
-                for (int i = 0; i < listeArretAjouter.Count - 1; i++)
-                {
-                    if (i == 0)
-                    {
-                        lblArret.Text = $"Arret {i + 1}  : " + listeArretAjouter[i].Nom.ToString();
-                    }
-                    else
-                    {
-                        lblArret.Text = lblArret.Text + $"\nArret {i + 1}  : " + listeArretAjouter[i].Nom.ToString();
-                    }
-
-                }
-                listeArretAjouter.RemoveAt(listeArretAjouter.Count - 1);
-                ordre--;
-            }
-            else if (listeArretAjouter.Count == 1)
-            {
-                lblArret.Text = "Arret : Aucun";
+                lbNomArretAjoute.Items.RemoveAt(listeArretAjouter.Count - 1);
                 listeArretAjouter.RemoveAt(listeArretAjouter.Count - 1);
                 ordre--;
             }
@@ -103,6 +80,7 @@ namespace SAE_IHM
             {
                 MessageBox.Show("Il n'y a aucun arrêt");
             }
+            NumeroLigne_TextChanged(sender, e);
         }
 
         private void btnValiderAjoutLigne_Click(object sender, EventArgs e)
@@ -137,7 +115,7 @@ namespace SAE_IHM
 
         private void NumeroLigne_TextChanged(object sender, EventArgs e)
         {
-            if (txtBNomLigne.Text != "" && txtBNomLigne.Text != "" && txtbDestinationLigne.Text != "" && lblArret.Text != "Arret : Aucun")
+            if (txtBNomLigne.Text != "" && txtBNomLigne.Text != "" && txtbDestinationLigne.Text != "" && lbNomArretAjoute.Items.Count != 0)
             {
                 btnValiderAjoutLigne.Enabled = true;
             }
@@ -159,18 +137,22 @@ namespace SAE_IHM
 
         private void AjoutLigne_FormClosed(object sender, FormClosedEventArgs e)
         {
-            EspaceAdmin espaceAdmin = new EspaceAdmin();
-            espaceAdmin.Show();
+           
         }
 
         private void AjoutLigne_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            parentForm.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+
             
+        }
+
+        private void pbRetour_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

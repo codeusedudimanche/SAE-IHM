@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjoutArret));
-            pictureBox1 = new PictureBox();
+            pbAcceuil = new PictureBox();
             label1 = new Label();
             lblNomArret = new Label();
             txtbNomArret = new TextBox();
@@ -40,20 +40,20 @@
             btnValide = new Button();
             label2 = new Label();
             txtbNumeroArret = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAcceuil).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // pbAcceuil
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-            pictureBox1.Location = new Point(28, 396);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(43, 42);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            pbAcceuil.Image = (Image)resources.GetObject("pbAcceuil.Image");
+            pbAcceuil.InitialImage = (Image)resources.GetObject("pbAcceuil.InitialImage");
+            pbAcceuil.Location = new Point(28, 396);
+            pbAcceuil.Name = "pbAcceuil";
+            pbAcceuil.Size = new Size(43, 42);
+            pbAcceuil.SizeMode = PictureBoxSizeMode.Zoom;
+            pbAcceuil.TabIndex = 10;
+            pbAcceuil.TabStop = false;
+            pbAcceuil.Click += pbAcceuil_Click;
             // 
             // label1
             // 
@@ -162,18 +162,20 @@
             Controls.Add(txtbNomArret);
             Controls.Add(lblNomArret);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
+            Controls.Add(pbAcceuil);
             Name = "AjoutArret";
             Text = "Form1";
+            FormClosing += AjoutArret_FormClosing;
+            FormClosed += AjoutArret_FormClosed;
             Load += AjoutArret_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAcceuil).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox pbAcceuil;
         private Label label1;
         private Label lblNomArret;
         private TextBox txtbNomArret;

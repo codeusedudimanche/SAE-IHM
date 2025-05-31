@@ -6,7 +6,7 @@ namespace SAE_IHM
 {
     public partial class accueil : Form
     {
-        public accueil() 
+        public accueil()
         {
             InitializeComponent();
             BD.Connexion();
@@ -52,6 +52,7 @@ namespace SAE_IHM
             panel1 = new Panel();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
+            btnAdminAjout = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -104,6 +105,7 @@ namespace SAE_IHM
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(btnAdminAjout);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(Titre);
@@ -138,6 +140,16 @@ namespace SAE_IHM
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click_1;
+            // 
+            // btnAdminAjout
+            // 
+            btnAdminAjout.Location = new Point(195, 332);
+            btnAdminAjout.Name = "btnAdminAjout";
+            btnAdminAjout.Size = new Size(156, 29);
+            btnAdminAjout.TabIndex = 7;
+            btnAdminAjout.Text = "Admin ajout";
+            btnAdminAjout.UseVisualStyleBackColor = true;
+            btnAdminAjout.Click += btnAdminAjout_Click;
             // 
             // accueil
             // 
@@ -221,5 +233,13 @@ namespace SAE_IHM
         }
 
         private PictureBox pictureBox2;
+        private Button btnAdminAjout;
+
+        private void btnAdminAjout_Click(object sender, EventArgs e)
+        {
+            AdminAjout adminAjout = new AdminAjout();
+            adminAjout.Show();
+            this.Hide();
+        }
     }
 }

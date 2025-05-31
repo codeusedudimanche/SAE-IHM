@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminAjout));
             pictureBox1 = new PictureBox();
             pbAjoutLigne = new PictureBox();
             pbAjoutArret = new PictureBox();
@@ -36,10 +37,12 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
+            pbAcceuil = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutArret).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbAcceuil).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -75,7 +78,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(199, 26);
+            label1.Location = new Point(194, 23);
             label1.Name = "label1";
             label1.Size = new Size(199, 67);
             label1.TabIndex = 3;
@@ -84,6 +87,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(pbAcceuil);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
@@ -91,7 +95,7 @@
             panel1.Controls.Add(pbAjoutLigne);
             panel1.Controls.Add(pbAjoutArret);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(297, 191);
+            panel1.Location = new Point(303, 135);
             panel1.Name = "panel1";
             panel1.Size = new Size(598, 372);
             panel1.TabIndex = 4;
@@ -125,6 +129,18 @@
             label2.Text = "Arrêt";
             label2.Click += label2_Click;
             // 
+            // pbAcceuil
+            // 
+            pbAcceuil.Image = (Image)resources.GetObject("pbAcceuil.Image");
+            pbAcceuil.InitialImage = (Image)resources.GetObject("pbAcceuil.InitialImage");
+            pbAcceuil.Location = new Point(26, 315);
+            pbAcceuil.Name = "pbAcceuil";
+            pbAcceuil.Size = new Size(43, 42);
+            pbAcceuil.SizeMode = PictureBoxSizeMode.Zoom;
+            pbAcceuil.TabIndex = 11;
+            pbAcceuil.TabStop = false;
+            pbAcceuil.Click += pbAcceuil_Click;
+            // 
             // AdminAjout
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -134,12 +150,14 @@
             Controls.Add(panel1);
             Name = "AdminAjout";
             Text = "AdminAjout";
+            FormClosed += AdminAjout_FormClosed;
             Load += AdminAjout_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutArret).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbAcceuil).EndInit();
             ResumeLayout(false);
         }
 
@@ -153,5 +171,6 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private PictureBox pbAcceuil;
     }
 }

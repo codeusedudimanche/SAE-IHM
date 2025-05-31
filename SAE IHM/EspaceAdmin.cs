@@ -12,7 +12,7 @@ namespace SAE_IHM
 {
     public partial class EspaceAdmin : Form
     {
-        public EspaceAdmin() 
+        public EspaceAdmin()
         {
             InitializeComponent();
         }
@@ -50,7 +50,16 @@ namespace SAE_IHM
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void EspaceAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
             Application.OpenForms[0]!.Show();
+        }
+
+        private void pbAcceuil_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
