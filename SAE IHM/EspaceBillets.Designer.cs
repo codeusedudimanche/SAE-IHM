@@ -42,8 +42,8 @@
             checkBoxCB = new CheckBox();
             linkLabel1 = new LinkLabel();
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
             btnValide = new Button();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -209,6 +209,16 @@
             panel1.TabIndex = 8;
             panel1.Paint += panel1_Paint;
             // 
+            // btnValide
+            // 
+            btnValide.Location = new Point(156, 238);
+            btnValide.Name = "btnValide";
+            btnValide.Size = new Size(75, 23);
+            btnValide.TabIndex = 8;
+            btnValide.Text = "Valider";
+            btnValide.UseVisualStyleBackColor = true;
+            btnValide.Click += btnValide_Click_1;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -221,15 +231,6 @@
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
-            // 
-            // btnValide
-            // 
-            btnValide.Location = new Point(156, 238);
-            btnValide.Name = "btnValide";
-            btnValide.Size = new Size(75, 23);
-            btnValide.TabIndex = 8;
-            btnValide.Text = "Valider";
-            btnValide.UseVisualStyleBackColor = true;
             // 
             // EspaceBillets
             // 

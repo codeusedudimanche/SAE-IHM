@@ -81,6 +81,14 @@ namespace SAE_IHM
             UpdateBtnValideState(); // Met à jour l'état du bouton quand la checkbox est coché ou non
         }
 
+        private void btnValide_Click_1(object sender, EventArgs e)
+        {
+            // Ouvre le formulaire de carte bancaire
+            EspaceBillets_CB cbForm = new EspaceBillets_CB();
 
+            this.Hide();
+            cbForm.ShowDialog();
+            this.Show();
+        }
     }
 }
