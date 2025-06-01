@@ -43,12 +43,20 @@ namespace SAE_IHM
 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            // Active le checkbox si un des RadioButtons est coché
+            // Active la checkbox si un des RadioButtons est coché
             checkBoxCB.Enabled = radioButtonEnfant.Checked ||
                                  radioButtonAdulte.Checked ||
                                  radioButtonHandicape.Checked ||
                                  radioButtonVeteran.Checked ||
                                  radioButtonSenior.Checked;
+
+            // Si c’est un RadioButton qui vient d’être coché, on passe le texte de label3 et celui de checkBoxCB en noir
+            var rb = (RadioButton)sender;
+            if (rb.Checked)
+            {
+                label3.ForeColor = Color.Black;
+                checkBoxCB.ForeColor = Color.Black;
+            }
         }
     }
 }
