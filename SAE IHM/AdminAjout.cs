@@ -42,14 +42,14 @@ namespace SAE_IHM
 
         private void pbAjoutArret_Click(object sender, EventArgs e)
         {
-            AjoutArret formAjoutArret = new AjoutArret(this);
+            AjoutArret formAjoutArret = new AjoutArret(parentEspace);
             formAjoutArret.Show();
             this.Hide();
         }
 
         private void pbAjoutLigne_Click(object sender, EventArgs e)
         {
-            AjoutLigne formAjoutLigne = new AjoutLigne(L, this);
+            AjoutLigne formAjoutLigne = new AjoutLigne(L, parentEspace);
             formAjoutLigne.Show();
             this.Hide();
         }
@@ -67,6 +67,13 @@ namespace SAE_IHM
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pbHoraire_Click(object sender, EventArgs e)
+        {
+            AjoutHoraire formAjoutHoraire = new AjoutHoraire(parentEspace);
+            formAjoutHoraire.Show();
+            this.Hide();
         }
     }
 }

@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace SAE_IHM
 {
     public partial class EspaceBillets_CB : Form
     {
-
-        public EspaceBillets_CB()
+        private EspaceBillets formparent;
+        public EspaceBillets_CB(EspaceBillets parent)
         {
             InitializeComponent();
 
             btnValider.Enabled = false;
-
+            this.formparent = parent;
             txtNumeroCarte.TextChanged += ChampModifie;
             txtDateExpiration.TextChanged += ChampModifie;
             txtCodeSecurite.TextChanged += ChampModifie;
@@ -43,8 +44,6 @@ namespace SAE_IHM
         {
             MessageBox.Show("Paiement accepté", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            Form accueil = Application.OpenForms["accueil"];
-            accueil?.Show();
             this.Close();
         }
 
@@ -53,5 +52,9 @@ namespace SAE_IHM
 
         }
 
+        private void EspaceBillets_CB_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formparent.Close();
+        }
     }
 }

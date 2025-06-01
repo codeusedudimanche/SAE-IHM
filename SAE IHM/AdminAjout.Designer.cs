@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminAjout));
-            pictureBox1 = new PictureBox();
+            pbHorraire = new PictureBox();
             pbAjoutLigne = new PictureBox();
             pbAjoutArret = new PictureBox();
             label1 = new Label();
@@ -38,21 +38,22 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbHorraire).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutArret).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // pbHorraire
             // 
-            pictureBox1.BackColor = SystemColors.AppWorkspace;
-            pictureBox1.Location = new Point(424, 159);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(125, 62);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pbHorraire.BackColor = SystemColors.AppWorkspace;
+            pbHorraire.Location = new Point(424, 159);
+            pbHorraire.Name = "pbHorraire";
+            pbHorraire.Size = new Size(125, 62);
+            pbHorraire.TabIndex = 0;
+            pbHorraire.TabStop = false;
+            pbHorraire.Click += pbHoraire_Click;
             // 
             // pbAjoutLigne
             // 
@@ -94,7 +95,7 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pbAjoutLigne);
             panel1.Controls.Add(pbAjoutArret);
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(pbHorraire);
             panel1.Location = new Point(303, 135);
             panel1.Name = "panel1";
             panel1.Size = new Size(598, 372);
@@ -153,7 +154,7 @@
             Text = "AdminAjout";
             FormClosed += AdminAjout_FormClosed;
             Load += AdminAjout_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbHorraire).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutArret).EndInit();
             panel1.ResumeLayout(false);
@@ -164,7 +165,7 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox pbHorraire;
         private PictureBox pbAjoutLigne;
         private PictureBox pbAjoutArret;
         private Label label1;

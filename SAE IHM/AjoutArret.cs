@@ -14,9 +14,9 @@ namespace SAE_IHM
     public partial class AjoutArret : Form
 
     {
-        private AdminAjout parentForm;
+        private EspaceAdmin parentForm;
 
-        public AjoutArret(AdminAjout parent)
+        public AjoutArret(EspaceAdmin parent)
         {
 
             InitializeComponent();
@@ -44,6 +44,7 @@ namespace SAE_IHM
             int idArret;
             double Longitude;
             double Latitude;
+            
             try
             {
                 idArret = Convert.ToInt32(txtbNumeroArret.Text);
@@ -105,7 +106,7 @@ namespace SAE_IHM
 
         private void AjoutArret_FormClosing(object sender, FormClosingEventArgs e)
         {
-            parentForm.Close();
+            parentForm.Show();
         }
 
         private void txtbLongitude_TextChanged(object sender, EventArgs e)

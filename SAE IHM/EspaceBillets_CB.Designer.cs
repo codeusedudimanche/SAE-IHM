@@ -44,69 +44,73 @@ namespace SAE_IHM
             // 
             lblTitre.AutoSize = true;
             lblTitre.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblTitre.Location = new Point(90, 20);
+            lblTitre.Location = new Point(103, 27);
             lblTitre.Name = "lblTitre";
-            lblTitre.Size = new Size(157, 25);
+            lblTitre.Size = new Size(201, 32);
             lblTitre.TabIndex = 0;
             lblTitre.Text = "Renseignements";
             // 
             // lblNumeroCarte
             // 
             lblNumeroCarte.AutoSize = true;
-            lblNumeroCarte.Location = new Point(20, 65);
+            lblNumeroCarte.Location = new Point(23, 87);
             lblNumeroCarte.Name = "lblNumeroCarte";
-            lblNumeroCarte.Size = new Size(144, 15);
+            lblNumeroCarte.Size = new Size(182, 20);
             lblNumeroCarte.TabIndex = 1;
             lblNumeroCarte.Text = "Numéro de carte bancaire";
             // 
             // txtNumeroCarte
             // 
-            txtNumeroCarte.Location = new Point(20, 85);
+            txtNumeroCarte.Location = new Point(23, 113);
+            txtNumeroCarte.Margin = new Padding(3, 4, 3, 4);
             txtNumeroCarte.MaxLength = 19;
             txtNumeroCarte.Name = "txtNumeroCarte";
-            txtNumeroCarte.Size = new Size(282, 23);
+            txtNumeroCarte.Size = new Size(322, 27);
             txtNumeroCarte.TabIndex = 2;
             // 
             // lblDateExpiration
             // 
             lblDateExpiration.AutoSize = true;
-            lblDateExpiration.Location = new Point(20, 125);
+            lblDateExpiration.Location = new Point(23, 167);
             lblDateExpiration.Name = "lblDateExpiration";
-            lblDateExpiration.Size = new Size(121, 15);
+            lblDateExpiration.Size = new Size(157, 20);
             lblDateExpiration.TabIndex = 3;
             lblDateExpiration.Text = "Date limite de validité";
             // 
             // txtDateExpiration
             // 
-            txtDateExpiration.Location = new Point(20, 145);
+            txtDateExpiration.Location = new Point(23, 193);
+            txtDateExpiration.Margin = new Padding(3, 4, 3, 4);
             txtDateExpiration.Name = "txtDateExpiration";
             txtDateExpiration.PlaceholderText = "MM/AA";
-            txtDateExpiration.Size = new Size(100, 23);
+            txtDateExpiration.Size = new Size(114, 27);
             txtDateExpiration.TabIndex = 4;
             // 
             // lblCodeSecurite
             // 
             lblCodeSecurite.AutoSize = true;
-            lblCodeSecurite.Location = new Point(20, 185);
+            lblCodeSecurite.Location = new Point(23, 247);
             lblCodeSecurite.Name = "lblCodeSecurite";
-            lblCodeSecurite.Size = new Size(172, 15);
+            lblCodeSecurite.Size = new Size(218, 20);
             lblCodeSecurite.TabIndex = 5;
             lblCodeSecurite.Text = "Code de sécurité (2 à 3 chiffres)";
             // 
             // txtCodeSecurite
             // 
-            txtCodeSecurite.Location = new Point(20, 205);
+            txtCodeSecurite.Location = new Point(23, 273);
+            txtCodeSecurite.Margin = new Padding(3, 4, 3, 4);
             txtCodeSecurite.MaxLength = 3;
             txtCodeSecurite.Name = "txtCodeSecurite";
-            txtCodeSecurite.Size = new Size(50, 23);
+            txtCodeSecurite.Size = new Size(57, 27);
             txtCodeSecurite.TabIndex = 6;
             // 
             // btnValider
             // 
             btnValider.Enabled = false;
-            btnValider.Location = new Point(119, 249);
+            btnValider.Location = new Point(136, 332);
+            btnValider.Margin = new Padding(3, 4, 3, 4);
             btnValider.Name = "btnValider";
-            btnValider.Size = new Size(100, 30);
+            btnValider.Size = new Size(114, 40);
             btnValider.TabIndex = 7;
             btnValider.Text = "Valider";
             btnValider.UseVisualStyleBackColor = true;
@@ -124,22 +128,25 @@ namespace SAE_IHM
             panelContenu.Controls.Add(lblCodeSecurite);
             panelContenu.Controls.Add(txtCodeSecurite);
             panelContenu.Controls.Add(btnValider);
-            panelContenu.Location = new Point(211, 111);
+            panelContenu.Location = new Point(241, 148);
+            panelContenu.Margin = new Padding(3, 4, 3, 4);
             panelContenu.Name = "panelContenu";
-            panelContenu.Size = new Size(350, 320);
+            panelContenu.Size = new Size(400, 427);
             panelContenu.TabIndex = 8;
             // 
             // EspaceBillets_CB
             // 
             AcceptButton = btnValider;
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 600);
+            ClientSize = new Size(914, 800);
             Controls.Add(panelContenu);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "EspaceBillets_CB";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Paiement CB";
+            FormClosed += EspaceBillets_CB_FormClosed;
             Load += EspaceBillets_CB_Load;
             panelContenu.ResumeLayout(false);
             panelContenu.PerformLayout();

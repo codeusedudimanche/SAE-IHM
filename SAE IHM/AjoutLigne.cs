@@ -14,10 +14,10 @@ namespace SAE_IHM
 
     public partial class AjoutLigne : Form
     {
-        private AdminAjout parentForm;
+        private EspaceAdmin parentForm;
         public List<Arret> listeArretAjouter = new List<Arret>();
         public int ordre = 1;
-        public AjoutLigne(ListeArret L, AdminAjout Formparent)
+        public AjoutLigne(ListeArret L, EspaceAdmin Formparent)
         {
             InitializeComponent();
             this.parentForm = Formparent;
@@ -163,7 +163,7 @@ namespace SAE_IHM
 
         private void AjoutLigne_FormClosing(object sender, FormClosingEventArgs e)
         {
-            parentForm.Close();
+            parentForm.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

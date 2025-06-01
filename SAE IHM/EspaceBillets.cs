@@ -42,7 +42,7 @@ namespace SAE_IHM
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.OpenForms[0]!.Show();
+
             this.Close();
         }
 
@@ -84,11 +84,16 @@ namespace SAE_IHM
         private void btnValide_Click_1(object sender, EventArgs e)
         {
             // Ouvre le formulaire de carte bancaire
-            EspaceBillets_CB cbForm = new EspaceBillets_CB();
-
+            EspaceBillets_CB cbForm = new EspaceBillets_CB(this);
             this.Hide();
+
             cbForm.ShowDialog();
-            this.Show();
+            
+        }
+
+        private void EspaceBillets_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.OpenForms[0]!.Show();
         }
     }
 }
