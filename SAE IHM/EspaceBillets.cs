@@ -11,19 +11,16 @@ using System.Windows.Forms;
 namespace SAE_IHM
 {
     public partial class EspaceBillets : Form
-    { 
-        public EspaceBillets() 
+    {
+
+        public EspaceBillets()
         {
             InitializeComponent();
-           
+            checkBoxCB.Enabled = false; // Désactive la case à cocher cb
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void radioButtonEnfant_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -42,6 +39,16 @@ namespace SAE_IHM
         {
             Application.OpenForms[0]!.Show();
             this.Close();
+        }
+
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            // Active le checkbox si un des RadioButtons est coché
+            checkBoxCB.Enabled = radioButtonEnfant.Checked ||
+                                 radioButtonAdulte.Checked ||
+                                 radioButtonHandicape.Checked ||
+                                 radioButtonVeteran.Checked ||
+                                 radioButtonSenior.Checked;
         }
     }
 }
