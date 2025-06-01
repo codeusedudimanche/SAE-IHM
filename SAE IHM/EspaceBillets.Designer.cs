@@ -43,6 +43,7 @@
             linkLabel1 = new LinkLabel();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            btnValide = new Button();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -194,6 +195,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(btnValide);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
@@ -219,6 +221,15 @@
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
+            // 
+            // btnValide
+            // 
+            btnValide.Location = new Point(156, 238);
+            btnValide.Name = "btnValide";
+            btnValide.Size = new Size(75, 23);
+            btnValide.TabIndex = 8;
+            btnValide.Text = "Valider";
+            btnValide.UseVisualStyleBackColor = true;
             // 
             // EspaceBillets
             // 
@@ -260,5 +271,6 @@
         private Panel panel1;
         private Button btnRetour;
         private PictureBox pictureBox1;
+        private Button btnValide;
     }
 }

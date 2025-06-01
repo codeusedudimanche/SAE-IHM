@@ -17,6 +17,11 @@ namespace SAE_IHM
         {
             InitializeComponent();
             checkBoxCB.Enabled = false; // Désactive la case à cocher cb
+            btnValide.Enabled = false; // Le bouton est désactivé au démarrage
+
+            checkBoxCB.CheckedChanged += checkBoxCB_CheckedChanged;
+
+
 
         }
 
@@ -43,20 +48,39 @@ namespace SAE_IHM
 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            // Active la checkbox si un des RadioButtons est coché
             checkBoxCB.Enabled = radioButtonEnfant.Checked ||
                                  radioButtonAdulte.Checked ||
                                  radioButtonHandicape.Checked ||
                                  radioButtonVeteran.Checked ||
                                  radioButtonSenior.Checked;
 
-            // Si c’est un RadioButton qui vient d’être coché, on passe le texte de label3 et celui de checkBoxCB en noir
             var rb = (RadioButton)sender;
             if (rb.Checked)
             {
                 label3.ForeColor = Color.Black;
                 checkBoxCB.ForeColor = Color.Black;
             }
+
+            UpdateBtnValideState(); // Met à jour l'état du bouton
         }
+
+
+        private void UpdateBtnValideState()
+        {
+            bool radioSelected = radioButtonEnfant.Checked ||
+                                 radioButtonAdulte.Checked ||
+                                 radioButtonHandicape.Checked ||
+                                 radioButtonVeteran.Checked ||
+                                 radioButtonSenior.Checked;
+
+            btnValide.Enabled = radioSelected && checkBoxCB.Checked;
+        }
+
+        private void checkBoxCB_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateBtnValideState(); // Met à jour l'état du bouton quand la checkbox est coché ou non
+        }
+
+
     }
 }
