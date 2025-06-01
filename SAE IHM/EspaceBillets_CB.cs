@@ -53,9 +53,5 @@ namespace SAE_IHM
 
         }
 
-        private void btnValider_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
