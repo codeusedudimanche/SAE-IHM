@@ -38,5 +38,10 @@ namespace SAE_IHM
         {
             parentForm.Show();
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

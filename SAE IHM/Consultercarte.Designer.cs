@@ -69,6 +69,7 @@
             btnLigne.TabIndex = 2;
             btnLigne.Text = "Une ligne particulière";
             btnLigne.UseVisualStyleBackColor = true;
+            btnLigne.Click += btnLigne_Click;
             // 
             // btnHoraires
             // 

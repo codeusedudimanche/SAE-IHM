@@ -40,14 +40,16 @@
             btnValide = new Button();
             label2 = new Label();
             txtbNumeroArret = new TextBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pbAcceuil
             // 
             pbAcceuil.Image = (Image)resources.GetObject("pbAcceuil.Image");
             pbAcceuil.InitialImage = (Image)resources.GetObject("pbAcceuil.InitialImage");
-            pbAcceuil.Location = new Point(28, 396);
+            pbAcceuil.Location = new Point(42, 459);
             pbAcceuil.Name = "pbAcceuil";
             pbAcceuil.Size = new Size(43, 42);
             pbAcceuil.SizeMode = PictureBoxSizeMode.Zoom;
@@ -58,10 +60,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F);
-            label1.Location = new Point(289, 9);
+            label1.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(171, 29);
             label1.Name = "label1";
-            label1.Size = new Size(216, 46);
+            label1.Size = new Size(223, 46);
             label1.TabIndex = 11;
             label1.Text = "Ajouter Arrêt";
             label1.Click += label1_Click;
@@ -69,7 +71,7 @@
             // lblNomArret
             // 
             lblNomArret.AutoSize = true;
-            lblNomArret.Location = new Point(163, 150);
+            lblNomArret.Location = new Point(45, 170);
             lblNomArret.Name = "lblNomArret";
             lblNomArret.Size = new Size(105, 20);
             lblNomArret.TabIndex = 12;
@@ -78,7 +80,7 @@
             // 
             // txtbNomArret
             // 
-            txtbNomArret.Location = new Point(163, 185);
+            txtbNomArret.Location = new Point(45, 205);
             txtbNomArret.Name = "txtbNomArret";
             txtbNomArret.PlaceholderText = "Exemple : 11th St & 129th E Ave WB";
             txtbNomArret.Size = new Size(454, 27);
@@ -87,7 +89,7 @@
             // 
             // txtbLatitude
             // 
-            txtbLatitude.Location = new Point(163, 261);
+            txtbLatitude.Location = new Point(45, 281);
             txtbLatitude.Name = "txtbLatitude";
             txtbLatitude.PlaceholderText = "Exemple : -95,8357";
             txtbLatitude.Size = new Size(454, 27);
@@ -97,7 +99,7 @@
             // lblLatitude
             // 
             lblLatitude.AutoSize = true;
-            lblLatitude.Location = new Point(163, 227);
+            lblLatitude.Location = new Point(45, 247);
             lblLatitude.Name = "lblLatitude";
             lblLatitude.Size = new Size(63, 20);
             lblLatitude.TabIndex = 14;
@@ -106,7 +108,7 @@
             // 
             // txtbLongitude
             // 
-            txtbLongitude.Location = new Point(163, 327);
+            txtbLongitude.Location = new Point(45, 347);
             txtbLongitude.Name = "txtbLongitude";
             txtbLongitude.PlaceholderText = "Exemple :  36,1481";
             txtbLongitude.Size = new Size(454, 27);
@@ -116,7 +118,7 @@
             // lblLongitude
             // 
             lblLongitude.AutoSize = true;
-            lblLongitude.Location = new Point(163, 297);
+            lblLongitude.Location = new Point(45, 317);
             lblLongitude.Name = "lblLongitude";
             lblLongitude.Size = new Size(76, 20);
             lblLongitude.TabIndex = 16;
@@ -126,7 +128,7 @@
             // 
             btnValide.Enabled = false;
             btnValide.Font = new Font("Segoe UI", 11F);
-            btnValide.Location = new Point(160, 378);
+            btnValide.Location = new Point(42, 398);
             btnValide.Name = "btnValide";
             btnValide.Size = new Size(457, 40);
             btnValide.TabIndex = 18;
@@ -137,7 +139,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(163, 77);
+            label2.Location = new Point(45, 97);
             label2.Name = "label2";
             label2.Size = new Size(126, 20);
             label2.TabIndex = 19;
@@ -145,37 +147,48 @@
             // 
             // txtbNumeroArret
             // 
-            txtbNumeroArret.Location = new Point(163, 109);
+            txtbNumeroArret.Location = new Point(45, 129);
             txtbNumeroArret.Name = "txtbNumeroArret";
             txtbNumeroArret.PlaceholderText = "Exemple : 6927";
             txtbNumeroArret.Size = new Size(454, 27);
             txtbNumeroArret.TabIndex = 20;
             txtbNumeroArret.TextChanged += textBox_TextChanged;
             // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pbAcceuil);
+            panel1.Controls.Add(txtbNumeroArret);
+            panel1.Controls.Add(lblNomArret);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(txtbNomArret);
+            panel1.Controls.Add(btnValide);
+            panel1.Controls.Add(lblLatitude);
+            panel1.Controls.Add(txtbLongitude);
+            panel1.Controls.Add(txtbLatitude);
+            panel1.Controls.Add(lblLongitude);
+            panel1.Location = new Point(360, 102);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(547, 530);
+            panel1.TabIndex = 21;
+            // 
             // AjoutArret
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(txtbNumeroArret);
-            Controls.Add(label2);
-            Controls.Add(btnValide);
-            Controls.Add(txtbLongitude);
-            Controls.Add(lblLongitude);
-            Controls.Add(txtbLatitude);
-            Controls.Add(lblLatitude);
-            Controls.Add(txtbNomArret);
-            Controls.Add(lblNomArret);
-            Controls.Add(label1);
-            Controls.Add(pbAcceuil);
+            BackgroundImage = Properties.Resources.Fond_d_application;
+            ClientSize = new Size(1182, 753);
+            Controls.Add(panel1);
             Name = "AjoutArret";
             Text = "Form1";
             FormClosing += AjoutArret_FormClosing;
             FormClosed += AjoutArret_FormClosed;
             Load += AjoutArret_Load;
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -191,5 +204,6 @@
         private Button btnValide;
         private Label label2;
         private TextBox txtbNumeroArret;
+        private Panel panel1;
     }
 }

@@ -47,5 +47,12 @@ namespace SAE_IHM
         {
             Application.OpenForms[0]!.Show();
         }
+
+        private void btnLigne_Click(object sender, EventArgs e)
+        {
+            ConsulterLigne FormConsulLigne = new ConsulterLigne();
+            FormConsulLigne.Show();
+            this.Hide();
+        }
     }
 }

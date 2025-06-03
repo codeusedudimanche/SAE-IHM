@@ -43,10 +43,10 @@ namespace SAE_IHM
             // lblTitre
             // 
             lblTitre.AutoSize = true;
-            lblTitre.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblTitre.Location = new Point(103, 27);
+            lblTitre.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitre.Location = new Point(56, 21);
             lblTitre.Name = "lblTitre";
-            lblTitre.Size = new Size(201, 32);
+            lblTitre.Size = new Size(273, 46);
             lblTitre.TabIndex = 0;
             lblTitre.Text = "Renseignements";
             // 
@@ -79,7 +79,7 @@ namespace SAE_IHM
             // 
             // txtDateExpiration
             // 
-            txtDateExpiration.Location = new Point(23, 193);
+            txtDateExpiration.Location = new Point(23, 191);
             txtDateExpiration.Margin = new Padding(3, 4, 3, 4);
             txtDateExpiration.Name = "txtDateExpiration";
             txtDateExpiration.PlaceholderText = "MM/AA";
@@ -119,7 +119,7 @@ namespace SAE_IHM
             // panelContenu
             // 
             panelContenu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelContenu.BackColor = Color.Transparent;
+            panelContenu.BackColor = SystemColors.ControlLightLight;
             panelContenu.Controls.Add(lblTitre);
             panelContenu.Controls.Add(lblNumeroCarte);
             panelContenu.Controls.Add(txtNumeroCarte);
@@ -128,10 +128,10 @@ namespace SAE_IHM
             panelContenu.Controls.Add(lblCodeSecurite);
             panelContenu.Controls.Add(txtCodeSecurite);
             panelContenu.Controls.Add(btnValider);
-            panelContenu.Location = new Point(241, 148);
+            panelContenu.Location = new Point(420, 169);
             panelContenu.Margin = new Padding(3, 4, 3, 4);
             panelContenu.Name = "panelContenu";
-            panelContenu.Size = new Size(400, 427);
+            panelContenu.Size = new Size(377, 397);
             panelContenu.TabIndex = 8;
             // 
             // EspaceBillets_CB
@@ -139,7 +139,8 @@ namespace SAE_IHM
             AcceptButton = btnValider;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 800);
+            BackgroundImage = Properties.Resources.Fond_d_application;
+            ClientSize = new Size(1182, 753);
             Controls.Add(panelContenu);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);

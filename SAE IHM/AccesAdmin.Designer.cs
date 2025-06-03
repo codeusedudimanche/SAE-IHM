@@ -87,7 +87,7 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(textBoxIdentifiant);
             panel1.Controls.Add(buttonValider);
-            panel1.Location = new Point(195, 35);
+            panel1.Location = new Point(409, 198);
             panel1.Name = "panel1";
             panel1.Size = new Size(402, 379);
             panel1.TabIndex = 6;
@@ -109,7 +109,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fond_d_application;
+            ClientSize = new Size(1182, 753);
             Controls.Add(panel1);
             Name = "AccesAdmin";
             Text = "AccesAdmin";
