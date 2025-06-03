@@ -15,6 +15,6 @@ MODIFICATION ADMIN
 
 SUPPRESSION ADMIN
 
--Consulter la carte
+-Consulter la carte : Julie
 
 -Configuer son trajet 
