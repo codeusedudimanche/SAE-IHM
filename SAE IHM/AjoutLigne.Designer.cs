@@ -41,14 +41,16 @@
             lblNumeroLigne = new Label();
             txtbNumeroLigne = new TextBox();
             lbNomArretAjoute = new ListBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // txtBNomLigne
             // 
-            txtBNomLigne.Location = new Point(398, 109);
+            txtBNomLigne.Location = new Point(419, 123);
             txtBNomLigne.Name = "txtBNomLigne";
-            txtBNomLigne.Size = new Size(379, 27);
+            txtBNomLigne.Size = new Size(348, 27);
             txtBNomLigne.TabIndex = 0;
             txtBNomLigne.TextAlignChanged += txtBNomLigne_TextAlignChanged;
             txtBNomLigne.TextChanged += txtBNom_TextChanged;
@@ -56,26 +58,26 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F);
-            label1.Location = new Point(319, 9);
+            label1.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(255, 26);
             label1.Name = "label1";
-            label1.Size = new Size(224, 46);
+            label1.Size = new Size(287, 46);
             label1.TabIndex = 1;
-            label1.Text = "Ajoutez Ligne";
+            label1.Text = "Ajouter une ligne";
             // 
             // lblNom
             // 
             lblNom.AutoSize = true;
-            lblNom.Location = new Point(398, 79);
+            lblNom.Location = new Point(419, 98);
             lblNom.Name = "lblNom";
-            lblNom.Size = new Size(116, 20);
+            lblNom.Size = new Size(123, 20);
             lblNom.TabIndex = 2;
-            lblNom.Text = "Nom de la ligne";
+            lblNom.Text = "Nom de la ligne :";
             // 
             // lstBArret
             // 
             lstBArret.FormattingEnabled = true;
-            lstBArret.Location = new Point(38, 84);
+            lstBArret.Location = new Point(28, 98);
             lstBArret.Name = "lstBArret";
             lstBArret.Size = new Size(316, 184);
             lstBArret.TabIndex = 3;
@@ -83,7 +85,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(38, 274);
+            button1.Location = new Point(28, 288);
             button1.Name = "button1";
             button1.Size = new Size(316, 40);
             button1.TabIndex = 4;
@@ -95,21 +97,21 @@
             // lblNomLigne
             // 
             lblNomLigne.AutoSize = true;
-            lblNomLigne.Location = new Point(398, 211);
+            lblNomLigne.Location = new Point(421, 229);
             lblNomLigne.Name = "lblNomLigne";
-            lblNomLigne.Size = new Size(123, 20);
+            lblNomLigne.Size = new Size(121, 20);
             lblNomLigne.TabIndex = 5;
-            lblNomLigne.Text = "Nom des Arrets : ";
+            lblNomLigne.Text = "Nom des arrêts : ";
             lblNomLigne.Click += lblNomLigne_Click;
             // 
             // btnValiderAjoutLigne
             // 
             btnValiderAjoutLigne.Enabled = false;
-            btnValiderAjoutLigne.Location = new Point(122, 367);
+            btnValiderAjoutLigne.Location = new Point(136, 396);
             btnValiderAjoutLigne.Name = "btnValiderAjoutLigne";
-            btnValiderAjoutLigne.Size = new Size(588, 62);
+            btnValiderAjoutLigne.Size = new Size(503, 62);
             btnValiderAjoutLigne.TabIndex = 7;
-            btnValiderAjoutLigne.Text = "Valider l'ajout de la ligne";
+            btnValiderAjoutLigne.Text = "Valider";
             btnValiderAjoutLigne.UseVisualStyleBackColor = true;
             btnValiderAjoutLigne.Click += btnValiderAjoutLigne_Click;
             // 
@@ -117,7 +119,7 @@
             // 
             pbEspaceAdmin.Image = (Image)resources.GetObject("pbEspaceAdmin.Image");
             pbEspaceAdmin.InitialImage = (Image)resources.GetObject("pbEspaceAdmin.InitialImage");
-            pbEspaceAdmin.Location = new Point(28, 387);
+            pbEspaceAdmin.Location = new Point(28, 416);
             pbEspaceAdmin.Name = "pbEspaceAdmin";
             pbEspaceAdmin.Size = new Size(43, 42);
             pbEspaceAdmin.SizeMode = PictureBoxSizeMode.Zoom;
@@ -128,7 +130,7 @@
             // button2
             // 
             button2.BackColor = Color.Red;
-            button2.Location = new Point(38, 320);
+            button2.Location = new Point(28, 334);
             button2.Name = "button2";
             button2.Size = new Size(316, 37);
             button2.TabIndex = 12;
@@ -139,53 +141,64 @@
             // lblNumeroLigne
             // 
             lblNumeroLigne.AutoSize = true;
-            lblNumeroLigne.Location = new Point(398, 150);
+            lblNumeroLigne.Location = new Point(419, 164);
             lblNumeroLigne.Name = "lblNumeroLigne";
-            lblNumeroLigne.Size = new Size(137, 20);
+            lblNumeroLigne.Size = new Size(144, 20);
             lblNumeroLigne.TabIndex = 14;
-            lblNumeroLigne.Text = "Numero de la ligne";
+            lblNumeroLigne.Text = "Numéro de la ligne :";
+            lblNumeroLigne.Click += lblNumeroLigne_Click;
             // 
             // txtbNumeroLigne
             // 
-            txtbNumeroLigne.Location = new Point(398, 173);
+            txtbNumeroLigne.Location = new Point(419, 187);
             txtbNumeroLigne.Name = "txtbNumeroLigne";
-            txtbNumeroLigne.Size = new Size(379, 27);
+            txtbNumeroLigne.Size = new Size(348, 27);
             txtbNumeroLigne.TabIndex = 13;
             txtbNumeroLigne.TextChanged += NumeroLigne_TextChanged;
             // 
             // lbNomArretAjoute
             // 
             lbNomArretAjoute.FormattingEnabled = true;
-            lbNomArretAjoute.Location = new Point(398, 237);
+            lbNomArretAjoute.Location = new Point(419, 267);
             lbNomArretAjoute.Name = "lbNomArretAjoute";
-            lbNomArretAjoute.Size = new Size(379, 104);
+            lbNomArretAjoute.Size = new Size(348, 104);
             lbNomArretAjoute.TabIndex = 17;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(lstBArret);
+            panel1.Controls.Add(pbEspaceAdmin);
+            panel1.Controls.Add(lbNomArretAjoute);
+            panel1.Controls.Add(txtBNomLigne);
+            panel1.Controls.Add(lblNumeroLigne);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(txtbNumeroLigne);
+            panel1.Controls.Add(lblNom);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(lblNomLigne);
+            panel1.Controls.Add(btnValiderAjoutLigne);
+            panel1.Location = new Point(190, 34);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(801, 476);
+            panel1.TabIndex = 18;
             // 
             // AjoutLigne
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(lbNomArretAjoute);
-            Controls.Add(lblNumeroLigne);
-            Controls.Add(txtbNumeroLigne);
-            Controls.Add(button2);
-            Controls.Add(pbEspaceAdmin);
-            Controls.Add(btnValiderAjoutLigne);
-            Controls.Add(lblNomLigne);
-            Controls.Add(button1);
-            Controls.Add(lstBArret);
-            Controls.Add(lblNom);
-            Controls.Add(label1);
-            Controls.Add(txtBNomLigne);
+            BackgroundImage = Properties.Resources.Fond_d_application;
+            ClientSize = new Size(1182, 753);
+            Controls.Add(panel1);
             Name = "AjoutLigne";
             Text = "Form1";
             FormClosing += AjoutLigne_FormClosing;
             FormClosed += AjoutLigne_FormClosed;
             Load += AjoutLigne_Load;
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -202,5 +215,6 @@
         private Label lblNumeroLigne;
         private TextBox txtbNumeroLigne;
         private ListBox lbNomArretAjoute;
+        private Panel panel1;
     }
 }

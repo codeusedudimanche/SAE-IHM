@@ -181,5 +181,10 @@ namespace SAE_IHM
         {
 
         }
+
+        private void lblNumeroLigne_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

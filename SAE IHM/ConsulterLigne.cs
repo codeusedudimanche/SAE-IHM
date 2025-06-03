@@ -75,6 +75,16 @@ namespace SAE_IHM
             };
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.OpenForms[0]!.Show();
+        }
 
+
+        private void ConsulterLigne_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

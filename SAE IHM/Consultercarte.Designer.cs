@@ -60,6 +60,7 @@
             btnReseauComplet.TabIndex = 1;
             btnReseauComplet.Text = "Le réseau complet";
             btnReseauComplet.UseVisualStyleBackColor = true;
+            btnReseauComplet.Click += btnReseauComplet_Click;
             // 
             // btnLigne
             // 
@@ -132,8 +133,6 @@
             Controls.Add(linkLabel1);
             Name = "Consultercarte";
             FormClosing += Consultercarte_FormClosing;
-            FormClosed += Consultercarte_FormClosed;
-            Load += Consultercarte_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

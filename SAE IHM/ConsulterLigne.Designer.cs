@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsulterLigne));
             panel1 = new Panel();
+            pictureBox2 = new PictureBox();
             comboBox1 = new ComboBox();
             label2 = new Label();
             label1 = new Label();
             panelCarte = new Panel();
+            label3 = new Label();
             pictureBox1 = new PictureBox();
             lblNomLigne = new Label();
-            label3 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -44,13 +47,26 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(comboBox1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(54, 103);
             panel1.Name = "panel1";
-            panel1.Size = new Size(428, 248);
+            panel1.Size = new Size(428, 289);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.InitialImage = (Image)resources.GetObject("pictureBox2.InitialImage");
+            pictureBox2.Location = new Point(45, 218);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(43, 43);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // comboBox1
             // 
@@ -89,10 +105,19 @@
             panelCarte.Controls.Add(lblNomLigne);
             panelCarte.Location = new Point(544, 103);
             panelCarte.Name = "panelCarte";
-            panelCarte.Size = new Size(554, 533);
+            panelCarte.Size = new Size(554, 481);
             panelCarte.TabIndex = 1;
             panelCarte.Visible = false;
             panelCarte.Paint += panelCarte_Paint;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(177, 133);
+            label3.Name = "label3";
+            label3.Size = new Size(207, 20);
+            label3.TabIndex = 2;
+            label3.Text = "Cliquez sur l'image ci-dessous";
             // 
             // pictureBox1
             // 
@@ -115,15 +140,6 @@
             lblNomLigne.TabIndex = 0;
             lblNomLigne.Text = "Nom de la ligne\r\n";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(177, 133);
-            label3.Name = "label3";
-            label3.Size = new Size(207, 20);
-            label3.TabIndex = 2;
-            label3.Text = "Cliquez sur l'image ci-dessous";
-            // 
             // ConsulterLigne
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -134,8 +150,10 @@
             Controls.Add(panel1);
             Name = "ConsulterLigne";
             Text = "ConsulterLigne";
+            Load += ConsulterLigne_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panelCarte.ResumeLayout(false);
             panelCarte.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -152,5 +170,6 @@
         private Label lblNomLigne;
         private PictureBox pictureBox1;
         private Label label3;
+        private PictureBox pictureBox2;
     }
 }

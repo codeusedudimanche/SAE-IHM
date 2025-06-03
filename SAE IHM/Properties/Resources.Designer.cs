@@ -99,5 +99,15 @@ namespace SAE_IHM.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Plan_Tulsa1 {
+            get {
+                object obj = ResourceManager.GetObject("Plan Tulsa1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

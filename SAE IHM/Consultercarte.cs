@@ -23,10 +23,6 @@ namespace SAE_IHM
 
         }
 
-        private void Consultercarte_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -36,12 +32,9 @@ namespace SAE_IHM
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.OpenForms[0]!.Show();
         }
 
-        private void Consultercarte_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
 
         private void Consultercarte_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -52,6 +45,13 @@ namespace SAE_IHM
         {
             ConsulterLigne FormConsulLigne = new ConsulterLigne();
             FormConsulLigne.Show();
+            this.Hide();
+        }
+
+        private void btnReseauComplet_Click(object sender, EventArgs e)
+        {
+            ConsulterReseau FormConsulRes = new ConsulterReseau();
+            FormConsulRes.Show();
             this.Hide();
         }
     }
