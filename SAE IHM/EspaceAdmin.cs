@@ -43,7 +43,7 @@ namespace SAE_IHM
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            AdminSupp Formsupp = new AdminSupp();
+            AdminSupp Formsupp = new AdminSupp(this);
             Formsupp.Show();
             this.Hide();
         }
