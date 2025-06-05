@@ -15,12 +15,12 @@ namespace SAE_IHM
     public partial class AdminSupp : Form
     {
         private EspaceAdmin parentEspace;
-        private ListeArret L;
+        private ListeLigne listeLignes; 
+
         public AdminSupp(EspaceAdmin parent)
         {
             InitializeComponent();
-            L = new ListeArret();
-            L = BD.GetArret();
+            listeLignes = BD.GetLigne();
             parentEspace = parent;
         }
 
@@ -38,7 +38,7 @@ namespace SAE_IHM
 
         private void pbSuppLigne_Click(object sender, EventArgs e)
         {
-            SuppLigne formSuppLigne = new SuppLigne(parentEspace);
+            SuppLigne formSuppLigne = new SuppLigne(listeLignes.MesLigne ,parentEspace);
             formSuppLigne.Show();
             this.Hide();
         }

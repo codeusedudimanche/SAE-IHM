@@ -52,7 +52,6 @@
             txtBNomLigne.Name = "txtBNomLigne";
             txtBNomLigne.Size = new Size(348, 27);
             txtBNomLigne.TabIndex = 0;
-            txtBNomLigne.TextAlignChanged += txtBNomLigne_TextAlignChanged;
             txtBNomLigne.TextChanged += txtBNom_TextChanged;
             // 
             // label1
@@ -81,7 +80,6 @@
             lstBArret.Name = "lstBArret";
             lstBArret.Size = new Size(316, 184);
             lstBArret.TabIndex = 3;
-            lstBArret.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // button1
             // 
@@ -91,7 +89,6 @@
             button1.TabIndex = 4;
             button1.Text = "Valider l'ajout de l'arret à la ligne";
             button1.UseVisualStyleBackColor = true;
-            button1.ClientSizeChanged += button1_ClientSizeChanged;
             button1.Click += btnAjoutArret_Click;
             // 
             // lblNomLigne
@@ -102,7 +99,6 @@
             lblNomLigne.Size = new Size(121, 20);
             lblNomLigne.TabIndex = 5;
             lblNomLigne.Text = "Nom des arrêts : ";
-            lblNomLigne.Click += lblNomLigne_Click;
             // 
             // btnValiderAjoutLigne
             // 
@@ -146,7 +142,6 @@
             lblNumeroLigne.Size = new Size(144, 20);
             lblNumeroLigne.TabIndex = 14;
             lblNumeroLigne.Text = "Numéro de la ligne :";
-            lblNumeroLigne.Click += lblNumeroLigne_Click;
             // 
             // txtbNumeroLigne
             // 
@@ -193,8 +188,6 @@
             Name = "AjoutLigne";
             Text = "Form1";
             FormClosing += AjoutLigne_FormClosing;
-            FormClosed += AjoutLigne_FormClosed;
-            Load += AjoutLigne_Load;
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

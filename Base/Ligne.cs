@@ -20,6 +20,28 @@ namespace Base
             _NomLigne = nom;
             _Destination = destination;
         }
+        //Accessors
+        public int NLigne
+        {
+            get { return _NLigne; }
+            set { _NLigne = value; }
+        }
+
+        public string NomLigne
+        {
+            get { return _NomLigne; }
+            set { _NomLigne = value; }
+        }
+
+        public string Destination
+        {
+            get { return _Destination; }
+            set { _Destination = value; }
+        }
+
+        //Méthodes
+
+
 
     }
 }

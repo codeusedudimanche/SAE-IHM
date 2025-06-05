@@ -211,6 +211,49 @@ namespace Base
         }
 
 
+        public static ListeLigne GetLigne()
+        {
+            string requeteSQL = "SELECT * FROM Ligne";
+            ListeLigne L = new ListeLigne();
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int idLigne = reader.GetInt32(0);
+                string nomLigne = reader.GetString(1);
+                string destinationLigne = reader.GetString(2);
+                L.AjoutLigne(idLigne, nomLigne, destinationLigne);
+            }
+            reader.Close();
+            cmd.Dispose();
+            return L;
+        }
+
+        public static ListeLigne DeleteLigne(int idLigne)
+        {
+            string requeteSQL_1 = "DELETE FROM Ligne WHERE `N°Ligne` = @idLigne";
+            MySqlCommand cmd_1 = new MySqlCommand(requeteSQL_1, conn);
+            cmd_1.Parameters.AddWithValue("@idLigne", idLigne);
+            string requetSQL_2 = "DELETE FROM Ordre WHERE `N°Ligne` = @idLigne";
+            MySqlCommand cmd_2 = new MySqlCommand(requetSQL_2, conn);
+            cmd_2.Parameters.AddWithValue("@idLigne", idLigne);
+            try
+            {
+                cmd_2.ExecuteNonQuery();
+                cmd_1.ExecuteNonQuery();
+                MessageBox.Show("Ligne supprimée avec succès.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la suppression de la ligne : {ex}");
+            }
+            finally
+            {
+                cmd_2.Dispose();
+                cmd_1.Dispose();
+            }
+            return GetLigne();
+        }
 
     }
 

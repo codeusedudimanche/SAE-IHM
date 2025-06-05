@@ -19,5 +19,10 @@ namespace SAE_IHM
             InitializeComponent();
             this.parentForm = parent;
         }
+
+        private void SuppArret_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ParentForm.Show();
+        }
     }
 }

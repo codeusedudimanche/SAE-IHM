@@ -24,20 +24,7 @@ namespace SAE_IHM
             lstBArret.DataSource = L.MesArret;
             lstBArret.DisplayMember = "Nom";
             lstBArret.ValueMember = "Id";
-
-
         }
-
-        private void AjoutLigne_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
 
         private void txtBNom_TextChanged(object sender, EventArgs e)
@@ -123,17 +110,6 @@ namespace SAE_IHM
 
         }
 
-        private void lblNomLigne_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void txtBNomLigne_TextAlignChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void NumeroLigne_TextChanged(object sender, EventArgs e)
         {
             if (txtBNomLigne.Text != "" && txtbNumeroLigne.Text != "" && lbNomArretAjoute.Items.Count != 0)
@@ -151,40 +127,14 @@ namespace SAE_IHM
             NumeroLigne_TextChanged(sender, e);
         }
 
-        private void button1_ClientSizeChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AjoutLigne_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
         private void AjoutLigne_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void pbRetour_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void lbNomArretAjoute_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblNumeroLigne_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

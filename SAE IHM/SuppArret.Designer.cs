@@ -38,6 +38,7 @@
             ClientSize = new Size(1034, 562);
             Name = "SuppArret";
             Text = "Supprimer un arrêt";
+            FormClosed += SuppArret_FormClosed;
             ResumeLayout(false);
         }
 
