@@ -30,29 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjoutHoraire));
             lblTitre = new Label();
-            lbArret = new ListBox();
-            lblHoraire = new Label();
-            nudHeure = new NumericUpDown();
-            lblHeure = new Label();
-            lblMinute = new Label();
-            numericUpDown1 = new NumericUpDown();
-            lblTitreLigne = new Label();
-            lblChoixArret = new Label();
-            label1 = new Label();
-            cbSemain = new CheckBox();
-            checkBox1 = new CheckBox();
-            button1 = new Button();
+            cbSemaine = new CheckBox();
+            cbJourFerie = new CheckBox();
+            btnValider = new Button();
             pbEspaceAdmin = new PictureBox();
-            lbLigne = new ListBox();
             panel1 = new Panel();
-            panel3 = new Panel();
-            panel2 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)nudHeure).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            lblAlerteHeure = new Label();
+            gbPeriode = new GroupBox();
+            lblHoraire = new Label();
+            lblArret = new Label();
+            nudMinute = new NumericUpDown();
+            nudHeure = new NumericUpDown();
+            lblMinute = new Label();
+            lblHeure = new Label();
+            cbArret = new ComboBox();
+            lblLigne = new Label();
+            cbLigne = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).BeginInit();
             panel1.SuspendLayout();
-            panel3.SuspendLayout();
-            panel2.SuspendLayout();
+            gbPeriode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudMinute).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudHeure).BeginInit();
             SuspendLayout();
             // 
             // lblTitre
@@ -65,116 +63,44 @@
             lblTitre.TabIndex = 0;
             lblTitre.Text = "Ajouter un horaire";
             // 
-            // lbArret
+            // cbSemaine
             // 
-            lbArret.FormattingEnabled = true;
-            lbArret.Location = new Point(378, 306);
-            lbArret.Name = "lbArret";
-            lbArret.Size = new Size(249, 104);
-            lbArret.TabIndex = 2;
+            cbSemaine.AutoSize = true;
+            cbSemaine.Location = new Point(15, 37);
+            cbSemaine.Name = "cbSemaine";
+            cbSemaine.Size = new Size(154, 24);
+            cbSemaine.TabIndex = 12;
+            cbSemaine.Text = "Jour de la semaine";
+            cbSemaine.UseVisualStyleBackColor = true;
+            cbSemaine.CheckedChanged += cbPeriode_Changed;
+            cbJourFerie.CheckedChanged += cbPeriode_Changed;
             // 
-            // lblHoraire
+            // cbJourFerie
             // 
-            lblHoraire.AutoSize = true;
-            lblHoraire.Location = new Point(13, 10);
-            lblHoraire.Name = "lblHoraire";
-            lblHoraire.Size = new Size(141, 20);
-            lblHoraire.TabIndex = 4;
-            lblHoraire.Text = "Choisissez l'horaire :";
+            cbJourFerie.AutoSize = true;
+            cbJourFerie.Location = new Point(189, 37);
+            cbJourFerie.Name = "cbJourFerie";
+            cbJourFerie.Size = new Size(178, 24);
+            cbJourFerie.TabIndex = 13;
+            cbJourFerie.Text = "Jour férié et week-end";
+            cbJourFerie.UseVisualStyleBackColor = true;
             // 
-            // nudHeure
+            // btnValider
             // 
-            nudHeure.Location = new Point(50, 72);
-            nudHeure.Name = "nudHeure";
-            nudHeure.Size = new Size(47, 27);
-            nudHeure.TabIndex = 5;
-            // 
-            // lblHeure
-            // 
-            lblHeure.AutoSize = true;
-            lblHeure.Location = new Point(44, 47);
-            lblHeure.Name = "lblHeure";
-            lblHeure.Size = new Size(55, 20);
-            lblHeure.TabIndex = 6;
-            lblHeure.Text = "Heures";
-            // 
-            // lblMinute
-            // 
-            lblMinute.AutoSize = true;
-            lblMinute.Location = new Point(140, 47);
-            lblMinute.Name = "lblMinute";
-            lblMinute.Size = new Size(61, 20);
-            lblMinute.TabIndex = 8;
-            lblMinute.Text = "Minutes";
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(147, 72);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(47, 27);
-            numericUpDown1.TabIndex = 7;
-            // 
-            // lblTitreLigne
-            // 
-            lblTitreLigne.AutoSize = true;
-            lblTitreLigne.Location = new Point(35, 270);
-            lblTitreLigne.Name = "lblTitreLigne";
-            lblTitreLigne.Size = new Size(148, 20);
-            lblTitreLigne.TabIndex = 9;
-            lblTitreLigne.Text = "Choisissez une ligne :";
-            // 
-            // lblChoixArret
-            // 
-            lblChoixArret.AutoSize = true;
-            lblChoixArret.Location = new Point(378, 270);
-            lblChoixArret.Name = "lblChoixArret";
-            lblChoixArret.Size = new Size(138, 20);
-            lblChoixArret.TabIndex = 10;
-            lblChoixArret.Text = "Choisissez un arrêt :";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(155, 20);
-            label1.TabIndex = 11;
-            label1.Text = "Choisissez la période :";
-            // 
-            // cbSemain
-            // 
-            cbSemain.AutoSize = true;
-            cbSemain.Location = new Point(27, 52);
-            cbSemain.Name = "cbSemain";
-            cbSemain.Size = new Size(154, 24);
-            cbSemain.TabIndex = 12;
-            cbSemain.Text = "Jour de la semaine";
-            cbSemain.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(27, 82);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(178, 24);
-            checkBox1.TabIndex = 13;
-            checkBox1.Text = "Jour férié et week-end";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(183, 448);
-            button1.Name = "button1";
-            button1.Size = new Size(312, 46);
-            button1.TabIndex = 14;
-            button1.Text = "Valider";
-            button1.UseVisualStyleBackColor = true;
+            btnValider.Enabled = false;
+            btnValider.Location = new Point(79, 449);
+            btnValider.Name = "btnValider";
+            btnValider.Size = new Size(525, 58);
+            btnValider.TabIndex = 14;
+            btnValider.Text = "Valider";
+            btnValider.UseVisualStyleBackColor = true;
+            btnValider.Click += btnValider_Click;
             // 
             // pbEspaceAdmin
             // 
             pbEspaceAdmin.Image = (Image)resources.GetObject("pbEspaceAdmin.Image");
             pbEspaceAdmin.InitialImage = (Image)resources.GetObject("pbEspaceAdmin.InitialImage");
-            pbEspaceAdmin.Location = new Point(32, 381);
+            pbEspaceAdmin.Location = new Point(19, 475);
             pbEspaceAdmin.Name = "pbEspaceAdmin";
             pbEspaceAdmin.Size = new Size(43, 42);
             pbEspaceAdmin.SizeMode = PictureBoxSizeMode.Zoom;
@@ -182,55 +108,128 @@
             pbEspaceAdmin.TabStop = false;
             pbEspaceAdmin.Click += pbEspaceAdmin_Click;
             // 
-            // lbLigne
-            // 
-            lbLigne.FormattingEnabled = true;
-            lbLigne.Location = new Point(35, 306);
-            lbLigne.Name = "lbLigne";
-            lbLigne.Size = new Size(246, 104);
-            lbLigne.TabIndex = 1;
-            lbLigne.SelectedIndexChanged += lbLigne_SelectedIndexChanged;
-            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(panel3);
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(lbArret);
+            panel1.Controls.Add(lblAlerteHeure);
+            panel1.Controls.Add(pbEspaceAdmin);
+            panel1.Controls.Add(gbPeriode);
+            panel1.Controls.Add(lblHoraire);
+            panel1.Controls.Add(lblArret);
+            panel1.Controls.Add(nudMinute);
+            panel1.Controls.Add(nudHeure);
+            panel1.Controls.Add(lblMinute);
+            panel1.Controls.Add(lblHeure);
+            panel1.Controls.Add(cbArret);
+            panel1.Controls.Add(lblLigne);
+            panel1.Controls.Add(cbLigne);
+            panel1.Controls.Add(btnValider);
             panel1.Controls.Add(lblTitre);
-            panel1.Controls.Add(lblChoixArret);
-            panel1.Controls.Add(lbLigne);
-            panel1.Controls.Add(lblTitreLigne);
             panel1.Location = new Point(270, 101);
             panel1.Name = "panel1";
             panel1.Size = new Size(671, 541);
             panel1.TabIndex = 16;
+            panel1.Paint += panel1_Paint;
             // 
-            // panel3
+            // lblAlerteHeure
             // 
-            panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(label1);
-            panel3.Controls.Add(cbSemain);
-            panel3.Controls.Add(checkBox1);
-            panel3.Location = new Point(378, 125);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(246, 125);
-            panel3.TabIndex = 16;
-            panel3.Paint += panel3_Paint;
+            lblAlerteHeure.AutoSize = true;
+            lblAlerteHeure.ForeColor = Color.DarkRed;
+            lblAlerteHeure.Location = new Point(128, 327);
+            lblAlerteHeure.Name = "lblAlerteHeure";
+            lblAlerteHeure.Size = new Size(0, 20);
+            lblAlerteHeure.TabIndex = 22;
             // 
-            // panel2
+            // gbPeriode
             // 
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(lblHoraire);
-            panel2.Controls.Add(lblHeure);
-            panel2.Controls.Add(nudHeure);
-            panel2.Controls.Add(numericUpDown1);
-            panel2.Controls.Add(lblMinute);
-            panel2.Location = new Point(35, 125);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(246, 125);
-            panel2.TabIndex = 15;
+            gbPeriode.Controls.Add(cbSemaine);
+            gbPeriode.Controls.Add(cbJourFerie);
+            gbPeriode.Location = new Point(122, 345);
+            gbPeriode.Name = "gbPeriode";
+            gbPeriode.Size = new Size(415, 85);
+            gbPeriode.TabIndex = 21;
+            gbPeriode.TabStop = false;
+            gbPeriode.Text = "Choisissez la période :";
+            // 
+            // lblHoraire
+            // 
+            lblHoraire.AutoSize = true;
+            lblHoraire.Location = new Point(122, 262);
+            lblHoraire.Name = "lblHoraire";
+            lblHoraire.Size = new Size(141, 20);
+            lblHoraire.TabIndex = 4;
+            lblHoraire.Text = "Choisissez l'horaire :";
+            // 
+            // lblArret
+            // 
+            lblArret.AutoSize = true;
+            lblArret.Location = new Point(122, 180);
+            lblArret.Name = "lblArret";
+            lblArret.Size = new Size(129, 20);
+            lblArret.TabIndex = 20;
+            lblArret.Text = "Choisisser un arrêt";
+            lblArret.Click += label2_Click;
+            // 
+            // nudMinute
+            // 
+            nudMinute.Location = new Point(230, 299);
+            nudMinute.Name = "nudMinute";
+            nudMinute.Size = new Size(47, 27);
+            nudMinute.TabIndex = 7;
+            nudMinute.ValueChanged += nud_ValueChanged;
+            // 
+            // nudHeure
+            // 
+            nudHeure.Location = new Point(124, 299);
+            nudHeure.Name = "nudHeure";
+            nudHeure.Size = new Size(47, 27);
+            nudHeure.TabIndex = 5;
+            nudHeure.ValueChanged += nud_ValueChanged;
+            // 
+            // lblMinute
+            // 
+            lblMinute.AutoSize = true;
+            lblMinute.Location = new Point(279, 302);
+            lblMinute.Name = "lblMinute";
+            lblMinute.Size = new Size(61, 20);
+            lblMinute.TabIndex = 8;
+            lblMinute.Text = "Minutes";
+            // 
+            // lblHeure
+            // 
+            lblHeure.AutoSize = true;
+            lblHeure.Location = new Point(173, 303);
+            lblHeure.Name = "lblHeure";
+            lblHeure.Size = new Size(55, 20);
+            lblHeure.TabIndex = 6;
+            lblHeure.Text = "Heures";
+            // 
+            // cbArret
+            // 
+            cbArret.FormattingEnabled = true;
+            cbArret.Location = new Point(122, 203);
+            cbArret.Name = "cbArret";
+            cbArret.Size = new Size(449, 28);
+            cbArret.TabIndex = 19;
+            cbArret.SelectedIndexChanged += cbArret_SelectedIndexChanged_1;
+            // 
+            // lblLigne
+            // 
+            lblLigne.AutoSize = true;
+            lblLigne.Location = new Point(122, 100);
+            lblLigne.Name = "lblLigne";
+            lblLigne.Size = new Size(139, 20);
+            lblLigne.TabIndex = 18;
+            lblLigne.Text = "Choisisser une ligne";
+            // 
+            // cbLigne
+            // 
+            cbLigne.FormattingEnabled = true;
+            cbLigne.Location = new Point(122, 123);
+            cbLigne.Name = "cbLigne";
+            cbLigne.Size = new Size(449, 28);
+            cbLigne.TabIndex = 17;
+            cbLigne.SelectedIndexChanged += cbLigne_SelectedIndexChanged;
             // 
             // AjoutHoraire
             // 
@@ -239,42 +238,39 @@
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 753);
             Controls.Add(panel1);
-            Controls.Add(pbEspaceAdmin);
             Name = "AjoutHoraire";
             Text = "AjoutHoraire";
+            FormClosing += AjoutHoraire_FormClosing;
             FormClosed += AjoutHoraire_FormClosed;
             Load += AjoutHoraire_Load;
-            ((System.ComponentModel.ISupportInitialize)nudHeure).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            gbPeriode.ResumeLayout(false);
+            gbPeriode.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudMinute).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudHeure).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Label lblTitre;
-        private ListBox lbArret;
-        private Label lblHoraire;
-        private NumericUpDown nudHeure;
-        private Label lblHeure;
-        private Label lblMinute;
-        private NumericUpDown numericUpDown1;
-        private Label lblTitreLigne;
-        private Label lblChoixArret;
-        private Label label1;
-        private CheckBox cbSemain;
-        private CheckBox checkBox1;
-        private Button button1;
+        private CheckBox cbSemaine;
+        private CheckBox cbJourFerie;
+        private Button btnValider;
         private PictureBox pbEspaceAdmin;
-        private ListBox lbLigne;
         private Panel panel1;
-        private Panel panel3;
-        private Panel panel2;
+        private ComboBox cbLigne;
+        private Label lblLigne;
+        private Label lblArret;
+        private ComboBox cbArret;
+        private Label lblHoraire;
+        private NumericUpDown nudMinute;
+        private NumericUpDown nudHeure;
+        private Label lblMinute;
+        private Label lblHeure;
+        private GroupBox gbPeriode;
+        private Label lblAlerteHeure;
     }
 }

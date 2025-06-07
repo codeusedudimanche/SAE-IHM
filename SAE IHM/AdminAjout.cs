@@ -71,7 +71,8 @@ namespace SAE_IHM
 
         private void pbHoraire_Click(object sender, EventArgs e)
         {
-            AjoutHoraire formAjoutHoraire = new AjoutHoraire(parentEspace);
+
+            AjoutHoraire formAjoutHoraire = new AjoutHoraire(BD.GetLigne().MesLigne, parentEspace);
             formAjoutHoraire.Show();
             this.Hide();
         }

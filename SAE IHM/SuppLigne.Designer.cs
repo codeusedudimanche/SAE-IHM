@@ -45,16 +45,18 @@
             panel1.Controls.Add(btnSupp);
             panel1.Controls.Add(comboBoxLigne);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(256, 31);
+            panel1.Location = new Point(293, 41);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(427, 320);
+            panel1.Size = new Size(488, 427);
             panel1.TabIndex = 0;
             // 
             // btnSupp
             // 
-            btnSupp.Location = new Point(83, 217);
+            btnSupp.Location = new Point(95, 289);
+            btnSupp.Margin = new Padding(3, 4, 3, 4);
             btnSupp.Name = "btnSupp";
-            btnSupp.Size = new Size(265, 34);
+            btnSupp.Size = new Size(303, 45);
             btnSupp.TabIndex = 2;
             btnSupp.Text = "Supprimer";
             btnSupp.UseVisualStyleBackColor = true;
@@ -64,10 +66,12 @@
             // 
             comboBoxLigne.DataSource = ligneBindingSource1;
             comboBoxLigne.FormattingEnabled = true;
-            comboBoxLigne.Location = new Point(83, 142);
+            comboBoxLigne.Location = new Point(95, 189);
+            comboBoxLigne.Margin = new Padding(3, 4, 3, 4);
             comboBoxLigne.Name = "comboBoxLigne";
-            comboBoxLigne.Size = new Size(265, 23);
+            comboBoxLigne.Size = new Size(302, 28);
             comboBoxLigne.TabIndex = 1;
+            comboBoxLigne.SelectedIndexChanged += comboBoxLigne_SelectedIndexChanged;
             // 
             // ligneBindingSource1
             // 
@@ -77,9 +81,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold);
-            label1.Location = new Point(83, 25);
+            label1.Location = new Point(95, 33);
             label1.Name = "label1";
-            label1.Size = new Size(265, 37);
+            label1.Size = new Size(334, 46);
             label1.TabIndex = 0;
             label1.Text = "Supprimer une ligne";
             // 
@@ -89,11 +93,12 @@
             // 
             // SuppLigne
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fond_d_application;
-            ClientSize = new Size(1034, 562);
+            ClientSize = new Size(1182, 749);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SuppLigne";
             Text = "Supprimer une ligne";
             FormClosed += SuppLigne_FormClosed;

@@ -54,5 +54,10 @@ namespace SAE_IHM
                 }
             }
         }
+
+        private void comboBoxLigne_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

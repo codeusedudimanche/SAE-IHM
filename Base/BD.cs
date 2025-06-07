@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Mail;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Bcpg;
 
 
 namespace Base
@@ -254,7 +255,55 @@ namespace Base
             }
             return GetLigne();
         }
+        public static ListeArret listeArretDeLigne(Ligne ligne)
+        {
+            string requeteSQL = "SELECT a.* FROM Arret a,Ordre o  " +
+                                "WHERE a.`N°Arret` = o.`N°Arret` " +
+                                "AND o.`N°Ligne` = @nLigne " +
+                                "ORDER BY o.Ordre";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@nLigne", ligne.NLigne);
+            ListeArret listeArret = new ListeArret();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int idArret = reader.GetInt32(0);
+                string nomArret = reader.GetString(1);
+                double longitudeArret = reader.GetDouble(2);
+                double latitudeArret = reader.GetDouble(3);
+                listeArret.AjoutArret(idArret, nomArret, longitudeArret, latitudeArret);
+            }
+            reader.Close();
+            cmd.Dispose();
+            return listeArret;
+        }
 
+        public static bool AjoutHorraire(int jourSemaine, int Nligne, int NArret, string time)
+        {
+            bool result = false;
+            string requeteSQL = "INSERT INTO Horaire(`Jour_Semaine`, `N°Ligne`, `N°Arret`, Horaire) " +
+                        "VALUES (@jourSemaine, @nLigne, @nArret, @time)";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@jourSemaine", jourSemaine);
+            cmd.Parameters.AddWithValue("@nLigne", Nligne);
+            cmd.Parameters.AddWithValue("@nArret", NArret);
+            cmd.Parameters.AddWithValue("@time", time);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'ajout de l'horaire : {ex}");
+                result = false;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
+            return result;
+        }
     }
 
 }
