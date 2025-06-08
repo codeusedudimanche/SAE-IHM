@@ -19,7 +19,7 @@ namespace SAE_IHM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AdminModifier Formmodif = new AdminModifier();
+            AdminModifier Formmodif = new AdminModifier(this);
             Formmodif.Show();
             this.Hide();
         }
