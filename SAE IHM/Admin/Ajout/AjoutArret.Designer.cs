@@ -40,9 +40,9 @@
             btnValide = new Button();
             label2 = new Label();
             txtbNumeroArret = new TextBox();
-            panel1 = new Panel();
+            pnlBackround = new Panel();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).BeginInit();
-            panel1.SuspendLayout();
+            pnlBackround.SuspendLayout();
             SuspendLayout();
             // 
             // pbAcceuil
@@ -85,7 +85,7 @@
             txtbNomArret.PlaceholderText = "Exemple : 11th St & 129th E Ave WB";
             txtbNomArret.Size = new Size(454, 27);
             txtbNomArret.TabIndex = 13;
-            txtbNomArret.TextChanged += txtbNomArret_TextChanged;
+            txtbNomArret.TextChanged += textBox_TextChanged;
             // 
             // txtbLatitude
             // 
@@ -94,7 +94,7 @@
             txtbLatitude.PlaceholderText = "Exemple : -95,8357";
             txtbLatitude.Size = new Size(454, 27);
             txtbLatitude.TabIndex = 15;
-            txtbLatitude.TextChanged += txtbLatitude_TextChanged;
+            txtbLatitude.TextChanged += textBox_TextChanged;
             // 
             // lblLatitude
             // 
@@ -113,7 +113,7 @@
             txtbLongitude.PlaceholderText = "Exemple :  36,1481";
             txtbLongitude.Size = new Size(454, 27);
             txtbLongitude.TabIndex = 17;
-            txtbLongitude.TextChanged += txtbLongitude_TextChanged;
+            txtbLongitude.TextChanged += textBox_TextChanged;
             // 
             // lblLongitude
             // 
@@ -154,24 +154,24 @@
             txtbNumeroArret.TabIndex = 20;
             txtbNumeroArret.TextChanged += textBox_TextChanged;
             // 
-            // panel1
+            // pnlBackround
             // 
-            panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(pbAcceuil);
-            panel1.Controls.Add(txtbNumeroArret);
-            panel1.Controls.Add(lblNomArret);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(txtbNomArret);
-            panel1.Controls.Add(btnValide);
-            panel1.Controls.Add(lblLatitude);
-            panel1.Controls.Add(txtbLongitude);
-            panel1.Controls.Add(txtbLatitude);
-            panel1.Controls.Add(lblLongitude);
-            panel1.Location = new Point(360, 102);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(547, 530);
-            panel1.TabIndex = 21;
+            pnlBackround.BackColor = SystemColors.ControlLightLight;
+            pnlBackround.Controls.Add(label1);
+            pnlBackround.Controls.Add(pbAcceuil);
+            pnlBackround.Controls.Add(txtbNumeroArret);
+            pnlBackround.Controls.Add(lblNomArret);
+            pnlBackround.Controls.Add(label2);
+            pnlBackround.Controls.Add(txtbNomArret);
+            pnlBackround.Controls.Add(btnValide);
+            pnlBackround.Controls.Add(lblLatitude);
+            pnlBackround.Controls.Add(txtbLongitude);
+            pnlBackround.Controls.Add(txtbLatitude);
+            pnlBackround.Controls.Add(lblLongitude);
+            pnlBackround.Location = new Point(360, 102);
+            pnlBackround.Name = "pnlBackround";
+            pnlBackround.Size = new Size(547, 530);
+            pnlBackround.TabIndex = 21;
             // 
             // AjoutArret
             // 
@@ -179,15 +179,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 753);
-            Controls.Add(panel1);
+            Controls.Add(pnlBackround);
             Name = "AjoutArret";
-            Text = "Form1";
+            Text = "AjoutArret";
             FormClosing += AjoutArret_FormClosing;
             FormClosed += AjoutArret_FormClosed;
             Load += AjoutArret_Load;
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlBackround.ResumeLayout(false);
+            pnlBackround.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -204,6 +204,6 @@
         private Button btnValide;
         private Label label2;
         private TextBox txtbNumeroArret;
-        private Panel panel1;
+        private Panel pnlBackround;
     }
 }

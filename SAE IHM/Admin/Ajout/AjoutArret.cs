@@ -112,10 +112,6 @@ namespace SAE_IHM
             parentForm.Show();
         }
 
-        private void txtbLongitude_TextChanged(object sender, EventArgs e)
-        {
-            textBox_TextChanged(sender, e);
-        }
 
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -130,14 +126,7 @@ namespace SAE_IHM
             }
         }
 
-        private void txtbNomArret_TextChanged(object sender, EventArgs e)
-        {
-            textBox_TextChanged(sender, e);
-        }
 
-        private void txtbLatitude_TextChanged(object sender, EventArgs e)
-        {
-            textBox_TextChanged(sender, e);
-        }
+        
     }
 }

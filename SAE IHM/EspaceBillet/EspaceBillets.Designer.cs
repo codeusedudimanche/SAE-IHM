@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EspaceBillets));
-            label1 = new Label();
-            label2 = new Label();
+            lblTitre = new Label();
+            lblTarif = new Label();
             groupBox1 = new GroupBox();
             radioButtonSenior = new RadioButton();
             radioButtonEnfant = new RadioButton();
             radioButtonVeteran = new RadioButton();
             radioButtonAdulte = new RadioButton();
             radioButtonHandicape = new RadioButton();
-            label3 = new Label();
+            lblMoyendePaiement = new Label();
             checkBoxPaypal = new CheckBox();
             checkBoxCB = new CheckBox();
             linkLabel1 = new LinkLabel();
@@ -49,25 +49,25 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // lblTitre
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(59, 23);
-            label1.Name = "label1";
-            label1.Size = new Size(333, 67);
-            label1.TabIndex = 0;
-            label1.Text = "Espace billets";
-            label1.Click += label1_Click;
+            lblTitre.AutoSize = true;
+            lblTitre.Font = new Font("Segoe UI Semibold", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitre.Location = new Point(59, 23);
+            lblTitre.Name = "lblTitre";
+            lblTitre.Size = new Size(333, 67);
+            lblTitre.TabIndex = 0;
+            lblTitre.Text = "Espace billets";
+            lblTitre.Click += label1_Click;
             // 
-            // label2
+            // lblTarif
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(41, 115);
-            label2.Name = "label2";
-            label2.Size = new Size(142, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Saisissez votre tarif :";
+            lblTarif.AutoSize = true;
+            lblTarif.Location = new Point(41, 115);
+            lblTarif.Name = "lblTarif";
+            lblTarif.Size = new Size(142, 20);
+            lblTarif.TabIndex = 1;
+            lblTarif.Text = "Saisissez votre tarif :";
             // 
             // groupBox1
             // 
@@ -142,16 +142,16 @@
             radioButtonHandicape.UseVisualStyleBackColor = true;
             radioButtonHandicape.CheckedChanged += RadioButton_CheckedChanged;
             // 
-            // label3
+            // lblMoyendePaiement
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.ForeColor = Color.Silver;
-            label3.Location = new Point(41, 213);
-            label3.Name = "label3";
-            label3.Size = new Size(315, 20);
-            label3.TabIndex = 3;
-            label3.Text = "Veuillez renseigner votre moyen de paiement :";
+            lblMoyendePaiement.AutoSize = true;
+            lblMoyendePaiement.BackColor = Color.Transparent;
+            lblMoyendePaiement.ForeColor = Color.Silver;
+            lblMoyendePaiement.Location = new Point(41, 213);
+            lblMoyendePaiement.Name = "lblMoyendePaiement";
+            lblMoyendePaiement.Size = new Size(315, 20);
+            lblMoyendePaiement.TabIndex = 3;
+            lblMoyendePaiement.Text = "Veuillez renseigner votre moyen de paiement :";
             // 
             // checkBoxPaypal
             // 
@@ -188,11 +188,11 @@
             panel1.BackColor = SystemColors.ControlLightLight;
             panel1.Controls.Add(btnValide);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(label2);
+            panel1.Controls.Add(lblTitre);
+            panel1.Controls.Add(lblTarif);
             panel1.Controls.Add(checkBoxCB);
             panel1.Controls.Add(groupBox1);
-            panel1.Controls.Add(label3);
+            panel1.Controls.Add(lblMoyendePaiement);
             panel1.Location = new Point(375, 175);
             panel1.Name = "panel1";
             panel1.Size = new Size(461, 379);
@@ -246,15 +246,15 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
+        private Label lblTitre;
+        private Label lblTarif;
         private GroupBox groupBox1;
         private RadioButton radioButtonSenior;
         private RadioButton radioButtonEnfant;
         private RadioButton radioButtonVeteran;
         private RadioButton radioButtonAdulte;
         private RadioButton radioButtonHandicape;
-        private Label label3;
+        private Label lblMoyendePaiement;
         private CheckBox checkBoxPaypal;
         private CheckBox checkBoxCB;
         private LinkLabel linkLabel1;

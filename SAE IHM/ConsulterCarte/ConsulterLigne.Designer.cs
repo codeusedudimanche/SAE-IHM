@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsulterLigne));
-            panel1 = new Panel();
+            pnlBackroundConsulter = new Panel();
             pictureBox2 = new PictureBox();
-            comboBox1 = new ComboBox();
-            label2 = new Label();
-            label1 = new Label();
+            cbLigne = new ComboBox();
+            lblSelectionezLigne = new Label();
+            lblConsulterLigne = new Label();
             panelCarte = new Panel();
-            label3 = new Label();
-            pictureBox1 = new PictureBox();
+            lblCliquez = new Label();
+            pbCarte = new PictureBox();
             lblNomLigne = new Label();
-            panel1.SuspendLayout();
+            pnlBackroundConsulter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelCarte.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbCarte).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // pnlBackroundConsulter
             // 
-            panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(54, 103);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(428, 289);
-            panel1.TabIndex = 0;
+            pnlBackroundConsulter.BackColor = SystemColors.ControlLightLight;
+            pnlBackroundConsulter.Controls.Add(pictureBox2);
+            pnlBackroundConsulter.Controls.Add(cbLigne);
+            pnlBackroundConsulter.Controls.Add(lblSelectionezLigne);
+            pnlBackroundConsulter.Controls.Add(lblConsulterLigne);
+            pnlBackroundConsulter.Location = new Point(54, 103);
+            pnlBackroundConsulter.Name = "pnlBackroundConsulter";
+            pnlBackroundConsulter.Size = new Size(428, 289);
+            pnlBackroundConsulter.TabIndex = 0;
             // 
             // pictureBox2
             // 
@@ -68,40 +68,40 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
-            // comboBox1
+            // cbLigne
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(45, 164);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(345, 28);
-            comboBox1.TabIndex = 3;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
+            cbLigne.FormattingEnabled = true;
+            cbLigne.Location = new Point(45, 164);
+            cbLigne.Name = "cbLigne";
+            cbLigne.Size = new Size(345, 28);
+            cbLigne.TabIndex = 3;
+            cbLigne.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
             // 
-            // label2
+            // lblSelectionezLigne
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(45, 113);
-            label2.Name = "label2";
-            label2.Size = new Size(347, 20);
-            label2.TabIndex = 2;
-            label2.Text = "Sélectionnez la ligne que vous souhaitez consulter :";
+            lblSelectionezLigne.AutoSize = true;
+            lblSelectionezLigne.Location = new Point(45, 113);
+            lblSelectionezLigne.Name = "lblSelectionezLigne";
+            lblSelectionezLigne.Size = new Size(347, 20);
+            lblSelectionezLigne.TabIndex = 2;
+            lblSelectionezLigne.Text = "Sélectionnez la ligne que vous souhaitez consulter :";
             // 
-            // label1
+            // lblConsulterLigne
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
-            label1.Location = new Point(58, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(320, 46);
-            label1.TabIndex = 0;
-            label1.Text = "Consulter une ligne";
-            label1.Click += label1_Click;
+            lblConsulterLigne.AutoSize = true;
+            lblConsulterLigne.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            lblConsulterLigne.Location = new Point(58, 31);
+            lblConsulterLigne.Name = "lblConsulterLigne";
+            lblConsulterLigne.Size = new Size(320, 46);
+            lblConsulterLigne.TabIndex = 0;
+            lblConsulterLigne.Text = "Consulter une ligne";
+            lblConsulterLigne.Click += label1_Click;
             // 
             // panelCarte
             // 
             panelCarte.BackColor = SystemColors.ControlLightLight;
-            panelCarte.Controls.Add(label3);
-            panelCarte.Controls.Add(pictureBox1);
+            panelCarte.Controls.Add(lblCliquez);
+            panelCarte.Controls.Add(pbCarte);
             panelCarte.Controls.Add(lblNomLigne);
             panelCarte.Location = new Point(544, 103);
             panelCarte.Name = "panelCarte";
@@ -110,25 +110,25 @@
             panelCarte.Visible = false;
             panelCarte.Paint += panelCarte_Paint;
             // 
-            // label3
+            // lblCliquez
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(177, 133);
-            label3.Name = "label3";
-            label3.Size = new Size(207, 20);
-            label3.TabIndex = 2;
-            label3.Text = "Cliquez sur l'image ci-dessous";
+            lblCliquez.AutoSize = true;
+            lblCliquez.Location = new Point(177, 133);
+            lblCliquez.Name = "lblCliquez";
+            lblCliquez.Size = new Size(207, 20);
+            lblCliquez.TabIndex = 2;
+            lblCliquez.Text = "Cliquez sur l'image ci-dessous";
             // 
-            // pictureBox1
+            // pbCarte
             // 
-            pictureBox1.Image = Properties.Resources.Plan_Tulsa;
-            pictureBox1.Location = new Point(47, 194);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(467, 182);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            pbCarte.Image = Properties.Resources.Plan_Tulsa;
+            pbCarte.Location = new Point(47, 194);
+            pbCarte.Name = "pbCarte";
+            pbCarte.Size = new Size(467, 182);
+            pbCarte.SizeMode = PictureBoxSizeMode.CenterImage;
+            pbCarte.TabIndex = 1;
+            pbCarte.TabStop = false;
+            pbCarte.Click += pictureBox1_Click;
             // 
             // lblNomLigne
             // 
@@ -147,29 +147,29 @@
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 753);
             Controls.Add(panelCarte);
-            Controls.Add(panel1);
+            Controls.Add(pnlBackroundConsulter);
             Name = "ConsulterLigne";
             Text = "ConsulterLigne";
             Load += ConsulterLigne_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlBackroundConsulter.ResumeLayout(false);
+            pnlBackroundConsulter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panelCarte.ResumeLayout(false);
             panelCarte.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbCarte).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private Label label1;
-        private ComboBox comboBox1;
-        private Label label2;
+        private Panel pnlBackroundConsulter;
+        private Label lblConsulterLigne;
+        private ComboBox cbLigne;
+        private Label lblSelectionezLigne;
         private Panel panelCarte;
         private Label lblNomLigne;
-        private PictureBox pictureBox1;
-        private Label label3;
+        private PictureBox pbCarte;
+        private Label lblCliquez;
         private PictureBox pictureBox2;
     }
 }

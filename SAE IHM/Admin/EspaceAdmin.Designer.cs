@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EspaceAdmin));
-            label1 = new Label();
+            lblTitre = new Label();
             btnAjouter = new Button();
-            panel1 = new Panel();
+            pnlBackround = new Panel();
             pbAcceuil = new PictureBox();
             btnSupprimer = new Button();
             btnModifier = new Button();
-            panel1.SuspendLayout();
+            pnlBackround.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // lblTitre
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(22, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(347, 67);
-            label1.TabIndex = 0;
-            label1.Text = "Espace Admin";
-            label1.Click += label1_Click;
+            lblTitre.AutoSize = true;
+            lblTitre.Font = new Font("Segoe UI Semibold", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitre.Location = new Point(22, 18);
+            lblTitre.Name = "lblTitre";
+            lblTitre.Size = new Size(347, 67);
+            lblTitre.TabIndex = 0;
+            lblTitre.Text = "Espace Admin";
+            lblTitre.Click += label1_Click;
             // 
             // btnAjouter
             // 
@@ -60,19 +60,19 @@
             btnAjouter.UseVisualStyleBackColor = true;
             btnAjouter.Click += btnAjouter_Click;
             // 
-            // panel1
+            // pnlBackround
             // 
-            panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(pbAcceuil);
-            panel1.Controls.Add(btnSupprimer);
-            panel1.Controls.Add(btnModifier);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(btnAjouter);
-            panel1.Location = new Point(400, 200);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(389, 350);
-            panel1.TabIndex = 2;
-            panel1.Paint += panel1_Paint;
+            pnlBackround.BackColor = SystemColors.ControlLightLight;
+            pnlBackround.Controls.Add(pbAcceuil);
+            pnlBackround.Controls.Add(btnSupprimer);
+            pnlBackround.Controls.Add(btnModifier);
+            pnlBackround.Controls.Add(lblTitre);
+            pnlBackround.Controls.Add(btnAjouter);
+            pnlBackround.Location = new Point(400, 200);
+            pnlBackround.Name = "pnlBackround";
+            pnlBackround.Size = new Size(389, 350);
+            pnlBackround.TabIndex = 2;
+            pnlBackround.Paint += panel1_Paint;
             // 
             // pbAcceuil
             // 
@@ -112,22 +112,22 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 753);
-            Controls.Add(panel1);
+            Controls.Add(pnlBackround);
             Name = "EspaceAdmin";
             Text = "EspaceAdmin";
             FormClosed += EspaceAdmin_FormClosed;
             Load += EspaceAdmin_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlBackround.ResumeLayout(false);
+            pnlBackround.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Label label1;
+        private Label lblTitre;
         private Button btnAjouter;
-        private Panel panel1;
+        private Panel pnlBackround;
         private Button btnSupprimer;
         private Button btnModifier;
         private PictureBox pbAcceuil;

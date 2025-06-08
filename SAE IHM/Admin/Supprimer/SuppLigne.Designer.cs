@@ -30,32 +30,41 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppLigne));
-            panel1 = new Panel();
+            pnlBackround = new Panel();
+            lblChoisir = new Label();
             pbEspaceAdmin = new PictureBox();
             btnSupp = new Button();
             comboBoxLigne = new ComboBox();
             ligneBindingSource1 = new BindingSource(components);
-            label1 = new Label();
+            lblTitre = new Label();
             ligneBindingSource = new BindingSource(components);
-            lblChoisir = new Label();
-            panel1.SuspendLayout();
+            pnlBackround.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ligneBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ligneBindingSource).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // pnlBackround
             // 
-            panel1.Controls.Add(lblChoisir);
-            panel1.Controls.Add(pbEspaceAdmin);
-            panel1.Controls.Add(btnSupp);
-            panel1.Controls.Add(comboBoxLigne);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(293, 41);
-            panel1.Margin = new Padding(3, 4, 3, 4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(488, 427);
-            panel1.TabIndex = 0;
+            pnlBackround.Controls.Add(lblChoisir);
+            pnlBackround.Controls.Add(pbEspaceAdmin);
+            pnlBackround.Controls.Add(btnSupp);
+            pnlBackround.Controls.Add(comboBoxLigne);
+            pnlBackround.Controls.Add(lblTitre);
+            pnlBackround.Location = new Point(293, 41);
+            pnlBackround.Margin = new Padding(3, 4, 3, 4);
+            pnlBackround.Name = "pnlBackround";
+            pnlBackround.Size = new Size(488, 427);
+            pnlBackround.TabIndex = 0;
+            // 
+            // lblChoisir
+            // 
+            lblChoisir.AutoSize = true;
+            lblChoisir.Location = new Point(95, 165);
+            lblChoisir.Name = "lblChoisir";
+            lblChoisir.Size = new Size(139, 20);
+            lblChoisir.TabIndex = 13;
+            lblChoisir.Text = "Choisisser une ligne";
             // 
             // pbEspaceAdmin
             // 
@@ -95,28 +104,19 @@
             // 
             ligneBindingSource1.DataSource = typeof(Base.Ligne);
             // 
-            // label1
+            // lblTitre
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold);
-            label1.Location = new Point(95, 33);
-            label1.Name = "label1";
-            label1.Size = new Size(334, 46);
-            label1.TabIndex = 0;
-            label1.Text = "Supprimer une ligne";
+            lblTitre.AutoSize = true;
+            lblTitre.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold);
+            lblTitre.Location = new Point(95, 33);
+            lblTitre.Name = "lblTitre";
+            lblTitre.Size = new Size(334, 46);
+            lblTitre.TabIndex = 0;
+            lblTitre.Text = "Supprimer une ligne";
             // 
             // ligneBindingSource
             // 
             ligneBindingSource.DataSource = typeof(Base.Ligne);
-            // 
-            // lblChoisir
-            // 
-            lblChoisir.AutoSize = true;
-            lblChoisir.Location = new Point(95, 165);
-            lblChoisir.Name = "lblChoisir";
-            lblChoisir.Size = new Size(139, 20);
-            lblChoisir.TabIndex = 13;
-            lblChoisir.Text = "Choisisser une ligne";
             // 
             // SuppLigne
             // 
@@ -124,13 +124,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 749);
-            Controls.Add(panel1);
+            Controls.Add(pnlBackround);
             Margin = new Padding(3, 4, 3, 4);
             Name = "SuppLigne";
             Text = "Supprimer une ligne";
             FormClosed += SuppLigne_FormClosed;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlBackround.ResumeLayout(false);
+            pnlBackround.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).EndInit();
             ((System.ComponentModel.ISupportInitialize)ligneBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)ligneBindingSource).EndInit();
@@ -139,8 +139,8 @@
 
         #endregion
 
-        private Panel panel1;
-        private Label label1;
+        private Panel pnlBackround;
+        private Label lblTitre;
         private ComboBox comboBoxLigne;
         private Button btnSupp;
         private BindingSource ligneBindingSource;

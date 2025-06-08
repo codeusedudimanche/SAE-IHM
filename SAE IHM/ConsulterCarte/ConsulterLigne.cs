@@ -34,7 +34,7 @@ namespace SAE_IHM
                     {
                         while (reader.Read())
                         {
-                            comboBox1.Items.Add("Ligne " + reader.GetInt32(0));
+                            cbLigne.Items.Add("Ligne " + reader.GetInt32(0));
                         }
                     }
                 }
@@ -59,13 +59,13 @@ namespace SAE_IHM
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             panelCarte.Visible = true;
-            lblNomLigne.Text = comboBox1.SelectedItem!.ToString();
+            lblNomLigne.Text = cbLigne.SelectedItem!.ToString();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             {
-                string numligne = comboBox1.SelectedItem!.ToString().Replace("Ligne ", "");
+                string numligne = cbLigne.SelectedItem!.ToString().Replace("Ligne ", "");
                 var url = "https://transitapp.com/fr/region/tulsa/tulsa-transit/bus-" + numligne;
                 Process.Start(new ProcessStartInfo
                 {

@@ -57,7 +57,7 @@ namespace SAE_IHM
             var rb = (RadioButton)sender;
             if (rb.Checked)
             {
-                label3.ForeColor = Color.Black;
+                lblMoyendePaiement.ForeColor = Color.Black;
                 checkBoxCB.ForeColor = Color.Black;
             }
 

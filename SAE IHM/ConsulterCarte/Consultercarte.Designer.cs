@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consultercarte));
-            label1 = new Label();
+            lblTitre = new Label();
             btnReseauComplet = new Button();
             btnLigne = new Button();
             btnHoraires = new Button();
             linkLabel1 = new LinkLabel();
             label2 = new Label();
-            panel1 = new Panel();
-            pictureBox1 = new PictureBox();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlBackround = new Panel();
+            pbAccueil = new PictureBox();
+            pnlBackround.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbAccueil).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // lblTitre
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 30F);
-            label1.Location = new Point(0, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(429, 67);
-            label1.TabIndex = 0;
-            label1.Text = "Consulter la carte";
-            label1.Click += label1_Click;
+            lblTitre.AutoSize = true;
+            lblTitre.Font = new Font("Segoe UI Semibold", 30F);
+            lblTitre.Location = new Point(0, 31);
+            lblTitre.Name = "lblTitre";
+            lblTitre.Size = new Size(429, 67);
+            lblTitre.TabIndex = 0;
+            lblTitre.Text = "Consulter la carte";
+            lblTitre.Click += label1_Click;
             // 
             // btnReseauComplet
             // 
@@ -97,30 +97,30 @@
             label2.Size = new Size(0, 20);
             label2.TabIndex = 5;
             // 
-            // panel1
+            // pnlBackround
             // 
-            panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(btnLigne);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(btnReseauComplet);
-            panel1.Controls.Add(btnHoraires);
-            panel1.Location = new Point(402, 177);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(424, 379);
-            panel1.TabIndex = 7;
+            pnlBackround.BackColor = SystemColors.ControlLightLight;
+            pnlBackround.Controls.Add(pbAccueil);
+            pnlBackround.Controls.Add(btnLigne);
+            pnlBackround.Controls.Add(lblTitre);
+            pnlBackround.Controls.Add(btnReseauComplet);
+            pnlBackround.Controls.Add(btnHoraires);
+            pnlBackround.Location = new Point(402, 177);
+            pnlBackround.Name = "pnlBackround";
+            pnlBackround.Size = new Size(424, 379);
+            pnlBackround.TabIndex = 7;
             // 
-            // pictureBox1
+            // pbAccueil
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-            pictureBox1.Location = new Point(361, 318);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(43, 42);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 8;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            pbAccueil.Image = (Image)resources.GetObject("pbAccueil.Image");
+            pbAccueil.InitialImage = (Image)resources.GetObject("pbAccueil.InitialImage");
+            pbAccueil.Location = new Point(361, 318);
+            pbAccueil.Name = "pbAccueil";
+            pbAccueil.Size = new Size(43, 42);
+            pbAccueil.SizeMode = PictureBoxSizeMode.Zoom;
+            pbAccueil.TabIndex = 8;
+            pbAccueil.TabStop = false;
+            pbAccueil.Click += pictureBox1_Click;
             // 
             // Consultercarte
             // 
@@ -128,29 +128,30 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 753);
-            Controls.Add(panel1);
+            Controls.Add(pnlBackround);
             Controls.Add(label2);
             Controls.Add(linkLabel1);
             Name = "Consultercarte";
+            Text = "Consulter la carte";
             FormClosing += Consultercarte_FormClosing;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlBackround.ResumeLayout(false);
+            pnlBackround.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbAccueil).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label lblTitre;
         private Button btnReseauComplet;
         private Button btnLigne;
         private Button btnHoraires;
         private LinkLabel linkLabel1;
         private Label label2;
         private Button btnRetour;
-        private Panel panel1;
+        private Panel pnlBackround;
         private Panel panel2;
-        private PictureBox pictureBox1;
+        private PictureBox pbAccueil;
     }
 }

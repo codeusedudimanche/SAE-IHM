@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjoutLigne));
             txtBNomLigne = new TextBox();
-            label1 = new Label();
+            lblTitre = new Label();
             lblNom = new Label();
             lstBArret = new ListBox();
-            button1 = new Button();
+            btnValiderArret = new Button();
             lblNomLigne = new Label();
             btnValiderAjoutLigne = new Button();
             pbEspaceAdmin = new PictureBox();
-            button2 = new Button();
+            btnRetour = new Button();
             lblNumeroLigne = new Label();
             txtbNumeroLigne = new TextBox();
             lbNomArretAjoute = new ListBox();
@@ -54,15 +54,15 @@
             txtBNomLigne.TabIndex = 0;
             txtBNomLigne.TextChanged += txtBNom_TextChanged;
             // 
-            // label1
+            // lblTitre
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(255, 26);
-            label1.Name = "label1";
-            label1.Size = new Size(287, 46);
-            label1.TabIndex = 1;
-            label1.Text = "Ajouter une ligne";
+            lblTitre.AutoSize = true;
+            lblTitre.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitre.Location = new Point(255, 26);
+            lblTitre.Name = "lblTitre";
+            lblTitre.Size = new Size(287, 46);
+            lblTitre.TabIndex = 1;
+            lblTitre.Text = "Ajouter une ligne";
             // 
             // lblNom
             // 
@@ -81,20 +81,20 @@
             lstBArret.Size = new Size(316, 184);
             lstBArret.TabIndex = 3;
             // 
-            // button1
+            // btnValiderArret
             // 
-            button1.Location = new Point(28, 288);
-            button1.Name = "button1";
-            button1.Size = new Size(316, 40);
-            button1.TabIndex = 4;
-            button1.Text = "Valider l'ajout de l'arret à la ligne";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += btnAjoutArret_Click;
+            btnValiderArret.Location = new Point(28, 288);
+            btnValiderArret.Name = "btnValiderArret";
+            btnValiderArret.Size = new Size(316, 40);
+            btnValiderArret.TabIndex = 4;
+            btnValiderArret.Text = "Valider l'ajout de l'arret à la ligne";
+            btnValiderArret.UseVisualStyleBackColor = true;
+            btnValiderArret.Click += btnAjoutArret_Click;
             // 
             // lblNomLigne
             // 
             lblNomLigne.AutoSize = true;
-            lblNomLigne.Location = new Point(421, 229);
+            lblNomLigne.Location = new Point(419, 233);
             lblNomLigne.Name = "lblNomLigne";
             lblNomLigne.Size = new Size(121, 20);
             lblNomLigne.TabIndex = 5;
@@ -123,16 +123,16 @@
             pbEspaceAdmin.TabStop = false;
             pbEspaceAdmin.Click += pbRetour_Click;
             // 
-            // button2
+            // btnRetour
             // 
-            button2.BackColor = Color.Red;
-            button2.Location = new Point(28, 334);
-            button2.Name = "button2";
-            button2.Size = new Size(316, 37);
-            button2.TabIndex = 12;
-            button2.Text = "Retour en arrière";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += btnAnnuler_Click;
+            btnRetour.BackColor = Color.Red;
+            btnRetour.Location = new Point(28, 334);
+            btnRetour.Name = "btnRetour";
+            btnRetour.Size = new Size(316, 37);
+            btnRetour.TabIndex = 12;
+            btnRetour.Text = "Retour en arrière";
+            btnRetour.UseVisualStyleBackColor = false;
+            btnRetour.Click += btnAnnuler_Click;
             // 
             // lblNumeroLigne
             // 
@@ -166,11 +166,11 @@
             panel1.Controls.Add(lbNomArretAjoute);
             panel1.Controls.Add(txtBNomLigne);
             panel1.Controls.Add(lblNumeroLigne);
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(lblTitre);
             panel1.Controls.Add(txtbNumeroLigne);
             panel1.Controls.Add(lblNom);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnRetour);
+            panel1.Controls.Add(btnValiderArret);
             panel1.Controls.Add(lblNomLigne);
             panel1.Controls.Add(btnValiderAjoutLigne);
             panel1.Location = new Point(190, 34);
@@ -186,7 +186,7 @@
             ClientSize = new Size(1182, 753);
             Controls.Add(panel1);
             Name = "AjoutLigne";
-            Text = "Form1";
+            Text = "AjoutLigne";
             FormClosing += AjoutLigne_FormClosing;
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).EndInit();
             panel1.ResumeLayout(false);
@@ -197,14 +197,14 @@
         #endregion
 
         private TextBox txtBNomLigne;
-        private Label label1;
+        private Label lblTitre;
         private Label lblNom;
         private ListBox lstBArret;
-        private Button button1;
+        private Button btnValiderArret;
         private Label lblNomLigne;
         private Button btnValiderAjoutLigne;
         private PictureBox pbEspaceAdmin;
-        private Button button2;
+        private Button btnRetour;
         private Label lblNumeroLigne;
         private TextBox txtbNumeroLigne;
         private ListBox lbNomArretAjoute;

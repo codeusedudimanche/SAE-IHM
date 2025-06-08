@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RechercherTrajet));
-            label1 = new Label();
+            lblTitre = new Label();
             linkLabel1 = new LinkLabel();
             label2 = new Label();
             textBoxArretDepart = new TextBox();
             textBoxArretArrivee = new TextBox();
             checkBoxHoraire = new CheckBox();
-            panel1 = new Panel();
+            pnlBackround = new Panel();
             pictureBox1 = new PictureBox();
-            panel1.SuspendLayout();
+            pnlBackround.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // lblTitre
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(4, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(491, 67);
-            label1.TabIndex = 0;
-            label1.Text = "Rechercher un trajet";
-            label1.Click += label1_Click;
+            lblTitre.AutoSize = true;
+            lblTitre.Font = new Font("Segoe UI Semibold", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitre.Location = new Point(4, 24);
+            lblTitre.Name = "lblTitre";
+            lblTitre.Size = new Size(491, 67);
+            lblTitre.TabIndex = 0;
+            lblTitre.Text = "Rechercher un trajet";
+            lblTitre.Click += label1_Click;
             // 
             // linkLabel1
             // 
@@ -98,18 +98,18 @@
             checkBoxHoraire.UseVisualStyleBackColor = true;
             checkBoxHoraire.CheckedChanged += checkBox1_CheckedChanged;
             // 
-            // panel1
+            // pnlBackround
             // 
-            panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(checkBoxHoraire);
-            panel1.Controls.Add(textBoxArretDepart);
-            panel1.Controls.Add(textBoxArretArrivee);
-            panel1.Location = new Point(350, 200);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(498, 364);
-            panel1.TabIndex = 6;
+            pnlBackround.BackColor = SystemColors.ControlLightLight;
+            pnlBackround.Controls.Add(pictureBox1);
+            pnlBackround.Controls.Add(lblTitre);
+            pnlBackround.Controls.Add(checkBoxHoraire);
+            pnlBackround.Controls.Add(textBoxArretDepart);
+            pnlBackround.Controls.Add(textBoxArretArrivee);
+            pnlBackround.Location = new Point(350, 200);
+            pnlBackround.Name = "pnlBackround";
+            pnlBackround.Size = new Size(498, 364);
+            pnlBackround.TabIndex = 6;
             // 
             // pictureBox1
             // 
@@ -129,14 +129,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 753);
-            Controls.Add(panel1);
+            Controls.Add(pnlBackround);
             Controls.Add(label2);
             Controls.Add(linkLabel1);
             Name = "RechercherTrajet";
             Text = "RechercherTrajet";
             FormClosing += RechercherTrajet_FormClosing;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlBackround.ResumeLayout(false);
+            pnlBackround.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -144,13 +144,13 @@
 
         #endregion
 
-        private Label label1;
+        private Label lblTitre;
         private LinkLabel linkLabel1;
         private Label label2;
         private TextBox textBoxArretDepart;
         private TextBox textBoxArretArrivee;
         private CheckBox checkBoxHoraire;
-        private Panel panel1;
+        private Panel pnlBackround;
         private PictureBox pictureBox1;
     }
 }

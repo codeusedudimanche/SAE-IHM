@@ -34,7 +34,7 @@
             cbJourFerie = new CheckBox();
             btnValider = new Button();
             pbEspaceAdmin = new PictureBox();
-            panel1 = new Panel();
+            pnlBackround = new Panel();
             lblAlerteHeure = new Label();
             gbPeriode = new GroupBox();
             lblHoraire = new Label();
@@ -47,7 +47,7 @@
             lblLigne = new Label();
             cbLigne = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).BeginInit();
-            panel1.SuspendLayout();
+            pnlBackround.SuspendLayout();
             gbPeriode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudMinute).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudHeure).BeginInit();
@@ -73,7 +73,6 @@
             cbSemaine.Text = "Jour de la semaine";
             cbSemaine.UseVisualStyleBackColor = true;
             cbSemaine.CheckedChanged += cbPeriode_Changed;
-            cbJourFerie.CheckedChanged += cbPeriode_Changed;
             // 
             // cbJourFerie
             // 
@@ -84,6 +83,7 @@
             cbJourFerie.TabIndex = 13;
             cbJourFerie.Text = "Jour férié et week-end";
             cbJourFerie.UseVisualStyleBackColor = true;
+            cbJourFerie.CheckedChanged += cbPeriode_Changed;
             // 
             // btnValider
             // 
@@ -108,28 +108,28 @@
             pbEspaceAdmin.TabStop = false;
             pbEspaceAdmin.Click += pbEspaceAdmin_Click;
             // 
-            // panel1
+            // pnlBackround
             // 
-            panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(lblAlerteHeure);
-            panel1.Controls.Add(pbEspaceAdmin);
-            panel1.Controls.Add(gbPeriode);
-            panel1.Controls.Add(lblHoraire);
-            panel1.Controls.Add(lblArret);
-            panel1.Controls.Add(nudMinute);
-            panel1.Controls.Add(nudHeure);
-            panel1.Controls.Add(lblMinute);
-            panel1.Controls.Add(lblHeure);
-            panel1.Controls.Add(cbArret);
-            panel1.Controls.Add(lblLigne);
-            panel1.Controls.Add(cbLigne);
-            panel1.Controls.Add(btnValider);
-            panel1.Controls.Add(lblTitre);
-            panel1.Location = new Point(270, 101);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(671, 541);
-            panel1.TabIndex = 16;
-            panel1.Paint += panel1_Paint;
+            pnlBackround.BackColor = SystemColors.ControlLightLight;
+            pnlBackround.Controls.Add(lblAlerteHeure);
+            pnlBackround.Controls.Add(pbEspaceAdmin);
+            pnlBackround.Controls.Add(gbPeriode);
+            pnlBackround.Controls.Add(lblHoraire);
+            pnlBackround.Controls.Add(lblArret);
+            pnlBackround.Controls.Add(nudMinute);
+            pnlBackround.Controls.Add(nudHeure);
+            pnlBackround.Controls.Add(lblMinute);
+            pnlBackround.Controls.Add(lblHeure);
+            pnlBackround.Controls.Add(cbArret);
+            pnlBackround.Controls.Add(lblLigne);
+            pnlBackround.Controls.Add(cbLigne);
+            pnlBackround.Controls.Add(btnValider);
+            pnlBackround.Controls.Add(lblTitre);
+            pnlBackround.Location = new Point(270, 101);
+            pnlBackround.Name = "pnlBackround";
+            pnlBackround.Size = new Size(671, 541);
+            pnlBackround.TabIndex = 16;
+            pnlBackround.Paint += panel1_Paint;
             // 
             // lblAlerteHeure
             // 
@@ -237,15 +237,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 753);
-            Controls.Add(panel1);
+            Controls.Add(pnlBackround);
             Name = "AjoutHoraire";
             Text = "AjoutHoraire";
             FormClosing += AjoutHoraire_FormClosing;
             FormClosed += AjoutHoraire_FormClosed;
             Load += AjoutHoraire_Load;
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlBackround.ResumeLayout(false);
+            pnlBackround.PerformLayout();
             gbPeriode.ResumeLayout(false);
             gbPeriode.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudMinute).EndInit();
@@ -260,7 +260,7 @@
         private CheckBox cbJourFerie;
         private Button btnValider;
         private PictureBox pbEspaceAdmin;
-        private Panel panel1;
+        private Panel pnlBackround;
         private ComboBox cbLigne;
         private Label lblLigne;
         private Label lblArret;

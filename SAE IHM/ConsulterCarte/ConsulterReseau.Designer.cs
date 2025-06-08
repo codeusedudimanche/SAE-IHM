@@ -30,47 +30,47 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsulterReseau));
             panelCarte = new Panel();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
+            pbAccueil = new PictureBox();
+            pbCarte = new PictureBox();
             lblNomLigne = new Label();
             panelCarte.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAccueil).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbCarte).BeginInit();
             SuspendLayout();
             // 
             // panelCarte
             // 
             panelCarte.BackColor = SystemColors.ControlLightLight;
-            panelCarte.Controls.Add(pictureBox2);
-            panelCarte.Controls.Add(pictureBox1);
+            panelCarte.Controls.Add(pbAccueil);
+            panelCarte.Controls.Add(pbCarte);
             panelCarte.Controls.Add(lblNomLigne);
             panelCarte.Location = new Point(309, 66);
             panelCarte.Name = "panelCarte";
             panelCarte.Size = new Size(678, 684);
             panelCarte.TabIndex = 2;
             // 
-            // pictureBox2
+            // pbAccueil
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.InitialImage = (Image)resources.GetObject("pictureBox2.InitialImage");
-            pictureBox2.Location = new Point(34, 617);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(43, 43);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 8;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            pbAccueil.Image = (Image)resources.GetObject("pbAccueil.Image");
+            pbAccueil.InitialImage = (Image)resources.GetObject("pbAccueil.InitialImage");
+            pbAccueil.Location = new Point(34, 617);
+            pbAccueil.Name = "pbAccueil";
+            pbAccueil.Size = new Size(43, 43);
+            pbAccueil.SizeMode = PictureBoxSizeMode.Zoom;
+            pbAccueil.TabIndex = 8;
+            pbAccueil.TabStop = false;
+            pbAccueil.Click += pictureBox2_Click;
             // 
-            // pictureBox1
+            // pbCarte
             // 
-            pictureBox1.BackgroundImage = Properties.Resources.Plan_Tulsa1;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(83, 101);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(522, 515);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click_1;
+            pbCarte.BackgroundImage = Properties.Resources.Plan_Tulsa1;
+            pbCarte.BackgroundImageLayout = ImageLayout.Zoom;
+            pbCarte.Location = new Point(83, 101);
+            pbCarte.Name = "pbCarte";
+            pbCarte.Size = new Size(522, 515);
+            pbCarte.TabIndex = 1;
+            pbCarte.TabStop = false;
+            pbCarte.Click += pictureBox1_Click_1;
             // 
             // lblNomLigne
             // 
@@ -90,11 +90,11 @@
             ClientSize = new Size(1182, 753);
             Controls.Add(panelCarte);
             Name = "ConsulterReseau";
-            Text = "ConsulterReseau";
+            Text = "Consulter le Reseau";
             panelCarte.ResumeLayout(false);
             panelCarte.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAccueil).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbCarte).EndInit();
             ResumeLayout(false);
         }
 
@@ -102,7 +102,7 @@
 
         private Panel panelCarte;
         private Label lblNomLigne;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private PictureBox pbCarte;
+        private PictureBox pbAccueil;
     }
 }

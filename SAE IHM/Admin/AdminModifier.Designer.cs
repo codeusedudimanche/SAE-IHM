@@ -29,37 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminModifier));
-            panel1 = new Panel();
+            pnlBackround = new Panel();
             pbAcceuil = new PictureBox();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
+            lblHoraire = new Label();
+            lblLigne = new Label();
             lblTitre = new Label();
             pbAjoutLigne = new PictureBox();
             pbAjoutArret = new PictureBox();
             pbHorraire = new PictureBox();
-            panel1.SuspendLayout();
+            lblArret = new Label();
+            pnlBackround.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutArret).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbHorraire).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // pnlBackround
             // 
-            panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(pbAcceuil);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(lblTitre);
-            panel1.Controls.Add(pbAjoutLigne);
-            panel1.Controls.Add(pbAjoutArret);
-            panel1.Controls.Add(pbHorraire);
-            panel1.Location = new Point(233, 275);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(598, 372);
-            panel1.TabIndex = 5;
+            pnlBackround.BackColor = SystemColors.ControlLightLight;
+            pnlBackround.Controls.Add(pbAcceuil);
+            pnlBackround.Controls.Add(lblHoraire);
+            pnlBackround.Controls.Add(lblLigne);
+            pnlBackround.Controls.Add(lblArret);
+            pnlBackround.Controls.Add(lblTitre);
+            pnlBackround.Controls.Add(pbAjoutLigne);
+            pnlBackround.Controls.Add(pbAjoutArret);
+            pnlBackround.Controls.Add(pbHorraire);
+            pnlBackround.Location = new Point(233, 275);
+            pnlBackround.Name = "pnlBackround";
+            pnlBackround.Size = new Size(598, 372);
+            pnlBackround.TabIndex = 5;
+            pnlBackround.Paint += panel1_Paint;
             // 
             // pbAcceuil
             // 
@@ -73,32 +74,23 @@
             pbAcceuil.TabStop = false;
             pbAcceuil.Click += pbAcceuil_Click;
             // 
-            // label4
+            // lblHoraire
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(456, 245);
-            label4.Name = "label4";
-            label4.Size = new Size(59, 20);
-            label4.TabIndex = 6;
-            label4.Text = "Horaire";
+            lblHoraire.AutoSize = true;
+            lblHoraire.Location = new Point(456, 245);
+            lblHoraire.Name = "lblHoraire";
+            lblHoraire.Size = new Size(59, 20);
+            lblHoraire.TabIndex = 6;
+            lblHoraire.Text = "Horaire";
             // 
-            // label3
+            // lblLigne
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(275, 245);
-            label3.Name = "label3";
-            label3.Size = new Size(45, 20);
-            label3.TabIndex = 5;
-            label3.Text = "Ligne";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(91, 245);
-            label2.Name = "label2";
-            label2.Size = new Size(42, 20);
-            label2.TabIndex = 4;
-            label2.Text = "Arrêt";
+            lblLigne.AutoSize = true;
+            lblLigne.Location = new Point(275, 245);
+            lblLigne.Name = "lblLigne";
+            lblLigne.Size = new Size(45, 20);
+            lblLigne.TabIndex = 5;
+            lblLigne.Text = "Ligne";
             // 
             // lblTitre
             // 
@@ -137,18 +129,29 @@
             pbHorraire.TabIndex = 0;
             pbHorraire.TabStop = false;
             // 
+            // lblArret
+            // 
+            lblArret.AutoSize = true;
+            lblArret.Location = new Point(91, 245);
+            lblArret.Name = "lblArret";
+            lblArret.Size = new Size(42, 20);
+            lblArret.TabIndex = 4;
+            lblArret.Text = "Arrêt";
+            // 
             // AdminModifier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 753);
-            Controls.Add(panel1);
+            Controls.Add(pnlBackround);
             Name = "AdminModifier";
             Text = "AdminModifier";
+            FormClosing += AdminModifier_FormClosing;
+            FormClosed += AdminModifier_FormClosed;
             Load += AdminModifier_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlBackround.ResumeLayout(false);
+            pnlBackround.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAjoutArret).EndInit();
@@ -158,14 +161,14 @@
 
         #endregion
 
-        private Panel panel1;
+        private Panel pnlBackround;
         private PictureBox pbAcceuil;
-        private Label label4;
-        private Label label3;
-        private Label label2;
+        private Label lblHoraire;
+        private Label lblLigne;
         private Label lblTitre;
         private PictureBox pbAjoutLigne;
         private PictureBox pbAjoutArret;
         private PictureBox pbHorraire;
+        private Label lblArret;
     }
 }
