@@ -44,47 +44,50 @@ namespace SAE_IHM
             int idArret;
             double Longitude;
             double Latitude;
-            
-            try
+            if (DialogResult.Yes == MessageBox.Show("Êtes-vous sûr de vouloir ajouter cette arret ?", "Confirmation", MessageBoxButtons.YesNo))
             {
-                idArret = Convert.ToInt32(txtbNumeroArret.Text);
+                try
+                {
+                    idArret = Convert.ToInt32(txtbNumeroArret.Text);
+                }
+                catch
+                {
+
+                    MessageBox.Show("Le numéro d'arrêt doit être un entier.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string txtArret = txtbNomArret.Text;
+                try
+                {
+                    Latitude = Convert.ToDouble(txtbLatitude.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("La latitude doit être un nombre valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                try
+                {
+                    Longitude = Convert.ToDouble(txtbLongitude.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("La longitude doit être un nombre valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                try
+                {
+                    BD.AjoutArret(idArret, txtArret, Latitude, Longitude);
+                    MessageBox.Show("L'arrêt a été ajouté avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Une erreur s'est produite lors de l'ajout de l'arrêt. Veuillez vérifier les informations saisies.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch
-            {
                 
-                MessageBox.Show("Le numéro d'arrêt doit être un entier.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-                
-            string txtArret = txtbNomArret.Text;
-            try
-            {
-                Latitude = Convert.ToDouble(txtbLatitude.Text);
-            }
-            catch
-            {
-                MessageBox.Show("La latitude doit être un nombre valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            try
-            {
-                Longitude = Convert.ToDouble(txtbLongitude.Text);
-            }
-            catch
-            {
-                MessageBox.Show("La longitude doit être un nombre valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            try
-            {
-                BD.AjoutArret(idArret, txtArret, Latitude, Longitude);
-                MessageBox.Show("L'arrêt a été ajouté avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Une erreur s'est produite lors de l'ajout de l'arrêt. Veuillez vérifier les informations saisies.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
         }
         private void AjoutArret_Load(object sender, EventArgs e)

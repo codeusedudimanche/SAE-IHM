@@ -81,28 +81,31 @@ namespace SAE_IHM
             string nomLigne = txtBNomLigne.Text;
             string destinationLigne = listeArretAjouter[ordre - 2].Nom;
 
-
-            try
+            if (DialogResult.Yes == MessageBox.Show("Êtes-vous sûr de vouloir ajouter cette ligne ?", "Confirmation", MessageBoxButtons.YesNo))
             {
-                int numeroLigne = Convert.ToInt32(txtbNumeroLigne.Text);
                 try
                 {
-                    BD.AjoutLigne(numeroLigne, nomLigne, destinationLigne, listeArretAjouter);
-                    MessageBox.Show("La ligne a été ajouté avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    this.Close();
+                    int numeroLigne = Convert.ToInt32(txtbNumeroLigne.Text);
+                    try
+                    {
+                        BD.AjoutLigne(numeroLigne, nomLigne, destinationLigne, listeArretAjouter);
+                        MessageBox.Show("La ligne a été ajouté avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Erreur lors de l'ajout de la ligne. Veuillez vérifier les informations saisies.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 catch
                 {
-                    MessageBox.Show("Erreur lors de l'ajout de la ligne. Veuillez vérifier les informations saisies.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Veuillez entrer un nombre pour le numero de ligne", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    txtbNumeroLigne.Text = "";
+                    NumeroLigne_TextChanged(sender, e);
                 }
             }
-            catch
-            {
-                MessageBox.Show("Veuillez entrer un nombre pour le numero de ligne", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                txtbNumeroLigne.Text = "";
-                NumeroLigne_TextChanged(sender, e);
-            }
+                
 
 
 

@@ -15,8 +15,6 @@ namespace SAE_IHM
         public AdminModifier()
         {
             InitializeComponent();
-            this.BackgroundImage = Image.FromFile("fond.jpg");
-            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void AdminModifier_Load(object sender, EventArgs e)

@@ -242,11 +242,11 @@ namespace Base
             {
                 cmd_2.ExecuteNonQuery();
                 cmd_1.ExecuteNonQuery();
-                MessageBox.Show("Ligne supprimée avec succès.");
+                MessageBox.Show("Ligne supprimée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de la suppression de la ligne : {ex}");
+                MessageBox.Show($"Erreur lors de la suppression de la ligne : {ex}" , "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -295,7 +295,8 @@ namespace Base
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de l'ajout de l'horaire : {ex}");
+                MessageBox.Show($"Erreur lors de l'ajout de l'horaire : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
                 result = false;
             }
             finally

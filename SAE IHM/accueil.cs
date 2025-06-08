@@ -6,7 +6,7 @@ namespace SAE_IHM
 {
     public partial class accueil : Form
     {
-        
+
         public accueil()
         {
             InitializeComponent();
@@ -53,6 +53,7 @@ namespace SAE_IHM
             panel1 = new Panel();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
+            AdminRaccourci = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -105,6 +106,7 @@ namespace SAE_IHM
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(AdminRaccourci);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(Titre);
@@ -139,6 +141,16 @@ namespace SAE_IHM
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click_1;
+            // 
+            // AdminRaccourci
+            // 
+            AdminRaccourci.Location = new Point(179, 338);
+            AdminRaccourci.Name = "AdminRaccourci";
+            AdminRaccourci.Size = new Size(145, 29);
+            AdminRaccourci.TabIndex = 7;
+            AdminRaccourci.Text = "Admin";
+            AdminRaccourci.UseVisualStyleBackColor = true;
+            AdminRaccourci.Click += AdminRaccourci_Click;
             // 
             // accueil
             // 
@@ -225,7 +237,16 @@ namespace SAE_IHM
 
         private void btnAdminAjout_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private Button AdminRaccourci;
+
+        private void AdminRaccourci_Click(object sender, EventArgs e)
+        {
+            EspaceAdmin espaceAdmin = new EspaceAdmin();
+            espaceAdmin.Show();
+            this.Hide();
         }
     }
 }

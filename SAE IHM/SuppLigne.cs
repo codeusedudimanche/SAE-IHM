@@ -47,6 +47,7 @@ namespace SAE_IHM
                     comboBoxLigne.ValueMember = "NLigne";
                     // Optionnel : Vous pouvez également mettre à jour la base de données ici si nécessaire
                     BD.DeleteLigne(Nligne);
+
                 }
                 else
                 {
@@ -58,6 +59,11 @@ namespace SAE_IHM
         private void comboBoxLigne_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbEspaceAdmin_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

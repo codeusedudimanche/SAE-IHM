@@ -29,19 +29,25 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppLigne));
             panel1 = new Panel();
+            pbEspaceAdmin = new PictureBox();
             btnSupp = new Button();
             comboBoxLigne = new ComboBox();
             ligneBindingSource1 = new BindingSource(components);
             label1 = new Label();
             ligneBindingSource = new BindingSource(components);
+            lblChoisir = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ligneBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ligneBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(lblChoisir);
+            panel1.Controls.Add(pbEspaceAdmin);
             panel1.Controls.Add(btnSupp);
             panel1.Controls.Add(comboBoxLigne);
             panel1.Controls.Add(label1);
@@ -50,6 +56,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(488, 427);
             panel1.TabIndex = 0;
+            // 
+            // pbEspaceAdmin
+            // 
+            pbEspaceAdmin.Image = (Image)resources.GetObject("pbEspaceAdmin.Image");
+            pbEspaceAdmin.InitialImage = (Image)resources.GetObject("pbEspaceAdmin.InitialImage");
+            pbEspaceAdmin.Location = new Point(31, 362);
+            pbEspaceAdmin.Name = "pbEspaceAdmin";
+            pbEspaceAdmin.Size = new Size(43, 42);
+            pbEspaceAdmin.SizeMode = PictureBoxSizeMode.Zoom;
+            pbEspaceAdmin.TabIndex = 12;
+            pbEspaceAdmin.TabStop = false;
+            pbEspaceAdmin.Click += pbEspaceAdmin_Click;
             // 
             // btnSupp
             // 
@@ -91,6 +109,15 @@
             // 
             ligneBindingSource.DataSource = typeof(Base.Ligne);
             // 
+            // lblChoisir
+            // 
+            lblChoisir.AutoSize = true;
+            lblChoisir.Location = new Point(95, 165);
+            lblChoisir.Name = "lblChoisir";
+            lblChoisir.Size = new Size(139, 20);
+            lblChoisir.TabIndex = 13;
+            lblChoisir.Text = "Choisisser une ligne";
+            // 
             // SuppLigne
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -104,6 +131,7 @@
             FormClosed += SuppLigne_FormClosed;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).EndInit();
             ((System.ComponentModel.ISupportInitialize)ligneBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)ligneBindingSource).EndInit();
             ResumeLayout(false);
@@ -117,5 +145,7 @@
         private Button btnSupp;
         private BindingSource ligneBindingSource;
         private BindingSource ligneBindingSource1;
+        private PictureBox pbEspaceAdmin;
+        private Label lblChoisir;
     }
 }

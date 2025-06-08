@@ -108,32 +108,36 @@ namespace SAE_IHM
         {
             int jourSemaine = 0;
             bool succes; // Variable pour vérifier si l'ajout a réussi
-            if (cbSemaine.Checked && cbJourFerie.Checked)
-            {
-                jourSemaine = 3; // On considére que 3 vaut pour tous le temps
-            }
-            else if (cbSemaine.Checked)
-            {
-                jourSemaine = 1; // On considére que 1 vaut pour les jours de la semaine
-            }
-            else if (cbJourFerie.Checked) // Correction: Added 'if' keyword
-            {
-                jourSemaine = 2; // On considére que 2 vaut pour les jours fériés uniquement
-            }
+            if (DialogResult.Yes == MessageBox.Show("Êtes-vous sûr de vouloir ajouter cette horraire ?", "Confirmation", MessageBoxButtons.YesNo))
+                {
+                if (cbSemaine.Checked && cbJourFerie.Checked)
+                {
+                    jourSemaine = 3; // On considére que 3 vaut pour tous le temps
+                }
+                else if (cbSemaine.Checked)
+                {
+                    jourSemaine = 1; // On considére que 1 vaut pour les jours de la semaine
+                }
+                else if (cbJourFerie.Checked) // Correction: Added 'if' keyword
+                {
+                    jourSemaine = 2; // On considére que 2 vaut pour les jours fériés uniquement
+                }
 
-            int nLigne = ((Ligne)cbLigne.SelectedItem).NLigne; // Récupération du numéro de la ligne sélectionnée
-            int nArret = ((Arret)cbArret.SelectedItem).Id; // Récupération de l'ID de l'arrêt sélectionné
-            string horaire = $"{(int)nudHeure.Value:D2}:{(int)nudMinute.Value:D2}:00"; // Formatage de l'heure et des minutes
-            succes = BD.AjoutHorraire(jourSemaine, nLigne, nArret, horaire); // Appel de la méthode pour ajouter l'horaire
-            if (succes)
-            {
-                MessageBox.Show("Horaire ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); // Fermer le formulaire après l'ajout réussi
+                int nLigne = ((Ligne)cbLigne.SelectedItem).NLigne; // Récupération du numéro de la ligne sélectionnée
+                int nArret = ((Arret)cbArret.SelectedItem).Id; // Récupération de l'ID de l'arrêt sélectionné
+                string horaire = $"{(int)nudHeure.Value:D2}:{(int)nudMinute.Value:D2}:00"; // Formatage de l'heure et des minutes
+                succes = BD.AjoutHorraire(jourSemaine, nLigne, nArret, horaire); // Appel de la méthode pour ajouter l'horaire
+                if (succes)
+                {
+                    MessageBox.Show("Horaire ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close(); // Fermer le formulaire après l'ajout réussi
+                }
+                else
+                {
+                    MessageBox.Show("Échec de l'ajout de l'horaire. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                MessageBox.Show("Échec de l'ajout de l'horaire. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void cbPeriode_Changed(object sender, EventArgs e)
