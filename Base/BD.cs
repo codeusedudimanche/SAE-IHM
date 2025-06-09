@@ -259,6 +259,32 @@ namespace Base
             }
             return GetLigne();
         }
+
+        public static ListeArret DeleteArret(int idArret)
+        {
+            string requeteSQL_1 = "DELETE FROM Arret WHERE `N°Arret` = @idArret";
+            MySqlCommand cmd_1 = new MySqlCommand(requeteSQL_1, conn);
+            cmd_1.Parameters.AddWithValue("@idArret", idArret);
+            string requetSQL_2 = "DELETE FROM Ordre WHERE `N°Arret` = @idArret";
+            MySqlCommand cmd_2 = new MySqlCommand(requetSQL_2, conn);
+            cmd_2.Parameters.AddWithValue("@idArret", idArret);
+            try
+            {
+                cmd_2.ExecuteNonQuery();
+                cmd_1.ExecuteNonQuery();
+                MessageBox.Show("Arret supprimée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la suppression de l'arret : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cmd_2.Dispose();
+                cmd_1.Dispose();
+            }
+            return GetArret();
+        }
         public static ListeArret listeArretDeLigne(Ligne ligne)
         {
             string requeteSQL = "SELECT a.* FROM Arret a,Ordre o  " +
