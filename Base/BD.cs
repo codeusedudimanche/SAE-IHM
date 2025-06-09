@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Bcpg;
+using Org.BouncyCastle.Tls;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 
@@ -198,7 +199,7 @@ namespace Base
                     int ordre = i + 1;
 
                     BD.AjoutOrdre(id, nArret, ordre);
-                } 
+                }
 
                 return true;
             }
@@ -249,7 +250,7 @@ namespace Base
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de la suppression de la ligne : {ex}" , "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erreur lors de la suppression de la ligne : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -299,7 +300,7 @@ namespace Base
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur lors de l'ajout de l'horaire : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
                 result = false;
             }
             finally
@@ -352,6 +353,21 @@ namespace Base
             cmd.Dispose();
             return listeLigne;
         }
+        public static int GetMax(int idLigne)
+        {
+            string requeteSQL = "SELECT MAX(Ordre) FROM Ordre WHERE  `N°Ligne` = @idLigne";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idLigne", idLigne);
+            int max = 0;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                max = reader.GetInt32(0);
+            }
+            reader.Close();
+            cmd.Dispose();
+            return max;
+        }
         public static void SupprimerLigneDunArret(int idArret, int idLigne)
         {
             string requeteSQL = "DELETE FROM Ordre WHERE `N°Arret` = @idArret AND `N°Ligne` = @idLigne";
@@ -367,6 +383,31 @@ namespace Base
             cmd.ExecuteNonQuery();
             MessageBox.Show("Ligne supprimée de l'arrêt avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-    }
 
+        public static bool ModifArret(int id, string nom, double longi, double lat)
+        {
+            string requeteSQL = "UPDATE Arret SET NomArret = @nom, LongitudeArret = @long, LatitudeArret = @lat WHERE `N°Arret` = @id";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@long", longi);
+            cmd.Parameters.AddWithValue("@lat", lat);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("L'arrêt a été modifié avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la modification de l'arrêt : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
+
+        }
+    }
 }

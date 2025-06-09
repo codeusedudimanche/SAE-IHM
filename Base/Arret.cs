@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Org.BouncyCastle.Asn1.Esf;
 
 namespace Base
 {
@@ -29,6 +30,15 @@ namespace Base
         public double Latitude
         {
             get { return _LatitudeArret; }
+        }
+        //Méthodes
+        public override bool Equals(object obj)
+        {
+            if (obj is Arret other)
+            {
+                return Id == other.Id && Nom == other.Nom && Longitude == other.Longitude && Latitude == other.Latitude;
+            }
+            return false;
         }
     }
 }

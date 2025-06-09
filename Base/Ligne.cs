@@ -46,5 +46,19 @@ namespace Base
             return $"Ligne {_NLigne} - {_NomLigne}";
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is Ligne other)
+            {
+                return NLigne == other.NLigne;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return NLigne.GetHashCode();
+        }
+
     }
 }
