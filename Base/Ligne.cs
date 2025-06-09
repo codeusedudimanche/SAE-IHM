@@ -41,7 +41,10 @@ namespace Base
 
         //Méthodes
 
-
+        public override string ToString()
+        {
+            return $"Ligne {_NLigne} - {_NomLigne}";
+        }
 
     }
 }

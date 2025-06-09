@@ -352,6 +352,21 @@ namespace Base
             cmd.Dispose();
             return listeLigne;
         }
+        public static void SupprimerLigneDunArret(int idArret, int idLigne)
+        {
+            string requeteSQL = "DELETE FROM Ordre WHERE `N°Arret` = @idArret AND `N°Ligne` = @idLigne";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idArret", idArret);
+            cmd.Parameters.AddWithValue("@idLigne", idLigne);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            requeteSQL = "DELETE FROM Horaire WHERE `N°Arret` = @idArret AND `N°Ligne` = @idLigne";
+            cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idArret", idArret);
+            cmd.Parameters.AddWithValue("@idLigne", idLigne);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Ligne supprimée de l'arrêt avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 
 }
