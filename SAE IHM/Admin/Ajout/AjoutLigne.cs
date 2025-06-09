@@ -105,7 +105,7 @@ namespace SAE_IHM
                     NumeroLigne_TextChanged(sender, e);
                 }
             }
-                
+
 
 
 
@@ -138,6 +138,16 @@ namespace SAE_IHM
         private void pbRetour_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lstBArret_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

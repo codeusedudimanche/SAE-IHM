@@ -121,9 +121,7 @@
   <data name="mytulsa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mytulsa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LandoNorris" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LandoNorris.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  
   <data name="Plan Tulsa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Plan Tulsa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

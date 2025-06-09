@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Base;
+using SAE_IHM.Admin.Modifier;
 
 namespace SAE_IHM
 {
-    
+
     public partial class AdminModifier : Form
     {
         private EspaceAdmin Parent;
@@ -36,12 +38,21 @@ namespace SAE_IHM
         }
         private void AdminModifier_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
         }
 
         private void AdminModifier_FormClosed(object sender, FormClosedEventArgs e)
         {
             Parent.Show();
+        }
+
+        private void pbModifierArret_Click(object sender, EventArgs e)
+        {
+            
+            // Ouvre la fenêtre de modification des arrêts
+            ModifierArret modifierArret = new ModifierArret(BD.GetArret().MesArret, Parent);
+            modifierArret.Show();
+            this.Hide();
         }
     }
 }

@@ -33,16 +33,16 @@
             pbAcceuil = new PictureBox();
             lblHoraire = new Label();
             lblLigne = new Label();
-            lblTitre = new Label();
-            pbAjoutLigne = new PictureBox();
-            pbAjoutArret = new PictureBox();
-            pbHorraire = new PictureBox();
             lblArret = new Label();
+            lblTitre = new Label();
+            pbModifierLigne = new PictureBox();
+            pbModifierArret = new PictureBox();
+            pbModifierHorraire = new PictureBox();
             pnlBackround.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbAjoutArret).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbHorraire).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbModifierLigne).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbModifierArret).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbModifierHorraire).BeginInit();
             SuspendLayout();
             // 
             // pnlBackround
@@ -53,9 +53,9 @@
             pnlBackround.Controls.Add(lblLigne);
             pnlBackround.Controls.Add(lblArret);
             pnlBackround.Controls.Add(lblTitre);
-            pnlBackround.Controls.Add(pbAjoutLigne);
-            pnlBackround.Controls.Add(pbAjoutArret);
-            pnlBackround.Controls.Add(pbHorraire);
+            pnlBackround.Controls.Add(pbModifierLigne);
+            pnlBackround.Controls.Add(pbModifierArret);
+            pnlBackround.Controls.Add(pbModifierHorraire);
             pnlBackround.Location = new Point(233, 275);
             pnlBackround.Name = "pnlBackround";
             pnlBackround.Size = new Size(598, 372);
@@ -92,6 +92,15 @@
             lblLigne.TabIndex = 5;
             lblLigne.Text = "Ligne";
             // 
+            // lblArret
+            // 
+            lblArret.AutoSize = true;
+            lblArret.Location = new Point(91, 245);
+            lblArret.Name = "lblArret";
+            lblArret.Size = new Size(42, 20);
+            lblArret.TabIndex = 4;
+            lblArret.Text = "Arrêt";
+            // 
             // lblTitre
             // 
             lblTitre.AutoSize = true;
@@ -102,41 +111,33 @@
             lblTitre.TabIndex = 3;
             lblTitre.Text = "Modifier";
             // 
-            // pbAjoutLigne
+            // pbModifierLigne
             // 
-            pbAjoutLigne.BackColor = SystemColors.AppWorkspace;
-            pbAjoutLigne.Location = new Point(238, 159);
-            pbAjoutLigne.Name = "pbAjoutLigne";
-            pbAjoutLigne.Size = new Size(125, 62);
-            pbAjoutLigne.TabIndex = 1;
-            pbAjoutLigne.TabStop = false;
+            pbModifierLigne.BackColor = SystemColors.AppWorkspace;
+            pbModifierLigne.Location = new Point(238, 159);
+            pbModifierLigne.Name = "pbModifierLigne";
+            pbModifierLigne.Size = new Size(125, 62);
+            pbModifierLigne.TabIndex = 1;
+            pbModifierLigne.TabStop = false;
             // 
-            // pbAjoutArret
+            // pbModifierArret
             // 
-            pbAjoutArret.BackColor = SystemColors.AppWorkspace;
-            pbAjoutArret.Location = new Point(52, 159);
-            pbAjoutArret.Name = "pbAjoutArret";
-            pbAjoutArret.Size = new Size(125, 62);
-            pbAjoutArret.TabIndex = 2;
-            pbAjoutArret.TabStop = false;
+            pbModifierArret.BackColor = SystemColors.AppWorkspace;
+            pbModifierArret.Location = new Point(52, 159);
+            pbModifierArret.Name = "pbModifierArret";
+            pbModifierArret.Size = new Size(125, 62);
+            pbModifierArret.TabIndex = 2;
+            pbModifierArret.TabStop = false;
+            pbModifierArret.Click += pbModifierArret_Click;
             // 
-            // pbHorraire
+            // pbModifierHorraire
             // 
-            pbHorraire.BackColor = SystemColors.AppWorkspace;
-            pbHorraire.Location = new Point(424, 159);
-            pbHorraire.Name = "pbHorraire";
-            pbHorraire.Size = new Size(125, 62);
-            pbHorraire.TabIndex = 0;
-            pbHorraire.TabStop = false;
-            // 
-            // lblArret
-            // 
-            lblArret.AutoSize = true;
-            lblArret.Location = new Point(91, 245);
-            lblArret.Name = "lblArret";
-            lblArret.Size = new Size(42, 20);
-            lblArret.TabIndex = 4;
-            lblArret.Text = "Arrêt";
+            pbModifierHorraire.BackColor = SystemColors.AppWorkspace;
+            pbModifierHorraire.Location = new Point(424, 159);
+            pbModifierHorraire.Name = "pbModifierHorraire";
+            pbModifierHorraire.Size = new Size(125, 62);
+            pbModifierHorraire.TabIndex = 0;
+            pbModifierHorraire.TabStop = false;
             // 
             // AdminModifier
             // 
@@ -153,9 +154,9 @@
             pnlBackround.ResumeLayout(false);
             pnlBackround.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbAjoutLigne).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbAjoutArret).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbHorraire).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbModifierLigne).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbModifierArret).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbModifierHorraire).EndInit();
             ResumeLayout(false);
         }
 
@@ -166,9 +167,9 @@
         private Label lblHoraire;
         private Label lblLigne;
         private Label lblTitre;
-        private PictureBox pbAjoutLigne;
-        private PictureBox pbAjoutArret;
-        private PictureBox pbHorraire;
+        private PictureBox pbModifierLigne;
+        private PictureBox pbModifierArret;
+        private PictureBox pbModifierHorraire;
         private Label lblArret;
     }
 }

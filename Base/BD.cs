@@ -1,7 +1,10 @@
 ﻿using System.Net;
 using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Bcpg;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 
 namespace Base
@@ -304,6 +307,50 @@ namespace Base
                 cmd.Dispose();
             }
             return result;
+        }
+
+        public static Arret InfoArret(int idArret)
+        {
+            string requeteSQL = " SELECT * FROM Arret WHERE `N°Arret` = @nArret";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@nArret", idArret);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            Arret arret = null;
+            if (reader.Read())
+            {
+                int id = reader.GetInt32(0);
+                string nom = reader.GetString(1);
+                double longitude = reader.GetDouble(2);
+                double latitude = reader.GetDouble(3);
+                arret = new Arret(id, nom, longitude, latitude);
+
+
+            }
+            else
+            {
+                MessageBox.Show("Aucun arrêt trouvé avec cet ID.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            reader.Close();
+            cmd.Dispose();
+            return arret;
+        }
+        public static ListeLigne GetListeLigneArret(int idArret)
+        {
+            string requeteSQL = "SELECT Ligne.* FROM Ordre, Ligne WHERE `N°Arret` = @idArret AND Ordre.N°Ligne = Ligne.N°Ligne";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idArret", idArret);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            ListeLigne listeLigne = new ListeLigne();
+            while (reader.Read())
+            {
+                int idLigne = reader.GetInt32(0);
+                string nomLigne = reader.GetString(1);
+                string destinationLigne = reader.GetString(2);
+                listeLigne.AjoutLigne(idLigne, nomLigne, destinationLigne);
+            }
+            reader.Close();
+            cmd.Dispose();
+            return listeLigne;
         }
     }
 

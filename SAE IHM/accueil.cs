@@ -1,13 +1,14 @@
 using System.Windows.Forms;
+using System.Windows.Forms;
 using Base;
 using static System.Windows.Forms.DataFormats;
 
 namespace SAE_IHM
 {
-    public partial class accueil : Form
+    public partial class Accueil : Form
     {
 
-        public accueil()
+        public Accueil()
         {
             InitializeComponent();
             BD.Connexion();
@@ -45,18 +46,18 @@ namespace SAE_IHM
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(accueil));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Accueil));
             Titre = new Label();
             btnConsulterCarte = new Button();
             btnConfigTrajet = new Button();
             btnEspaceBillets = new Button();
-            panel1 = new Panel();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
+            pnlBackround = new Panel();
             AdminRaccourci = new Button();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pbConnexion = new PictureBox();
+            pbMyTulsa = new PictureBox();
+            pnlBackround.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbConnexion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbMyTulsa).BeginInit();
             SuspendLayout();
             // 
             // Titre
@@ -103,44 +104,21 @@ namespace SAE_IHM
             btnEspaceBillets.UseVisualStyleBackColor = true;
             btnEspaceBillets.Click += button1_Click_2;
             // 
-            // panel1
+            // pnlBackround
             // 
-            panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(AdminRaccourci);
-            panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(Titre);
-            panel1.Controls.Add(btnEspaceBillets);
-            panel1.Controls.Add(btnConfigTrajet);
-            panel1.Controls.Add(btnConsulterCarte);
-            panel1.Location = new Point(400, 200);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(402, 393);
-            panel1.TabIndex = 4;
-            panel1.Paint += panel1_Paint_1;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(27, 331);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(42, 44);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 6;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBoxConnexion_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox1.Image = Properties.Resources.mytulsa;
-            pictureBox1.Location = new Point(33, 20);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(339, 155);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click_1;
+            pnlBackround.BackColor = SystemColors.ControlLightLight;
+            pnlBackround.Controls.Add(AdminRaccourci);
+            pnlBackround.Controls.Add(pbConnexion);
+            pnlBackround.Controls.Add(pbMyTulsa);
+            pnlBackround.Controls.Add(Titre);
+            pnlBackround.Controls.Add(btnEspaceBillets);
+            pnlBackround.Controls.Add(btnConfigTrajet);
+            pnlBackround.Controls.Add(btnConsulterCarte);
+            pnlBackround.Location = new Point(400, 200);
+            pnlBackround.Name = "pnlBackround";
+            pnlBackround.Size = new Size(402, 393);
+            pnlBackround.TabIndex = 4;
+            pnlBackround.Paint += panel1_Paint_1;
             // 
             // AdminRaccourci
             // 
@@ -152,18 +130,42 @@ namespace SAE_IHM
             AdminRaccourci.UseVisualStyleBackColor = true;
             AdminRaccourci.Click += AdminRaccourci_Click;
             // 
-            // accueil
+            // pbConnexion
+            // 
+            pbConnexion.Image = (Image)resources.GetObject("pbConnexion.Image");
+            pbConnexion.Location = new Point(27, 331);
+            pbConnexion.Name = "pbConnexion";
+            pbConnexion.Size = new Size(42, 44);
+            pbConnexion.SizeMode = PictureBoxSizeMode.Zoom;
+            pbConnexion.TabIndex = 6;
+            pbConnexion.TabStop = false;
+            pbConnexion.Click += pictureBoxConnexion_Click;
+            // 
+            // pbMyTulsa
+            // 
+            pbMyTulsa.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pbMyTulsa.Image = Properties.Resources.mytulsa;
+            pbMyTulsa.Location = new Point(33, 20);
+            pbMyTulsa.Name = "pbMyTulsa";
+            pbMyTulsa.Size = new Size(339, 155);
+            pbMyTulsa.SizeMode = PictureBoxSizeMode.Zoom;
+            pbMyTulsa.TabIndex = 5;
+            pbMyTulsa.TabStop = false;
+            pbMyTulsa.Click += pictureBox1_Click_1;
+            // 
+            // Accueil
             // 
             BackColor = Color.FromArgb(0, 64, 0);
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 753);
-            Controls.Add(panel1);
-            Name = "accueil";
+            Controls.Add(pnlBackround);
+            Name = "Accueil";
+            Text = "Accueil - MyTulsa";
             Load += accueil_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlBackround.ResumeLayout(false);
+            pnlBackround.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbConnexion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbMyTulsa).EndInit();
             ResumeLayout(false);
         }
 
@@ -201,7 +203,7 @@ namespace SAE_IHM
             this.Hide();
         }
 
-        private Panel panel1;
+        private Panel pnlBackround;
 
         private void accueil_Load(object sender, EventArgs e)
         {
@@ -218,7 +220,7 @@ namespace SAE_IHM
 
         }
 
-        private PictureBox pictureBox1;
+        private PictureBox pbMyTulsa;
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
@@ -233,7 +235,7 @@ namespace SAE_IHM
             this.Hide();
         }
 
-        private PictureBox pictureBox2;
+        private PictureBox pbConnexion;
 
         private void btnAdminAjout_Click(object sender, EventArgs e)
         {

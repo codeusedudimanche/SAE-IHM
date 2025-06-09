@@ -41,9 +41,9 @@
             lblNumeroLigne = new Label();
             txtbNumeroLigne = new TextBox();
             lbNomArretAjoute = new ListBox();
-            panel1 = new Panel();
+            pnlBackround = new Panel();
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).BeginInit();
-            panel1.SuspendLayout();
+            pnlBackround.SuspendLayout();
             SuspendLayout();
             // 
             // txtBNomLigne
@@ -80,6 +80,7 @@
             lstBArret.Name = "lstBArret";
             lstBArret.Size = new Size(316, 184);
             lstBArret.TabIndex = 3;
+            lstBArret.SelectedIndexChanged += lstBArret_SelectedIndexChanged;
             // 
             // btnValiderArret
             // 
@@ -159,24 +160,25 @@
             lbNomArretAjoute.Size = new Size(348, 104);
             lbNomArretAjoute.TabIndex = 17;
             // 
-            // panel1
+            // pnlBackround
             // 
-            panel1.Controls.Add(lstBArret);
-            panel1.Controls.Add(pbEspaceAdmin);
-            panel1.Controls.Add(lbNomArretAjoute);
-            panel1.Controls.Add(txtBNomLigne);
-            panel1.Controls.Add(lblNumeroLigne);
-            panel1.Controls.Add(lblTitre);
-            panel1.Controls.Add(txtbNumeroLigne);
-            panel1.Controls.Add(lblNom);
-            panel1.Controls.Add(btnRetour);
-            panel1.Controls.Add(btnValiderArret);
-            panel1.Controls.Add(lblNomLigne);
-            panel1.Controls.Add(btnValiderAjoutLigne);
-            panel1.Location = new Point(190, 34);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(801, 476);
-            panel1.TabIndex = 18;
+            pnlBackround.Controls.Add(lstBArret);
+            pnlBackround.Controls.Add(pbEspaceAdmin);
+            pnlBackround.Controls.Add(lbNomArretAjoute);
+            pnlBackround.Controls.Add(txtBNomLigne);
+            pnlBackround.Controls.Add(lblNumeroLigne);
+            pnlBackround.Controls.Add(lblTitre);
+            pnlBackround.Controls.Add(txtbNumeroLigne);
+            pnlBackround.Controls.Add(lblNom);
+            pnlBackround.Controls.Add(btnRetour);
+            pnlBackround.Controls.Add(btnValiderArret);
+            pnlBackround.Controls.Add(lblNomLigne);
+            pnlBackround.Controls.Add(btnValiderAjoutLigne);
+            pnlBackround.Location = new Point(190, 34);
+            pnlBackround.Name = "pnlBackround";
+            pnlBackround.Size = new Size(801, 476);
+            pnlBackround.TabIndex = 18;
+            pnlBackround.Paint += panel1_Paint;
             // 
             // AjoutLigne
             // 
@@ -184,13 +186,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fond_d_application;
             ClientSize = new Size(1182, 753);
-            Controls.Add(panel1);
+            Controls.Add(pnlBackround);
             Name = "AjoutLigne";
             Text = "AjoutLigne";
             FormClosing += AjoutLigne_FormClosing;
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlBackround.ResumeLayout(false);
+            pnlBackround.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -208,6 +210,6 @@
         private Label lblNumeroLigne;
         private TextBox txtbNumeroLigne;
         private ListBox lbNomArretAjoute;
-        private Panel panel1;
+        private Panel pnlBackround;
     }
 }
