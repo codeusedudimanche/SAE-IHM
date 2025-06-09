@@ -46,18 +46,17 @@
             pnlBackround.Controls.Add(btnSupp);
             pnlBackround.Controls.Add(comboBoxArret);
             pnlBackround.Controls.Add(lblTitre);
-            pnlBackround.Location = new Point(304, 41);
-            pnlBackround.Margin = new Padding(3, 4, 3, 4);
+            pnlBackround.Location = new Point(266, 31);
             pnlBackround.Name = "pnlBackround";
-            pnlBackround.Size = new Size(488, 427);
+            pnlBackround.Size = new Size(427, 320);
             pnlBackround.TabIndex = 1;
             // 
             // lblChoisir
             // 
             lblChoisir.AutoSize = true;
-            lblChoisir.Location = new Point(95, 165);
+            lblChoisir.Location = new Point(83, 124);
             lblChoisir.Name = "lblChoisir";
-            lblChoisir.Size = new Size(129, 20);
+            lblChoisir.Size = new Size(104, 15);
             lblChoisir.TabIndex = 13;
             lblChoisir.Text = "Choisisser un arret";
             // 
@@ -65,19 +64,20 @@
             // 
             pbEspaceAdmin.Image = (Image)resources.GetObject("pbEspaceAdmin.Image");
             pbEspaceAdmin.InitialImage = (Image)resources.GetObject("pbEspaceAdmin.InitialImage");
-            pbEspaceAdmin.Location = new Point(31, 363);
+            pbEspaceAdmin.Location = new Point(27, 272);
+            pbEspaceAdmin.Margin = new Padding(3, 2, 3, 2);
             pbEspaceAdmin.Name = "pbEspaceAdmin";
-            pbEspaceAdmin.Size = new Size(43, 43);
+            pbEspaceAdmin.Size = new Size(38, 32);
             pbEspaceAdmin.SizeMode = PictureBoxSizeMode.Zoom;
             pbEspaceAdmin.TabIndex = 12;
             pbEspaceAdmin.TabStop = false;
+            pbEspaceAdmin.Click += pbEspaceAdmin_Click;
             // 
             // btnSupp
             // 
-            btnSupp.Location = new Point(95, 289);
-            btnSupp.Margin = new Padding(3, 4, 3, 4);
+            btnSupp.Location = new Point(83, 217);
             btnSupp.Name = "btnSupp";
-            btnSupp.Size = new Size(303, 45);
+            btnSupp.Size = new Size(265, 34);
             btnSupp.TabIndex = 2;
             btnSupp.Text = "Supprimer";
             btnSupp.UseVisualStyleBackColor = true;
@@ -86,10 +86,9 @@
             // comboBoxArret
             // 
             comboBoxArret.FormattingEnabled = true;
-            comboBoxArret.Location = new Point(95, 189);
-            comboBoxArret.Margin = new Padding(3, 4, 3, 4);
+            comboBoxArret.Location = new Point(83, 142);
             comboBoxArret.Name = "comboBoxArret";
-            comboBoxArret.Size = new Size(302, 28);
+            comboBoxArret.Size = new Size(265, 23);
             comboBoxArret.TabIndex = 1;
             comboBoxArret.SelectedIndexChanged += comboBoxArret_SelectedIndexChanged;
             // 
@@ -97,20 +96,19 @@
             // 
             lblTitre.AutoSize = true;
             lblTitre.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold);
-            lblTitre.Location = new Point(95, 33);
+            lblTitre.Location = new Point(83, 25);
             lblTitre.Name = "lblTitre";
-            lblTitre.Size = new Size(314, 46);
+            lblTitre.Size = new Size(249, 37);
             lblTitre.TabIndex = 0;
             lblTitre.Text = "Supprimer un arret";
             // 
             // SuppArret
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fond_d_application;
-            ClientSize = new Size(1182, 749);
+            ClientSize = new Size(1034, 562);
             Controls.Add(pnlBackround);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "SuppArret";
             Text = "Supprimer un arrêt";
             FormClosed += SuppArret_FormClosed;

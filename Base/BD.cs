@@ -452,5 +452,74 @@ namespace Base
             cmd.Dispose();
             return listeArret;
         }
+
+        public static ListeHoraire GetHorairesPourArret(int nArret)
+        {
+            ListeHoraire listeHoraireWrapper = new ListeHoraire();
+            string requeteSQL = "SELECT Horaire, Jour_Semaine, `N°Ligne`, `N°Arret` FROM Horaire " +
+                                "WHERE `N°Arret` = @nArret " +
+                                "ORDER BY `N°Ligne`, Jour_Semaine, Horaire";
+
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@nArret", nArret);
+
+            MySqlDataReader reader = null;
+            try
+            {
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    TimeSpan heure = reader.GetTimeSpan(0);
+                    int jourSemaine = reader.GetInt32(1);
+                    int nLigne = reader.GetInt32(2);
+                    int nArretRecupere = reader.GetInt32(3);
+                    listeHoraireWrapper.AjoutHoraire(heure, jourSemaine, nLigne, nArretRecupere);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la récupération des horaires pour l'arrêt {nArret} : {ex.Message}", "Erreur BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                reader?.Close();
+                reader?.Dispose();
+                cmd.Dispose();
+            }
+            return listeHoraireWrapper;
+        }
+
+        public static bool DeleteHoraire(Horaire horaire)
+        {
+            string requeteSQL = "DELETE FROM Horaire WHERE `N°Ligne` = @nLigne AND `N°Arret` = @nArret AND Jour_Semaine = @jourSemaine AND Horaire = @heure";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@nLigne", horaire.NLigne);
+            cmd.Parameters.AddWithValue("@nArret", horaire.NArret);
+            cmd.Parameters.AddWithValue("@jourSemaine", horaire.JourSemaine);
+            cmd.Parameters.AddWithValue("@heure", horaire.Heure);
+            try
+            {
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Horaire supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Aucun horaire trouvé à supprimer.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la suppression de l'horaire : {ex.Message}", "Erreur BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
+        }
     }
 }

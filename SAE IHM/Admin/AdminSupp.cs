@@ -47,7 +47,7 @@ namespace SAE_IHM
 
         private void pbSuppHorraire_Click(object sender, EventArgs e)
         {
-            SuppHorraire formSuppHorraire = new SuppHorraire(parentEspace);
+            SuppHorraire formSuppHorraire = new SuppHorraire(listeArrets.MesArret, parentEspace);
             formSuppHorraire.Show();
             this.Hide();
         }
