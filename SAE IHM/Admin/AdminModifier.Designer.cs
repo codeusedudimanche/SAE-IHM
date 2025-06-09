@@ -56,7 +56,7 @@
             pnlBackround.Controls.Add(pbModifierLigne);
             pnlBackround.Controls.Add(pbModifierArret);
             pnlBackround.Controls.Add(pbModifierHorraire);
-            pnlBackround.Location = new Point(233, 275);
+            pnlBackround.Location = new Point(314, 218);
             pnlBackround.Name = "pnlBackround";
             pnlBackround.Size = new Size(598, 372);
             pnlBackround.TabIndex = 5;
@@ -113,7 +113,9 @@
             // 
             // pbModifierLigne
             // 
-            pbModifierLigne.BackColor = SystemColors.AppWorkspace;
+            pbModifierLigne.BackColor = Color.Transparent;
+            pbModifierLigne.BackgroundImage = Properties.Resources.feuille_de_route;
+            pbModifierLigne.BackgroundImageLayout = ImageLayout.Zoom;
             pbModifierLigne.Location = new Point(238, 159);
             pbModifierLigne.Name = "pbModifierLigne";
             pbModifierLigne.Size = new Size(125, 62);
@@ -122,7 +124,9 @@
             // 
             // pbModifierArret
             // 
-            pbModifierArret.BackColor = SystemColors.AppWorkspace;
+            pbModifierArret.BackColor = Color.Transparent;
+            pbModifierArret.BackgroundImage = Properties.Resources.emplacement;
+            pbModifierArret.BackgroundImageLayout = ImageLayout.Zoom;
             pbModifierArret.Location = new Point(52, 159);
             pbModifierArret.Name = "pbModifierArret";
             pbModifierArret.Size = new Size(125, 62);
@@ -132,7 +136,9 @@
             // 
             // pbModifierHorraire
             // 
-            pbModifierHorraire.BackColor = SystemColors.AppWorkspace;
+            pbModifierHorraire.BackColor = Color.Transparent;
+            pbModifierHorraire.BackgroundImage = Properties.Resources.temps;
+            pbModifierHorraire.BackgroundImageLayout = ImageLayout.Zoom;
             pbModifierHorraire.Location = new Point(424, 159);
             pbModifierHorraire.Name = "pbModifierHorraire";
             pbModifierHorraire.Size = new Size(125, 62);

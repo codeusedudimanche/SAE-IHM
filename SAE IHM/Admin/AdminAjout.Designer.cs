@@ -47,7 +47,9 @@
             // 
             // pbHorraire
             // 
-            pbHorraire.BackColor = SystemColors.AppWorkspace;
+            pbHorraire.BackColor = Color.Transparent;
+            pbHorraire.BackgroundImage = Properties.Resources.temps;
+            pbHorraire.BackgroundImageLayout = ImageLayout.Zoom;
             pbHorraire.Location = new Point(424, 159);
             pbHorraire.Name = "pbHorraire";
             pbHorraire.Size = new Size(125, 62);
@@ -57,7 +59,9 @@
             // 
             // pbAjoutLigne
             // 
-            pbAjoutLigne.BackColor = SystemColors.AppWorkspace;
+            pbAjoutLigne.BackColor = Color.Transparent;
+            pbAjoutLigne.BackgroundImage = Properties.Resources.feuille_de_route;
+            pbAjoutLigne.BackgroundImageLayout = ImageLayout.Zoom;
             pbAjoutLigne.Location = new Point(238, 159);
             pbAjoutLigne.Name = "pbAjoutLigne";
             pbAjoutLigne.Size = new Size(125, 62);
@@ -67,7 +71,9 @@
             // 
             // pbAjoutArret
             // 
-            pbAjoutArret.BackColor = SystemColors.AppWorkspace;
+            pbAjoutArret.BackColor = Color.Transparent;
+            pbAjoutArret.BackgroundImage = Properties.Resources.emplacement;
+            pbAjoutArret.BackgroundImageLayout = ImageLayout.Zoom;
             pbAjoutArret.Location = new Point(52, 159);
             pbAjoutArret.Name = "pbAjoutArret";
             pbAjoutArret.Size = new Size(125, 62);
@@ -161,7 +167,6 @@
             pnlBackround.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).EndInit();
             ResumeLayout(false);
-
         }
 
         #endregion
