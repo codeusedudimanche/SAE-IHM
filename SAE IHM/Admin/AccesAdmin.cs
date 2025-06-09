@@ -19,20 +19,8 @@ namespace SAE_IHM
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void Titre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void textBoxIdentifiant_TextChanged(object sender, EventArgs e)
         {
@@ -68,15 +56,19 @@ namespace SAE_IHM
             textBoxIdentifiant_TextChanged(sender, e);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pbAccueil_Click(object sender, EventArgs e)
         {
-            Application.OpenForms[0]!.Show();
             this.Close();
         }
 
         private void AccesAdmin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void AccesAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.OpenForms[0]!.Show();
         }
     }
 }
