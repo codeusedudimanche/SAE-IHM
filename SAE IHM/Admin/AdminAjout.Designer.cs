@@ -47,30 +47,36 @@
             // 
             // pbHorraire
             // 
-            pbHorraire.BackColor = SystemColors.AppWorkspace;
+            pbHorraire.BackColor = Color.White;
+            pbHorraire.Image = (Image)resources.GetObject("pbHorraire.Image");
             pbHorraire.Location = new Point(424, 159);
             pbHorraire.Name = "pbHorraire";
             pbHorraire.Size = new Size(125, 62);
+            pbHorraire.SizeMode = PictureBoxSizeMode.Zoom;
             pbHorraire.TabIndex = 0;
             pbHorraire.TabStop = false;
             pbHorraire.Click += pbHoraire_Click;
             // 
             // pbAjoutLigne
             // 
-            pbAjoutLigne.BackColor = SystemColors.AppWorkspace;
+            pbAjoutLigne.BackColor = Color.White;
+            pbAjoutLigne.Image = (Image)resources.GetObject("pbAjoutLigne.Image");
             pbAjoutLigne.Location = new Point(238, 159);
             pbAjoutLigne.Name = "pbAjoutLigne";
             pbAjoutLigne.Size = new Size(125, 62);
+            pbAjoutLigne.SizeMode = PictureBoxSizeMode.Zoom;
             pbAjoutLigne.TabIndex = 1;
             pbAjoutLigne.TabStop = false;
             pbAjoutLigne.Click += pbAjoutLigne_Click;
             // 
             // pbAjoutArret
             // 
-            pbAjoutArret.BackColor = SystemColors.AppWorkspace;
+            pbAjoutArret.BackColor = SystemColors.Window;
+            pbAjoutArret.Image = (Image)resources.GetObject("pbAjoutArret.Image");
             pbAjoutArret.Location = new Point(52, 159);
             pbAjoutArret.Name = "pbAjoutArret";
             pbAjoutArret.Size = new Size(125, 62);
+            pbAjoutArret.SizeMode = PictureBoxSizeMode.Zoom;
             pbAjoutArret.TabIndex = 2;
             pbAjoutArret.TabStop = false;
             pbAjoutArret.Click += pbAjoutArret_Click;
@@ -161,7 +167,6 @@
             pnlBackround.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).EndInit();
             ResumeLayout(false);
-
         }
 
         #endregion

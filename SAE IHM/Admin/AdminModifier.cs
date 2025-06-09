@@ -48,11 +48,16 @@ namespace SAE_IHM
 
         private void pbModifierArret_Click(object sender, EventArgs e)
         {
-            
+
             // Ouvre la fenêtre de modification des arrêts
             ModifierArret modifierArret = new ModifierArret(BD.GetArret().MesArret, Parent);
             modifierArret.Show();
             this.Hide();
+        }
+
+        private void pbModifierLigne_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
