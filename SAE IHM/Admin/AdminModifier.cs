@@ -50,14 +50,16 @@ namespace SAE_IHM
         {
 
             // Ouvre la fenêtre de modification des arrêts
-            ModifierArret modifierArret = new ModifierArret(BD.GetArret().MesArret, Parent);
+            ModifierArret modifierArret = new ModifierArret(BD.GetArret().MesArret, this);
             modifierArret.Show();
             this.Hide();
         }
 
         private void pbModifierLigne_Click(object sender, EventArgs e)
         {
-
+            ModifierLigne modifierLigne = new ModifierLigne(BD.GetLigne().MesLigne, this);
+            modifierLigne.Show();
+            this.Hide();
         }
     }
 }

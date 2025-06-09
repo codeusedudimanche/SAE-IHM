@@ -194,7 +194,7 @@
             // 
             lblChoisissez.AutoSize = true;
             lblChoisissez.Font = new Font("Segoe UI", 10F);
-            lblChoisissez.Location = new Point(400, 84);
+            lblChoisissez.Location = new Point(270, 84);
             lblChoisissez.Name = "lblChoisissez";
             lblChoisissez.Size = new Size(153, 23);
             lblChoisissez.TabIndex = 14;

@@ -40,5 +40,10 @@ namespace Base
             }
             return false;
         }
+
+        public override string ToString()
+        {
+            return $"Arret {_NArret} - {_NomArret}";
+        }
     }
 }

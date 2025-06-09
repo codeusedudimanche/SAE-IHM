@@ -9,7 +9,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Base;
+using Base; 
 using Org.BouncyCastle.Pkix;
 
 namespace SAE_IHM.Admin.Modifier
@@ -22,7 +22,7 @@ namespace SAE_IHM.Admin.Modifier
         private bool _modificationInterneLatitudeLong = false;
         private bool miseAJourEnCours = false;
         private List<Arret> _lArret;
-        private EspaceAdmin _espaceAdmin;
+        private AdminModifier _espaceModifier;
         private List<PictureBox> boutonsSupprimer = new List<PictureBox>();
         private List<Ligne> _listeDesLignes = new List<Ligne>();
         private List<Ligne> _listeDesLignesBackup = new List<Ligne>();
@@ -31,11 +31,11 @@ namespace SAE_IHM.Admin.Modifier
 
 
         //Constructeur
-        public ModifierArret(List<Arret> lArret, EspaceAdmin espaceAdm)
+        public ModifierArret(List<Arret> lArret, AdminModifier admnModifier)
         {
             InitializeComponent();
             _lArret = lArret;
-            _espaceAdmin = espaceAdm;
+            _espaceModifier = admnModifier;
             cbArret.DataSource = _lArret;
             cbArret.DisplayMember = "Nom";
             cbArret.ValueMember = "Id";
@@ -54,7 +54,7 @@ namespace SAE_IHM.Admin.Modifier
 
         private void ModifierArret_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _espaceAdmin.Show();
+            _espaceModifier.Close();
         }
 
         private void cbArret_SelectedIndexChanged(object sender, EventArgs e)

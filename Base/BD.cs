@@ -404,5 +404,27 @@ namespace Base
             }
 
         }
+        public static ListeArret GetArretDuneLigne(int idLigne)
+        {
+            string requeteSQL = "SELECT a.* FROM Arret a, Ordre o " +
+                                "WHERE a.`N°Arret` = o.`N°Arret` " +
+                                "AND o.`N°Ligne` = @nLigne " +
+                                "ORDER BY o.Ordre";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@nLigne", idLigne);
+            ListeArret listeArret = new ListeArret();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int idArret = reader.GetInt32(0);
+                string nomArret = reader.GetString(1);
+                double longitudeArret = reader.GetDouble(2);
+                double latitudeArret = reader.GetDouble(3);
+                listeArret.AjoutArret(idArret, nomArret, longitudeArret, latitudeArret);
+            }
+            reader.Close();
+            cmd.Dispose();
+            return listeArret;
+        }
     }
 }
