@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Base;
 
-namespace SAE_IHM.Admin.Modifier
+namespace SAE_IHM.Admin.Modifier 
 {
     public partial class ModifierLigne : Form
     {
@@ -34,8 +34,8 @@ namespace SAE_IHM.Admin.Modifier
             {
                 txtNumero.Text = selectedLigne.NLigne.ToString();
                 txtDestination.Text = selectedLigne.Destination;
-
-                List<Arret> _listeArrets = BD.GetArretDuneLigne(selectedLigne.NLigne).MesArret;
+                txtNom.Text = selectedLigne.NomLigne;
+                _listeArrets = BD.GetArretDuneLigne(selectedLigne.NLigne).MesArret;
                 _listeArretBackup = new List<Arret>(_listeArrets); // Sauvegarde de la liste d'arrêts pour les modifications
                 lbArret.DataSource = null; // Important pour forcer le refresh
                 lbArret.DataSource = _listeArrets;
@@ -47,21 +47,26 @@ namespace SAE_IHM.Admin.Modifier
 
         private bool VerifModif()
         {
-            Ligne ligne = (Ligne)cbLigne.SelectedItem;
-            // Vérification si les arrets ont été modifiés
-            if (_listeArretBackup.Count() == _listeArrets.Count() 
-                && ligne.NLigne.ToString() == txtNumero.Text 
-                && ligne.Destination == txtDestination.Text)
+            if (_listeArretBackup == null || _listeArrets == null)
             {
-                btnValider.Enabled = false; // Désactive le bouton de validation si la ligne n'a pas été modifiée
-                return false; // La ligne n'a pas été modifiée
+                return false; // Handle null case appropriately  
             }
-            btnValider.Enabled = true; // Active le bouton de validation si la ligne a été modifiée
-            return true; // La ligne a été modifiée
+
+            Ligne ligne = (Ligne)cbLigne.SelectedItem;
+            if (_listeArretBackup.Count() == _listeArrets.Count()
+                && ligne?.NLigne.ToString() == txtNumero.Text
+                && ligne?.Destination == txtDestination.Text
+                && ligne?.NomLigne == txtNom.Text)
+            {
+                btnValider.Enabled = false;
+                return false;
+            }
+            btnValider.Enabled = true;
+            return true;
         }
         private void CreerBoutonsPourChaqueLigne()
         {
-            int y = 347; // Position verticale initiale pour les boutons
+            int y = 358; // Position verticale initiale pour les boutons
             foreach (var bouton in boutonsSupprimer)
             {
                 this.Controls.Remove(bouton);
@@ -86,8 +91,35 @@ namespace SAE_IHM.Admin.Modifier
         }
         private void BtnSupprimer_Click(object sender, EventArgs e)
         {
+            PictureBox btn = sender as PictureBox;
+            if (btn != null && btn.Tag is int index)
+            {
+                // Récupère l'arrêt à supprimer depuis la ListBox
+                Arret arretASupprimer = lbArret.Items[index] as Arret;
 
+                if (arretASupprimer != null)
+                {
+                    // Supprime dans la source de données 
+                    _listeArrets.Remove(arretASupprimer); // liste liée à lbArret.DataSource
+
+                    // Met à jour l'affichage
+                    lbArret.DataSource = null;
+                    lbArret.DataSource = _listeArrets;
+
+                    // Supprime le bouton correspondant
+                    this.Controls.Remove(btn);
+
+                    // Met à jour la liste des boutons (si tu en as une pour chaque arrêt)
+                    boutonsSupprimer.Remove(btn);
+                }
+            }
+
+            // Met à jour l'affichage des boutons de suppression
+            CreerBoutonsPourChaqueLigne();
+            VisibilitePoubelle();// Met à jour la visibilité des boutons de suppression
+            VerifModif(); // Vérifie si des modifications ont été faites
         }
+
         private void VisibilitePoubelle()
         {
             int selectedIndex = lbArret.SelectedIndex;
@@ -106,10 +138,54 @@ namespace SAE_IHM.Admin.Modifier
         {
             this.Close();
         }
+        private List<Arret> GetArretASupprimer()
+        {
+            if ((_listeArretBackup?.Count() ?? 0) == (_listeArrets?.Count() ?? 0))
+            {
 
+                if (_listeArretBackup?.Count() == _listeArrets?.Count())
+                    return null; // Aucune ligne n'a été supprimée, retourne null
+            }
+            List<Arret> arrets = new List<Arret>();
+            foreach (Arret arret in _listeArretBackup)
+            {
+                if (!_listeArrets.Contains(arret))
+                {
+                    arrets.Add(arret); // Ajoute la ligne à supprimer
+                }
+
+
+            }
+            return arrets;
+        }
         private void btnValider_Click(object sender, EventArgs e)
         {
+            if (DialogResult.Yes == MessageBox.Show("Êtes-vous sûr de vouloir modifier cette ligne ?", "Confirmation", MessageBoxButtons.YesNo))
+            {
+                Ligne ligne = (Ligne)cbLigne.SelectedItem;
+                //On verifie si il y a eu un changement dans la ligne
+                if (!(ligne?.NLigne.ToString() == txtNumero.Text
+                    && ligne?.Destination == txtDestination.Text && ligne?.NomLigne == txtNom.Text))
+                {
+                    BD.UpdateLigne(ligne.NLigne, Convert.ToInt32(txtNumero.Text), txtNom.Text, txtDestination.Text);
+                }
+                if (_listeArretBackup.Count() != _listeArrets.Count())
+                {
+                    List<Arret> arretsASupprimer = GetArretASupprimer();
+                    if (arretsASupprimer != null && arretsASupprimer.Count > 0)
+                    {
+                        foreach (Arret arret in arretsASupprimer)
+                        {
+                            if (BD.SupprimerArretDuneLigne(ligne.NLigne, arret.Id))
+                            {
+                                MessageBox.Show($"L'arret {arret.Nom} a été supprimée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
 
         private void lbArret_SelectedIndexChanged(object sender, EventArgs e)
@@ -121,9 +197,36 @@ namespace SAE_IHM.Admin.Modifier
         private void txtNumero_TextChanged(object sender, EventArgs e)
         {
             VerifModif();
+            if (!int.TryParse(txtNumero.Text, out int resultat))
+            {
+                MessageBox.Show("Le nombre doit un entier valide. ", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNumero.Text = cbLigne.SelectedItem is Ligne selectedLigne ? selectedLigne.NLigne.ToString() : string.Empty;
+
+            }
+        }
+        private void txtDestination_TextChanged(object sender, EventArgs e)
+        {
+            VerifModif();
         }
 
-        private void txtDestination_TextChanged(object sender, EventArgs e)
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            if (_listeArretBackup.Count() == _listeArrets.Count())
+            {
+                MessageBox.Show("Les lignes deservies sont deja réinitialisée. ", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                _listeArrets = new List<Arret>(_listeArretBackup); // Restaure la liste originale
+                lbArret.DataSource = null;
+                lbArret.DataSource = _listeArrets; // Met à jour l'affichage
+                CreerBoutonsPourChaqueLigne(); // Recrée les boutons de suppression
+                VisibilitePoubelle();// Met à jour la visibilité des boutons de suppression
+                VerifModif();
+            }
+        }
+
+        private void txtNom_TextChanged(object sender, EventArgs e)
         {
             VerifModif();
         }

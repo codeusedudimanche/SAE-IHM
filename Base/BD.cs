@@ -401,7 +401,7 @@ namespace Base
             cmd.Parameters.AddWithValue("@idArret", idArret);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
-            
+
             MessageBox.Show("Ligne supprimée de l'arrêt avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -519,6 +519,123 @@ namespace Base
             finally
             {
                 cmd.Dispose();
+            }
+        }
+
+        public static bool UpdateLigne(int idLigne, int newIdLigne, string NomLigne, string Destination)
+        {
+            string requeteSQL = "";
+            MySqlCommand cmd;
+            if (idLigne != newIdLigne)
+            {
+
+                // Vérifier si le nouvel ID de ligne existe déjà
+                string checkSQL = "SELECT COUNT(*) FROM Ligne WHERE `N°Ligne` = @newIdLigne";
+                MySqlCommand checkCmd = new MySqlCommand(checkSQL, conn);
+                checkCmd.Parameters.AddWithValue("@newIdLigne", newIdLigne);
+                int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+                checkCmd.Dispose();
+                if (count > 0)
+                {
+                    MessageBox.Show("Le nouvel ID de ligne existe déjà. Veuillez choisir un autre ID.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    requeteSQL = "UPDATE Ligne SET `N°Ligne` = @newIdLigne WHERE `N°Ligne` = @id";
+                    cmd = new MySqlCommand(requeteSQL, conn);
+                    cmd.Parameters.AddWithValue("@newIdLigne", newIdLigne);
+                    cmd.Parameters.AddWithValue("@id", idLigne);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erreur lors de la modification de l'ID de la ligne : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    finally
+                    {
+                        cmd.Dispose();
+                    }
+                }
+            }
+            requeteSQL = "UPDATE Ligne SET NomLigne = @nom, Destination = @destination WHERE `N°Ligne` = @id";
+            cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@id", newIdLigne);
+            cmd.Parameters.AddWithValue("@nom", NomLigne);
+            cmd.Parameters.AddWithValue("@destination", Destination);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("La ligne a été modifiée avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la modification de la ligne : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
+        }
+        public static bool SupprimerArretDuneLigne(int idLigne, int idArret)
+        {
+            string requeteSQL = "UPDATE Ordre SET Ordre = Ordre - 1 " +
+                         "WHERE `N°Ligne` = @idLigne AND Ordre > (SELECT Ordre FROM Ordre WHERE `N°Arret` = @idArret AND `N°Ligne` = @idLigne)";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idLigne", idLigne);
+            cmd.Parameters.AddWithValue("@idArret", idArret);
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la mise à jour des ordres : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
+            requeteSQL = "DELETE FROM Ordre WHERE `N°Ligne` = @idLigne AND `N°Arret` = @idArret";
+            cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idLigne", idLigne);
+            cmd.Parameters.AddWithValue("@idArret", idArret);
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Erreur lors de la suppression de l'arrêt de la ligne : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
+
+            requeteSQL = "DELETE FROM Horaire WHERE `N°Ligne` = @idLigne AND `N°Arret` = @idArret";
+            cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idLigne", idLigne);
+            cmd.Parameters.AddWithValue("@idArret", idArret);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la suppression des horaires : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
     }

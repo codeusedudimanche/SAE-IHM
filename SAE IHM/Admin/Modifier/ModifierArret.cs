@@ -172,7 +172,7 @@ namespace SAE_IHM.Admin.Modifier
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            if(DialogResult.Yes == MessageBox.Show("Êtes-vous sûr de vouloir ajouter cette arret ?", "Confirmation", MessageBoxButtons.YesNo)){
+            if(DialogResult.Yes == MessageBox.Show("Êtes-vous sûr de vouloir modifier cette arret ?", "Confirmation", MessageBoxButtons.YesNo)){
                 _listeDesLignes = GetLignesASupprimer(); // Récupère les lignes restantes après suppression
                 if (!AreArretEqual())
                     BD.ModifArret(arretChoisie.Id, txtNom.Text, Convert.ToDouble(txtLongitude.Text), Convert.ToDouble(txtLatitude.Text));

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifierLigne));
             pnlBackround = new Panel();
+            lblNom = new Label();
+            txtNom = new TextBox();
             btnValider = new Button();
             pbEspaceAdmin = new PictureBox();
             lblTitre = new Label();
@@ -50,6 +52,8 @@
             // 
             // pnlBackround
             // 
+            pnlBackround.Controls.Add(lblNom);
+            pnlBackround.Controls.Add(txtNom);
             pnlBackround.Controls.Add(btnValider);
             pnlBackround.Controls.Add(pbEspaceAdmin);
             pnlBackround.Controls.Add(lblTitre);
@@ -64,6 +68,23 @@
             pnlBackround.Name = "pnlBackround";
             pnlBackround.Size = new Size(827, 691);
             pnlBackround.TabIndex = 0;
+            // 
+            // lblNom
+            // 
+            lblNom.AutoSize = true;
+            lblNom.Location = new Point(219, 205);
+            lblNom.Name = "lblNom";
+            lblNom.Size = new Size(116, 20);
+            lblNom.TabIndex = 36;
+            lblNom.Text = "Nom de la ligne";
+            // 
+            // txtNom
+            // 
+            txtNom.Location = new Point(214, 227);
+            txtNom.Name = "txtNom";
+            txtNom.Size = new Size(423, 27);
+            txtNom.TabIndex = 35;
+            txtNom.TextChanged += txtNom_TextChanged;
             // 
             // btnValider
             // 
@@ -101,7 +122,7 @@
             // lblDestination
             // 
             lblDestination.AutoSize = true;
-            lblDestination.Location = new Point(220, 238);
+            lblDestination.Location = new Point(214, 263);
             lblDestination.Name = "lblDestination";
             lblDestination.Size = new Size(159, 20);
             lblDestination.TabIndex = 31;
@@ -109,7 +130,7 @@
             // 
             // txtDestination
             // 
-            txtDestination.Location = new Point(214, 265);
+            txtDestination.Location = new Point(214, 286);
             txtDestination.Name = "txtDestination";
             txtDestination.Size = new Size(423, 27);
             txtDestination.TabIndex = 30;
@@ -117,7 +138,7 @@
             // 
             // txtNumero
             // 
-            txtNumero.Location = new Point(214, 194);
+            txtNumero.Location = new Point(215, 171);
             txtNumero.Name = "txtNumero";
             txtNumero.Size = new Size(423, 27);
             txtNumero.TabIndex = 29;
@@ -126,7 +147,7 @@
             // lblNumero
             // 
             lblNumero.AutoSize = true;
-            lblNumero.Location = new Point(214, 161);
+            lblNumero.Location = new Point(215, 148);
             lblNumero.Name = "lblNumero";
             lblNumero.Size = new Size(137, 20);
             lblNumero.TabIndex = 28;
@@ -137,28 +158,29 @@
             gbLigne.Controls.Add(btnAnnuler);
             gbLigne.Controls.Add(lbArret);
             gbLigne.Controls.Add(lblLigneDeservie);
-            gbLigne.Location = new Point(153, 298);
+            gbLigne.Location = new Point(153, 310);
             gbLigne.Name = "gbLigne";
-            gbLigne.Size = new Size(588, 298);
+            gbLigne.Size = new Size(588, 286);
             gbLigne.TabIndex = 27;
             gbLigne.TabStop = false;
             // 
             // btnAnnuler
             // 
             btnAnnuler.BackColor = Color.FromArgb(192, 64, 0);
-            btnAnnuler.Location = new Point(6, 252);
+            btnAnnuler.Location = new Point(6, 256);
             btnAnnuler.Name = "btnAnnuler";
             btnAnnuler.Size = new Size(507, 29);
             btnAnnuler.TabIndex = 23;
             btnAnnuler.Text = "Annuler les changements";
             btnAnnuler.UseVisualStyleBackColor = false;
+            btnAnnuler.Click += btnAnnuler_Click;
             // 
             // lbArret
             // 
             lbArret.Font = new Font("Segoe UI", 10F);
             lbArret.FormattingEnabled = true;
             lbArret.ItemHeight = 23;
-            lbArret.Location = new Point(6, 37);
+            lbArret.Location = new Point(6, 39);
             lbArret.Name = "lbArret";
             lbArret.Size = new Size(507, 211);
             lbArret.TabIndex = 21;
@@ -167,7 +189,7 @@
             // lblLigneDeservie
             // 
             lblLigneDeservie.AutoSize = true;
-            lblLigneDeservie.Location = new Point(6, 14);
+            lblLigneDeservie.Location = new Point(6, 16);
             lblLigneDeservie.Name = "lblLigneDeservie";
             lblLigneDeservie.Size = new Size(101, 20);
             lblLigneDeservie.TabIndex = 22;
@@ -177,7 +199,7 @@
             // 
             lblChoisissez.AutoSize = true;
             lblChoisissez.Font = new Font("Segoe UI", 10F);
-            lblChoisissez.Location = new Point(215, 88);
+            lblChoisissez.Location = new Point(215, 76);
             lblChoisissez.Name = "lblChoisissez";
             lblChoisissez.Size = new Size(163, 23);
             lblChoisissez.TabIndex = 26;
@@ -186,7 +208,7 @@
             // cbLigne
             // 
             cbLigne.FormattingEnabled = true;
-            cbLigne.Location = new Point(215, 114);
+            cbLigne.Location = new Point(215, 102);
             cbLigne.Name = "cbLigne";
             cbLigne.Size = new Size(422, 28);
             cbLigne.TabIndex = 25;
@@ -226,5 +248,7 @@
         private Label lblTitre;
         private Button btnValider;
         private PictureBox pbEspaceAdmin;
+        private Label lblNom;
+        private TextBox txtNom;
     }
 }
