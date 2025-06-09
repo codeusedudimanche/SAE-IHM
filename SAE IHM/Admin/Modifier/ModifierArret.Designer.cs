@@ -42,6 +42,7 @@
             lblChoisissez = new Label();
             lblTitre = new Label();
             cbArret = new ComboBox();
+            btnValider = new Button();
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).BeginInit();
             pnlBackround.SuspendLayout();
             SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             // pnlBackround
             // 
+            pnlBackround.Controls.Add(btnValider);
             pnlBackround.Controls.Add(lblLigneDeservie);
             pnlBackround.Controls.Add(lbLigne);
             pnlBackround.Controls.Add(lblLongitude);
@@ -80,7 +82,7 @@
             // lblLigneDeservie
             // 
             lblLigneDeservie.AutoSize = true;
-            lblLigneDeservie.Location = new Point(579, 197);
+            lblLigneDeservie.Location = new Point(586, 171);
             lblLigneDeservie.Name = "lblLigneDeservie";
             lblLigneDeservie.Size = new Size(104, 20);
             lblLigneDeservie.TabIndex = 22;
@@ -89,15 +91,15 @@
             // lbLigne
             // 
             lbLigne.FormattingEnabled = true;
-            lbLigne.Location = new Point(577, 220);
+            lbLigne.Location = new Point(584, 194);
             lbLigne.Name = "lbLigne";
-            lbLigne.Size = new Size(340, 244);
+            lbLigne.Size = new Size(340, 204);
             lbLigne.TabIndex = 21;
             // 
             // lblLongitude
             // 
             lblLongitude.AutoSize = true;
-            lblLongitude.Location = new Point(329, 331);
+            lblLongitude.Location = new Point(336, 305);
             lblLongitude.Name = "lblLongitude";
             lblLongitude.Size = new Size(76, 20);
             lblLongitude.TabIndex = 20;
@@ -106,7 +108,7 @@
             // 
             // txtLongitude
             // 
-            txtLongitude.Location = new Point(319, 357);
+            txtLongitude.Location = new Point(326, 331);
             txtLongitude.Name = "txtLongitude";
             txtLongitude.Size = new Size(163, 27);
             txtLongitude.TabIndex = 19;
@@ -114,7 +116,7 @@
             // lblLatitude
             // 
             lblLatitude.AutoSize = true;
-            lblLatitude.Location = new Point(141, 331);
+            lblLatitude.Location = new Point(148, 305);
             lblLatitude.Name = "lblLatitude";
             lblLatitude.Size = new Size(63, 20);
             lblLatitude.TabIndex = 18;
@@ -123,7 +125,7 @@
             // 
             // txtLatitude
             // 
-            txtLatitude.Location = new Point(136, 357);
+            txtLatitude.Location = new Point(143, 331);
             txtLatitude.Name = "txtLatitude";
             txtLatitude.Size = new Size(163, 27);
             txtLatitude.TabIndex = 17;
@@ -131,7 +133,7 @@
             // lblArret
             // 
             lblArret.AutoSize = true;
-            lblArret.Location = new Point(141, 233);
+            lblArret.Location = new Point(148, 207);
             lblArret.Name = "lblArret";
             lblArret.Size = new Size(105, 20);
             lblArret.TabIndex = 16;
@@ -140,7 +142,7 @@
             // 
             // txtNom
             // 
-            txtNom.Location = new Point(136, 259);
+            txtNom.Location = new Point(143, 233);
             txtNom.Name = "txtNom";
             txtNom.Size = new Size(346, 27);
             txtNom.TabIndex = 15;
@@ -149,7 +151,7 @@
             // 
             lblChoisissez.AutoSize = true;
             lblChoisissez.Font = new Font("Segoe UI", 10F);
-            lblChoisissez.Location = new Point(393, 99);
+            lblChoisissez.Location = new Point(400, 73);
             lblChoisissez.Name = "lblChoisissez";
             lblChoisissez.Size = new Size(153, 23);
             lblChoisissez.TabIndex = 14;
@@ -168,11 +170,20 @@
             // cbArret
             // 
             cbArret.FormattingEnabled = true;
-            cbArret.Location = new Point(261, 125);
+            cbArret.Location = new Point(268, 99);
             cbArret.Name = "cbArret";
             cbArret.Size = new Size(422, 28);
             cbArret.TabIndex = 12;
             cbArret.SelectedIndexChanged += cbArret_SelectedIndexChanged;
+            // 
+            // btnValider
+            // 
+            btnValider.Location = new Point(234, 422);
+            btnValider.Name = "btnValider";
+            btnValider.Size = new Size(518, 55);
+            btnValider.TabIndex = 23;
+            btnValider.Text = "Valider les modification";
+            btnValider.UseVisualStyleBackColor = true;
             // 
             // ModifierArret
             // 
@@ -205,5 +216,6 @@
         private Label lblArret;
         private ListBox lbLigne;
         private Label lblLigneDeservie;
+        private Button btnValider;
     }
 }
