@@ -58,6 +58,11 @@ namespace SAE_IHM
         {
             this.Close();
         }
+
+        private void comboBoxArret_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

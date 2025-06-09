@@ -353,21 +353,7 @@ namespace Base
             cmd.Dispose();
             return listeLigne;
         }
-        public static int GetMax(int idLigne)
-        {
-            string requeteSQL = "SELECT MAX(Ordre) FROM Ordre WHERE  `N°Ligne` = @idLigne";
-            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
-            cmd.Parameters.AddWithValue("@idLigne", idLigne);
-            int max = 0;
-            MySqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
-            {
-                max = reader.GetInt32(0);
-            }
-            reader.Close();
-            cmd.Dispose();
-            return max;
-        }
+
         public static void SupprimerLigneDunArret(int idArret, int idLigne)
         {
             string requeteSQL = "DELETE FROM Ordre WHERE `N°Arret` = @idArret AND `N°Ligne` = @idLigne";
@@ -381,6 +367,15 @@ namespace Base
             cmd.Parameters.AddWithValue("@idArret", idArret);
             cmd.Parameters.AddWithValue("@idLigne", idLigne);
             cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            requeteSQL = "UPDATE Ordre SET Ordre = Ordre - 1 " +
+                         "WHERE `N°Ligne` = @idLigne AND Ordre > (SELECT Ordre FROM Ordre WHERE `N°Arret` = @idArret AND `N°Ligne` = @idLigne)";
+            cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idLigne", idLigne);
+            cmd.Parameters.AddWithValue("@idArret", idArret);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            
             MessageBox.Show("Ligne supprimée de l'arrêt avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

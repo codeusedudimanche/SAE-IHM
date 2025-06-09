@@ -172,8 +172,20 @@ namespace SAE_IHM.Admin.Modifier
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            _listeDesLignes = GetLignesASupprimer(); // Récupère les lignes restantes après suppression
-            BD.ModifArret(arretChoisie.Id, txtNom.Text, Convert.ToDouble(txtLongitude.Text), Convert.ToDouble(txtLatitude.Text));
+            if(DialogResult.Yes == MessageBox.Show("Êtes-vous sûr de vouloir ajouter cette arret ?", "Confirmation", MessageBoxButtons.YesNo)){
+                _listeDesLignes = GetLignesASupprimer(); // Récupère les lignes restantes après suppression
+                if (!AreArretEqual())
+                    BD.ModifArret(arretChoisie.Id, txtNom.Text, Convert.ToDouble(txtLongitude.Text), Convert.ToDouble(txtLatitude.Text));
+                if (_listeDesLignes != null && _listeDesLignes.Count > 0)
+                {
+                    foreach (Ligne ligne in _listeDesLignes)
+                    {
+                        BD.SupprimerLigneDunArret(arretChoisie.Id, ligne.NLigne);
+                    }
+
+                }
+            }
+            
         }
 
         private bool AreArretEqual()
@@ -277,6 +289,8 @@ namespace SAE_IHM.Admin.Modifier
                 lbLigne.DataSource = null;
                 lbLigne.DataSource = _listeDesLignes; // Met à jour l'affichage
                 CreerBoutonsPourChaqueLigne(); // Recrée les boutons de suppression
+                lbLigne_SelectedIndexChanged(sender, e);// Met à jour la visibilité des boutons de suppression
+                VerifModification(sender,e);
             }
         }
 

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifierArret));
             pbEspaceAdmin = new PictureBox();
             pnlBackround = new Panel();
-            button1 = new Button();
             gbLigne = new GroupBox();
             btnAnnuler = new Button();
             lbLigne = new ListBox();
@@ -65,7 +64,6 @@
             // 
             // pnlBackround
             // 
-            pnlBackround.Controls.Add(button1);
             pnlBackround.Controls.Add(gbLigne);
             pnlBackround.Controls.Add(btnValider);
             pnlBackround.Controls.Add(lblLongitude);
@@ -83,16 +81,6 @@
             pnlBackround.Size = new Size(975, 518);
             pnlBackround.TabIndex = 19;
             pnlBackround.Paint += pnlBackround_Paint;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(172, 370);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 25;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // gbLigne
             // 
@@ -268,6 +256,5 @@
         private Button btnValider;
         private GroupBox gbLigne;
         private Button btnAnnuler;
-        private Button button1;
     }
 }
