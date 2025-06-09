@@ -161,6 +161,7 @@
             pnlBackround.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbAcceuil).EndInit();
             ResumeLayout(false);
+
         }
 
         #endregion
