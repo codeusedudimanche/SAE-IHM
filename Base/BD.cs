@@ -638,5 +638,79 @@ namespace Base
                 return false;
             }
         }
+        public static bool UpdateDistance(int idLigne, int idArretA, int? idArretB)
+        {
+            //On verifie si c'est le dernier arret ou pas
+            if (idArretB is null)
+            {
+                return false;
+            }
+            string RequeteSQL = "SELECT count(*) FROM Distance WHERE `N°ArretA` = @idArrB AND `N°Ligne` = @idL";
+            MySqlCommand cmd = new MySqlCommand(RequeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idArrB", idArretB);
+            cmd.Parameters.AddWithValue("@idL", idLigne);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Dispose();
+            if (count == 1)
+            {
+                RequeteSQL = "UPDATE Distance SET Distance_Km = Distance_Km +   (SELECT Distance_Km FROM Distance WHERE `N°Ligne` = @idL AND `N°ArretA` " +
+                    "= @NArretA AND `N°ArretB` = @NArretB) WHERE `N°Ligne` = @idL AND `N°ArretB` = NArretA";
+                cmd = new MySqlCommand(RequeteSQL, conn);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur lors de la mise à jour de la distance : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                finally
+                {
+                    cmd.Dispose();
+                }
+                RequeteSQL = "DELETE FROM Distance WHERE `N°Ligne` = @idL AND `N°ArretA` = @NArretA AND `N°ArretB` = @NArretB";
+                cmd = new MySqlCommand(RequeteSQL, conn);
+                cmd.Parameters.AddWithValue("@idL", idLigne);
+                cmd.Parameters.AddWithValue("@NArretA", idArretA);
+                cmd.Parameters.AddWithValue("@NArretB", idArretB);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur lors de la suppression de la distance : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                finally
+                {
+                    cmd.Dispose();
+                }
+                RequeteSQL = "UPDATE Distance SET `N°ArretB` = @NArretB WHERE `N°Ligne` = @idL AND `N°ArretB` = @NArretA";
+                cmd = new MySqlCommand(RequeteSQL, conn);
+                cmd.Parameters.AddWithValue("@NArretB", idArretB);
+                cmd.Parameters.AddWithValue("@idL", idLigne);
+                cmd.Parameters.AddWithValue("@NArretA", idArretA);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur lors de la mise à jour de l'arrêt B : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                finally
+                {
+                    cmd.Dispose();
+                }
+                return true;
+            }
+            return false;
+
+
+        }
     }
 }

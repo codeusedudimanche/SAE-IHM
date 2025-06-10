@@ -179,11 +179,23 @@ namespace SAE_IHM.Admin.Modifier
                             if (BD.SupprimerArretDuneLigne(ligne.NLigne, arret.Id))
                             {
                                 MessageBox.Show($"L'arret {arret.Nom} a été supprimée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //Mise à jour des distances entre les arret
+                                int index = _listeArretBackup.IndexOf(arret);
 
+                                if (index != -1 && index < _listeArretBackup.Count - 1)
+                                {
+                                    Arret suivant = _listeArretBackup[index + 1];
+                                    BD.UpdateDistance(ligne.NLigne, arret.Id, suivant.Id);
+                                }
+                                else
+                                {
+                                    BD.UpdateDistance(ligne.NLigne, arret.Id, null);
+                                }
                             }
                         }
                     }
                 }
+
             }
             
         }

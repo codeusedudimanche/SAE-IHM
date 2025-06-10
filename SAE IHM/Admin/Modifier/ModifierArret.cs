@@ -28,6 +28,9 @@ namespace SAE_IHM.Admin.Modifier
         private List<Ligne> _listeDesLignesBackup = new List<Ligne>();
         private Arret arretBackup;
         private Arret arretChoisie;
+        private List<Arret> _listeArretBackup; // Garde une copie de la liste des arrêts pour les modifications
+        private Arret arret; // Garde une référence à l'arrêt choisi pour les modifications
+
 
 
         //Constructeur
@@ -181,6 +184,20 @@ namespace SAE_IHM.Admin.Modifier
                     foreach (Ligne ligne in _listeDesLignes)
                     {
                         BD.SupprimerLigneDunArret(arretChoisie.Id, ligne.NLigne);
+                        //Mise à jour des distances entre les arret
+                        _listeArretBackup = BD.GetArretDuneLigne(ligne.NLigne).MesArret; // Récupère la liste des arrêts de la ligne
+                        
+                        int index = _listeArretBackup.IndexOf(arret);
+
+                        if (index != -1 && index < _listeArretBackup.Count - 1)
+                        {
+                            Arret suivant = _listeArretBackup[index + 1];
+                            BD.UpdateDistance(ligne.NLigne, arret.Id, suivant.Id);
+                        }
+                        else
+                        {
+                            BD.UpdateDistance(ligne.NLigne, arretChoisie.Id, null);
+                        }
                     }
 
                 }

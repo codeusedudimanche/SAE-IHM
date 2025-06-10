@@ -71,6 +71,7 @@
             pbAcceuil.SizeMode = PictureBoxSizeMode.Zoom;
             pbAcceuil.TabIndex = 11;
             pbAcceuil.TabStop = false;
+            pbAcceuil.Click += pbAcceuil_Click;
             // 
             // label4
             // 

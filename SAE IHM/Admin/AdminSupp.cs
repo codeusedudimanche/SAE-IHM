@@ -33,14 +33,14 @@ namespace SAE_IHM
 
         private void pbSuppArret_Click(object sender, EventArgs e)
         {
-            SuppArret formSuppArret = new SuppArret(listeArrets.MesArret ,parentEspace);
+            SuppArret formSuppArret = new SuppArret(listeArrets.MesArret, parentEspace);
             formSuppArret.Show();
             this.Hide();
         }
 
         private void pbSuppLigne_Click(object sender, EventArgs e)
         {
-            SuppLigne formSuppLigne = new SuppLigne(listeLignes.MesLigne ,parentEspace);
+            SuppLigne formSuppLigne = new SuppLigne(listeLignes.MesLigne, parentEspace);
             formSuppLigne.Show();
             this.Hide();
         }
@@ -55,6 +55,11 @@ namespace SAE_IHM
         private void AdminSupp_FormClosed(object sender, FormClosedEventArgs e)
         {
             parentEspace.Show();
+        }
+
+        private void pbAcceuil_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
