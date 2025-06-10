@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Base; 
+using Base;
+using SAE_IHM.Admin;
 
 namespace SAE_IHM
 {
@@ -69,6 +70,13 @@ namespace SAE_IHM
         private void AccesAdmin_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.OpenForms[0]!.Show();
+        }
+
+        private void lblMdpOublier_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MotDePasseOublie motDePasseOublie = new MotDePasseOublie(this);
+            motDePasseOublie.Show();
         }
     }
 }

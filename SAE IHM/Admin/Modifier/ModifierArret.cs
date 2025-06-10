@@ -199,6 +199,7 @@ namespace SAE_IHM.Admin.Modifier
                             BD.UpdateDistance(ligne.NLigne, arretChoisie.Id, null);
                         }
                     }
+                    MessageBox.Show("Ligne(s) supprimée(s) de l'arrêt avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }

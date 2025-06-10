@@ -52,7 +52,6 @@ namespace SAE_IHM
             btnConfigTrajet = new Button();
             btnEspaceBillets = new Button();
             pnlBackround = new Panel();
-            AdminRaccourci = new Button();
             pbConnexion = new PictureBox();
             pbMyTulsa = new PictureBox();
             pnlBackround.SuspendLayout();
@@ -107,7 +106,6 @@ namespace SAE_IHM
             // pnlBackround
             // 
             pnlBackround.BackColor = SystemColors.ControlLightLight;
-            pnlBackround.Controls.Add(AdminRaccourci);
             pnlBackround.Controls.Add(pbConnexion);
             pnlBackround.Controls.Add(pbMyTulsa);
             pnlBackround.Controls.Add(Titre);
@@ -119,16 +117,6 @@ namespace SAE_IHM
             pnlBackround.Size = new Size(402, 393);
             pnlBackround.TabIndex = 4;
             pnlBackround.Paint += panel1_Paint_1;
-            // 
-            // AdminRaccourci
-            // 
-            AdminRaccourci.Location = new Point(179, 338);
-            AdminRaccourci.Name = "AdminRaccourci";
-            AdminRaccourci.Size = new Size(145, 29);
-            AdminRaccourci.TabIndex = 7;
-            AdminRaccourci.Text = "Admin";
-            AdminRaccourci.UseVisualStyleBackColor = true;
-            AdminRaccourci.Click += AdminRaccourci_Click;
             // 
             // pbConnexion
             // 
@@ -241,8 +229,6 @@ namespace SAE_IHM
         {
 
         }
-
-        private Button AdminRaccourci;
 
         private void AdminRaccourci_Click(object sender, EventArgs e)
         {

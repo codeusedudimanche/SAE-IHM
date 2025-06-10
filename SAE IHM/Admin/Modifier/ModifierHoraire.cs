@@ -15,7 +15,7 @@ namespace SAE_IHM.Admin.Modifier
 {
     public partial class ModifierHoraire : Form
     {
-        private AdminModifier _adminModifier;
+        private bool changement = false; 
         private List<Horaire> _horaires;
         private List<Horaire> _horairesBackup;
         private List<int> _semaineBackup;
@@ -24,6 +24,7 @@ namespace SAE_IHM.Admin.Modifier
         private int _y = 304; // Position verticale initiale pour les boutons
         private PictureBox _boutonPlus = null;
         private int tagMax = 0;
+        private AdminModifier _adminModifier;
         public ModifierHoraire(AdminModifier admnModifier)
         {
             InitializeComponent();
@@ -240,7 +241,8 @@ namespace SAE_IHM.Admin.Modifier
         private void txtHorraire_TextChanged(object sender, EventArgs e)
         {
            
-            
+            if (changement)
+                return; 
             if (sender is TextBox txt && txt.Tag is Horaire horaire)
             {
                 // Exemple de mise à jour de l'objet Horaire selon le texte
@@ -250,10 +252,16 @@ namespace SAE_IHM.Admin.Modifier
                 }
                 else
                 {
-                    horaire.Heure = null; // ou afficher une erreur
+                    changement = true; // On empêche les modifications supplémentaires
+                    txt.Text = string.Empty; // ou afficher un message d'erreur
+                    horaire.Heure = null; 
+                    MessageBox.Show(txt.Text + " n'est pas un horaire valide. Veuillez entrer un horaire au format HH:mm.", "Erreur de format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    changement = false; // On réactive les modifications après la mise à jour
                 }
+                
 
             }
+            
             VerifModif();
 
         }
@@ -535,10 +543,88 @@ namespace SAE_IHM.Admin.Modifier
                 btnValider.Enabled = false;
             }
         }
+        private List<Horaire> GetHorairesASupprimer(List<Horaire> liste1, List<Horaire> liste2)
+        {
+            var horairesASupprimer = new List<Horaire>();
+            var copieListe2 = new List<Horaire>(liste2);
+
+            foreach (var horaire in liste1)
+            {
+                if (!copieListe2.Remove(horaire))
+                {
+                    // Si l'horaire n'est pas trouvé dans liste2, il doit être supprimé
+                    horairesASupprimer.Add(horaire);
+                }
+            }
+
+            return horairesASupprimer;
+        }
+        private List<Horaire> GetHorairesAAjouter(List<Horaire> backup, List<Horaire> actuelle)
+        {
+            var horairesAAjouter = new List<Horaire>();
+            var copieBackup = new List<Horaire>(backup);
+
+            foreach (var horaire in actuelle)
+            {
+                if (!copieBackup.Remove(horaire))
+                {
+                    // L'horaire est dans la liste actuelle mais pas dans la backup, donc à ajouter
+                    horairesAAjouter.Add(horaire);
+                }
+            }
+
+            return horairesAAjouter;
+        }
         private void btnValider_Click(object sender, EventArgs e)
         {
-            
+            List<Horaire> _horaireASupprimer = GetHorairesASupprimer(_horairesBackup, _horaires);
+            List<Horaire> _horaireAAjouter = GetHorairesAAjouter(_horairesBackup, _horaires);
 
+            if (DialogResult.Yes == MessageBox.Show("Êtes-vous sûr de vouloir modifier ces horaires ?", "Confirmation", MessageBoxButtons.YesNo))
+            {
+                foreach (Horaire h in _horaireASupprimer)
+                {
+                    if (h.Heure.HasValue)
+                    {
+                        BD.SupprimerHoraire(h.NLigne, h.NArret, h.JourSemaine, h.Heure.Value);
+
+                    }
+
+                }
+                if (_horaireASupprimer.Count > 0)
+                {
+                    MessageBox.Show("Horaire supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Aucun horaire à supprimer.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                foreach (Horaire h in _horaireAAjouter)
+                {
+                    if (h.Heure.HasValue)
+                    {
+                        if (BD.AjoutHoraire(h.NLigne, h.NArret, h.JourSemaine, h.Heure.Value))
+                        {
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Erreur lors de l'ajout de l'horaire : {h.Heure.Value.ToString(@"hh\:mm")} pour la ligne {h.NLigne} à l'arrêt {h.NArret}.");
+
+                        }
+                    }
+                }
+                if (_horaireAAjouter.Count > 0)
+                {
+                    MessageBox.Show("Horaire ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Aucun horaire à ajouter.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
         }
     }
 }

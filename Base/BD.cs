@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Net.Mail;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -53,14 +54,14 @@ namespace Base
             return false;
         }
 
-        public static void MotDePasseOubliee()
+        public static void MotDePasseOubliee(string mail)
         {
             var rand = new Random();
 
             //Nombre aléatoire entre 100 000 et 999 999
             int nombre = rand.Next() % 900000 + 100000;
 
-            string to = "lescotoscar@gmail.com";
+            string to = mail;
             string from = "contactmytulsa@gmail.com\r\n";
             string subject = "Reinitialisation du Mot de passe";
             string body = $"Voici votre code de verification pour reinitialiser votre mot de passe : {nombre}";
@@ -75,12 +76,66 @@ namespace Base
             try
             {
                 client.Send(message);
+                string RequeteSQL = "UPDATE User SET codeReinitialisation = @nb WHERE email = @mail";
+                MySqlCommand cmd = new MySqlCommand(RequeteSQL, conn);
+                cmd.Parameters.AddWithValue("@nb", nombre);
+                cmd.Parameters.AddWithValue("@mail", mail);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
                 MessageBox.Show("Message envoyé !");
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur : {ex}");
             }
+        }
+        public static bool VerifCode(string code, string email)
+        {
+            string requeteSQL = "SELECT codeReinitialisation FROM User WHERE email = @mail";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@mail", email);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            string codeRecupere = null;
+            if (reader.Read())
+            {
+                codeRecupere = reader.GetString(0);
+            }
+            reader.Close();
+            cmd.Dispose();
+            if (codeRecupere == code)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool ModiferLeMotDePasse(string mail, string mdp)
+        {
+            string RequeteSQL = "UPDATE User SET motDePasse = @mdp WHERE email = @mail";
+            MySqlCommand cmd = new MySqlCommand(RequeteSQL, conn);
+            cmd.Parameters.AddWithValue("@mdp", mdp);
+            cmd.Parameters.AddWithValue("@mail", mail);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Mot de passe modifié avec succès !");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la modification du mot de passe : {ex}");
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
+            // Réinitialiser le code de réinitialisation après la modification du mot de passe
+            string resetCodeSQL = "UPDATE User SET codeReinitialisation = NULL WHERE email = @mail";
+            MySqlCommand resetCmd = new MySqlCommand(resetCodeSQL, conn);
+            resetCmd.Parameters.AddWithValue("@mail", mail);
+            resetCmd.ExecuteNonQuery();
+            resetCmd.Dispose();
+            // Si tout s'est bien passé, on retourne true
+            return true;
         }
 
         public static bool VerificationConnexion(string mail, string mdp)
@@ -743,6 +798,63 @@ namespace Base
             {
                 
                 return (new List<Horaire>(), new List<int>());
+            }
+        }
+        public static bool AjoutHoraire(int nLigne, int nArret, int jourSemaine, TimeSpan heure)
+        {
+            string requeteSQL = "INSERT INTO Horaire(`Jour_Semaine`, `N°Ligne`, `N°Arret`, Horaire) " +
+                        "VALUES (@jourSemaine, @nLigne, @nArret, @heure)";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@jourSemaine", jourSemaine);
+            cmd.Parameters.AddWithValue("@nLigne", nLigne);
+            cmd.Parameters.AddWithValue("@nArret", nArret);
+            cmd.Parameters.AddWithValue("@heure", heure);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'ajout de l'horaire : {ex}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+            }
+        }
+
+        public static bool SupprimerHoraire(int nLigne, int nArret, int jourSemaine, TimeSpan heure)
+        {
+            string requeteSQL = "DELETE FROM Horaire WHERE `N°Ligne` = @nLigne AND `N°Arret` = @nArret AND Jour_Semaine = @jourSemaine AND Horaire = @heure";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@nLigne", nLigne);
+            cmd.Parameters.AddWithValue("@nArret", nArret);
+            cmd.Parameters.AddWithValue("@jourSemaine", jourSemaine);
+            cmd.Parameters.AddWithValue("@heure", heure);
+            try
+            {
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Horaire supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Aucun horaire trouvé à supprimer.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la suppression de l'horaire : {ex.Message}", "Erreur BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
             }
         }
     }

@@ -35,6 +35,7 @@
             buttonValider = new Button();
             pnlBackround = new Panel();
             pbAccueil = new PictureBox();
+            lblMdpOublier = new Label();
             pnlBackround.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbAccueil).BeginInit();
             SuspendLayout();
@@ -81,6 +82,7 @@
             // pnlBackround
             // 
             pnlBackround.BackColor = SystemColors.ControlLightLight;
+            pnlBackround.Controls.Add(lblMdpOublier);
             pnlBackround.Controls.Add(pbAccueil);
             pnlBackround.Controls.Add(textBoxMdp);
             pnlBackround.Controls.Add(lblTitre);
@@ -102,6 +104,17 @@
             pbAccueil.TabIndex = 8;
             pbAccueil.TabStop = false;
             pbAccueil.Click += pbAccueil_Click;
+            // 
+            // lblMdpOublier
+            // 
+            lblMdpOublier.AutoSize = true;
+            lblMdpOublier.ForeColor = Color.FromArgb(128, 64, 0);
+            lblMdpOublier.Location = new Point(44, 245);
+            lblMdpOublier.Name = "lblMdpOublier";
+            lblMdpOublier.Size = new Size(144, 20);
+            lblMdpOublier.TabIndex = 9;
+            lblMdpOublier.Text = "Mot de passe oublie";
+            lblMdpOublier.Click += lblMdpOublier_Click;
             // 
             // AccesAdmin
             // 
@@ -128,5 +141,6 @@
         private Button buttonValider;
         private Panel pnlBackround;
         private PictureBox pbAccueil;
+        private Label lblMdpOublier;
     }
 }
