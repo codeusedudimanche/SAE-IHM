@@ -110,6 +110,7 @@
             pnlBackround.Name = "pnlBackround";
             pnlBackround.Size = new Size(498, 364);
             pnlBackround.TabIndex = 6;
+            pnlBackround.Paint += pnlBackround_Paint;
             // 
             // pictureBox1
             // 

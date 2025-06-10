@@ -20,7 +20,9 @@ namespace Base
             NLigne = nLigne;
             NArret = nArret;
         }
+        
 
+        
         public override string ToString()
         {
             string nomJour = "";

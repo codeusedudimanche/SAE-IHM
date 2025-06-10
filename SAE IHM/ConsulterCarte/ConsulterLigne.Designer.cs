@@ -113,18 +113,19 @@
             // lblCliquez
             // 
             lblCliquez.AutoSize = true;
-            lblCliquez.Location = new Point(177, 133);
+            lblCliquez.Location = new Point(75, 167);
             lblCliquez.Name = "lblCliquez";
-            lblCliquez.Size = new Size(207, 20);
+            lblCliquez.Size = new Size(403, 20);
             lblCliquez.TabIndex = 2;
-            lblCliquez.Text = "Cliquez sur l'image ci-dessous";
+            lblCliquez.Text = "Pour avoir accès à la carte et aux arrêts, cliquez ci-dessous : ";
             // 
             // pbCarte
             // 
-            pbCarte.Image = Properties.Resources.Plan_Tulsa;
-            pbCarte.Location = new Point(47, 194);
+            pbCarte.BackgroundImage = Properties.Resources.lien;
+            pbCarte.BackgroundImageLayout = ImageLayout.Zoom;
+            pbCarte.Location = new Point(68, 218);
             pbCarte.Name = "pbCarte";
-            pbCarte.Size = new Size(467, 182);
+            pbCarte.Size = new Size(414, 182);
             pbCarte.SizeMode = PictureBoxSizeMode.CenterImage;
             pbCarte.TabIndex = 1;
             pbCarte.TabStop = false;
@@ -139,6 +140,7 @@
             lblNomLigne.Size = new Size(264, 46);
             lblNomLigne.TabIndex = 0;
             lblNomLigne.Text = "Nom de la ligne\r\n";
+            lblNomLigne.Click += lblNomLigne_Click;
             // 
             // ConsulterLigne
             // 

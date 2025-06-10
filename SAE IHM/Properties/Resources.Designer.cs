@@ -83,6 +83,16 @@ namespace SAE_IHM.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lien {
+            get {
+                object obj = ResourceManager.GetObject("lien", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mytulsa {
             get {
                 object obj = ResourceManager.GetObject("mytulsa", resourceCulture);

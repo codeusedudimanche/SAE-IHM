@@ -216,6 +216,7 @@ namespace Base
         }
 
 
+
         public static ListeLigne GetLigne()
         {
             string requeteSQL = "SELECT * FROM Ligne";

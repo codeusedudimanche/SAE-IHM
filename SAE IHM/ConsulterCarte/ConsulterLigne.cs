@@ -17,7 +17,7 @@ namespace SAE_IHM
         public ConsulterLigne()
         {
             InitializeComponent();
-            ChargeLigne();
+            BD.GetLigne();
         }
 
         private void ChargeLigne()
@@ -28,7 +28,7 @@ namespace SAE_IHM
                 try
                 {
                     conn.Open();
-                    string requete = "SELECT N°Ligne FROM Ligne"; 
+                    string requete = "SELECT N°Ligne FROM Ligne";
                     using (var cmd = new MySqlCommand(requete, conn))
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -83,6 +83,11 @@ namespace SAE_IHM
 
 
         private void ConsulterLigne_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNomLigne_Click(object sender, EventArgs e)
         {
 
         }

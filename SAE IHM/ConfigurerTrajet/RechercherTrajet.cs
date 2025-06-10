@@ -38,5 +38,10 @@ namespace SAE_IHM
         {
             Application.OpenForms[0]!.Show();
         }
+
+        private void pnlBackround_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
