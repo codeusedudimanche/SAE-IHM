@@ -82,6 +82,7 @@
             btnValider.TabIndex = 22;
             btnValider.Text = "Valider les modifications";
             btnValider.UseVisualStyleBackColor = true;
+            btnValider.Click += btnValider_Click;
             // 
             // lblHoraire
             // 

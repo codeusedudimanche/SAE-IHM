@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,10 +31,6 @@ namespace SAE_IHM.Admin.Modifier
 
             _adminModifier = admnModifier;
         }
-        private void VerifModif()
-        {
-
-        }
 
         private void CreerBoutonsPourChaqueLigne()
         {
@@ -52,9 +49,9 @@ namespace SAE_IHM.Admin.Modifier
             {
                 AjoutPlus();
                 return;
-                
+
             }
-            
+
             for (int i = 0; i < _horaires.Count; i++)
             {
                 int index = i; // Copie pour éviter les problèmes de closure dans l'événement
@@ -72,7 +69,7 @@ namespace SAE_IHM.Admin.Modifier
                 y += 40; // Décale le bouton suivant vers le bas
 
             }
-            tagMax = _horaires.Count;
+            //tagMax = _horaires.Count;
             AjoutPlus();
         }
 
@@ -136,7 +133,20 @@ namespace SAE_IHM.Admin.Modifier
 
             Ligne ligne = ((Ligne)cbLigne.SelectedItem);
             Arret arret = ((Arret)cbArret.SelectedItem);
+            if (cbLigne.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez selectionner une ligne valide.");
+                return;
+            }
+            if (cbArret.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez selectionner un arrêt valide.");
+                return;
+            }
             (List<Horaire> h, List<int> Semaine) r = BD.GetHoraireLigneArret(ligne.NLigne, arret.Id);
+
+            ligne = (Ligne)cbLigne.SelectedItem;
+
             _horairesBackup = r.h;
             _semaineBackup = r.Semaine;
 
@@ -171,6 +181,8 @@ namespace SAE_IHM.Admin.Modifier
                     Height = 24,
                     Margin = new Padding(0, 2, 10, 0)
                 };
+                tbHoraire.TextChanged += txtHorraire_TextChanged; // Ajout de l'événement TextChanged pour vérifier les modifications
+                tbHoraire.Tag = _horaires[i];
                 panelHoraire.Controls.Add(tbHoraire);
 
                 // Checkbox jour de semaine
@@ -221,6 +233,28 @@ namespace SAE_IHM.Admin.Modifier
                     flpHoraire.Controls.Add(lblAucunHoraire);
                 }
             }
+            tagMax = _horaires.Count;
+            VerifModif(); // Vérifie si des modifications ont été faites
+
+        }
+        private void txtHorraire_TextChanged(object sender, EventArgs e)
+        {
+           
+            
+            if (sender is TextBox txt && txt.Tag is Horaire horaire)
+            {
+                // Exemple de mise à jour de l'objet Horaire selon le texte
+                if (TimeSpan.TryParse(txt.Text, out TimeSpan heure))
+                {
+                    horaire.Heure = heure;
+                }
+                else
+                {
+                    horaire.Heure = null; // ou afficher une erreur
+                }
+
+            }
+            VerifModif();
 
         }
 
@@ -246,7 +280,7 @@ namespace SAE_IHM.Admin.Modifier
             _horaires = new List<Horaire>(_horairesBackup);
             _semaine = new List<int>(_semaineBackup);
             tagMax = _horaires.Count(); // Le nombre de bouton Poubelle
-            
+
             // On récupère les horaires de la ligne et de l'arrêt sélectionnés
             //On vérifie si l'objet sender est bien le ComboBox cbArret 
             //Si non c'est que c'est la pictureBox Poubelle donc on ne met surtout pas a jour
@@ -321,6 +355,7 @@ namespace SAE_IHM.Admin.Modifier
                     flpHoraire.Controls.Add(lblAucunHoraire);
                 }
             }
+            VerifModif(); // Vérifie si des modifications ont été faites
         }
 
         private void AjoutPlus()
@@ -340,14 +375,20 @@ namespace SAE_IHM.Admin.Modifier
             this.Controls.Add(_boutonPlus); // Utilisation de 'this' pour accéder à l'instance actuelle
             _boutonPlus.BringToFront(); // Pour qu’il soit visible au-dessus des autres
         }
-        
+
 
         private void BtnPlus_Click(object sender, EventArgs e)
         {
-
+            Ligne ligneSelect = (Ligne)cbLigne.SelectedItem;
+            Arret arretSelect = (Arret)cbArret.SelectedItem;
+            if (ligneSelect == null || arretSelect == null)
+            {
+                MessageBox.Show("Veuillez sélectionner une ligne et un arrêt valides.");
+                return;
+            }
             if (_horaires.Count == 0)
                 flpHoraire.Controls.Clear();
-            
+
             // Panel pour regrouper les éléments d'un horaire
             FlowLayoutPanel panelHoraire = new FlowLayoutPanel()
             {
@@ -363,8 +404,14 @@ namespace SAE_IHM.Admin.Modifier
             {
                 Text = "",
                 Height = 24,
-                Margin = new Padding(0, 2, 10, 0)
+                Margin = new Padding(0, 2, 10, 0),
+                
             };
+
+            tbHoraire.TextChanged += txtHorraire_TextChanged; // Ajout de l'événement TextChanged pour vérifier les modifications
+
+            
+            
             panelHoraire.Controls.Add(tbHoraire);
 
             // Checkbox jour de semaine
@@ -373,8 +420,10 @@ namespace SAE_IHM.Admin.Modifier
                 Text = "Jour de la semaine",
                 Checked = false,
                 AutoSize = true,
-                Margin = new Padding(0, 4, 20, 0)
+                Margin = new Padding(0, 4, 20, 0),
+                Tag = tagMax // On ajoute le tag pour savoir quel horaire on modifie
             };
+            checkBoxSemaine.CheckedChanged += checkBoxSemaine_CheckedChanged; // Ajout de l'événement CheckedChanged pour vérifier les modifications
             panelHoraire.Controls.Add(checkBoxSemaine);
 
             // Checkbox jour férié
@@ -383,18 +432,113 @@ namespace SAE_IHM.Admin.Modifier
                 Text = "Jour férié et week-end",
                 Checked = false,
                 AutoSize = true,
-                Margin = new Padding(0, 4, 0, 0)
+                Margin = new Padding(0, 4, 0, 0),
+                Tag = tagMax // On ajoute le tag pour savoir quel horaire on modifie
             };
+            checkBoxFerie.CheckedChanged += checkBoxFerie_CheckedChanged; // Ajout de l'événement CheckedChanged pour vérifier les modifications
             panelHoraire.Controls.Add(checkBoxFerie);
 
             // Ajouter le panel au FlowLayoutPanel principal
             flpHoraire.Controls.Add(panelHoraire);
-            Horaire hCreate = new Horaire(null, 0, 0, 0);
-            
+
+            Horaire hCreate = new Horaire(null, 0, ligneSelect.NLigne, arretSelect.Id);
+
             _horaires.Add(hCreate); // Ajoute un nouvel horaire vide à la liste
             _semaine.Add(0); // Ajoute un jour de semaine par défaut (0)
             //On actualise les bouton supprimer et Plus
             CreerBoutonsPourChaqueLigne();
+            if (tagMax >= 0 && tagMax < _horaires.Count)
+            {
+                tbHoraire.Tag = _horaires[tagMax];
+            }
+            else
+            {
+                // Handle the error or set a default value  
+                tbHoraire.Tag = null;
+            }
+            VerifModif(); // Vérifie si des modifications ont été faites
+        }
+
+        private void checkBoxSemaine_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is CheckBox cb && cb.Tag is int id)
+            {
+                MessageBox.Show(cb.Checked.ToString());
+
+                if (cb.Checked)
+                {
+                    _semaine[id] += 1;
+                    _horaires[id].JourSemaine += 1;
+                }
+                else
+                {
+                    if (_semaine[id] > 0)
+                    {
+                        _semaine[id] -= 1;
+                        _horaires[id].JourSemaine -= 1;
+                    }
+                }
+            }
+
+            VerifModif();
+        }
+
+
+        private void checkBoxFerie_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is CheckBox cb && cb.Tag is int id)
+            {
+                if (cb.Checked)
+                {
+                    _semaine[id] += 2;
+                    _horaires[id].JourSemaine = (_horaires[id].JourSemaine + 2); // Mise à jour de l’objet Horaire
+                }
+                else
+                {
+                    if (_semaine[id] >= 2)
+                    {
+                        _semaine[id] -= 2;
+                        _horaires[id].JourSemaine = (_horaires[id].JourSemaine - 2); // Mise à jour de l’objet Horaire
+                    }
+                }
+            }
+
+            VerifModif();
+        }
+
+        private bool areHoraireEgal(List<Horaire> h1, List<Horaire> h2)
+        {
+            if (h1.Count != h2.Count)
+                return false;
+
+            var h2Copy = new List<Horaire>(h2);
+
+            foreach (var horaire in h1)
+            {
+                if (!h2Copy.Remove(horaire)) // Supprime l'élément correspondant si trouvé
+                    return false;
+            }
+
+            return true;
+        }
+
+
+
+        private void VerifModif()
+        {
+            if (!areHoraireEgal(_horaires, _horairesBackup))
+            {
+                btnValider.Enabled = true;
+            }
+            else
+            {
+                btnValider.Enabled = false;
+            }
+        }
+        private void btnValider_Click(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }

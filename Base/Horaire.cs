@@ -35,5 +35,21 @@ namespace Base
 
             return $"Ligne {NLigne} | {nomJour} | {(Heure.HasValue ? Heure.Value.ToString(@"hh\:mm") : "Non spécifié")}";
         }
+        public override bool Equals(object obj)
+        {
+            if (obj is Horaire other)
+            {
+                return this.Heure == other.Heure &&
+                       this.JourSemaine == other.JourSemaine &&
+                       this.NLigne == other.NLigne &&
+                       this.NArret == other.NArret;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Heure, JourSemaine, NLigne, NArret);
+        }
     }
 }
