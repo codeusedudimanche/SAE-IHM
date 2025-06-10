@@ -17,7 +17,7 @@ namespace SAE_IHM
         public ConsulterLigne()
         {
             InitializeComponent();
-            BD.GetLigne();
+            ChargeLigne();
         }
 
         private void ChargeLigne()
