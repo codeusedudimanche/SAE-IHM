@@ -91,6 +91,7 @@
             Controls.Add(panelCarte);
             Name = "ConsulterReseau";
             Text = "Consulter le Reseau";
+            FormClosing += ConsulterReseau_FormClosing;
             panelCarte.ResumeLayout(false);
             panelCarte.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbAccueil).EndInit();

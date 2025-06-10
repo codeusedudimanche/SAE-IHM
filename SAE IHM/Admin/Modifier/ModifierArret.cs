@@ -110,7 +110,7 @@ namespace SAE_IHM.Admin.Modifier
                 PictureBox btnSupprimer = new PictureBox();
                 btnSupprimer.Image = Properties.Resources.poubelle;
                 btnSupprimer.Size = new Size(20, 20);
-                btnSupprimer.Location = new Point(980, y); // Change X et Y selon où tu veux les afficher
+                btnSupprimer.Location = new Point(980, y); // Coordonnée de la poubelle
                 btnSupprimer.Tag = index; // Stocke l'index dans le Tag (utile dans l'événement)
                 btnSupprimer.SizeMode = PictureBoxSizeMode.Zoom; // Pour que l'image s'adapte au bouton
                 btnSupprimer.Click += BtnSupprimer_Click;

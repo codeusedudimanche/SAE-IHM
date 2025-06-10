@@ -35,7 +35,7 @@ namespace SAE_IHM
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            Application.OpenForms[0]!.Show();
+            
         }
 
 

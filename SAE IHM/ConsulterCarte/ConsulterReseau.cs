@@ -34,9 +34,7 @@ namespace SAE_IHM
 
         private void ConsulterReseau_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Consultercarte Formconsulte = new Consultercarte();
-            Formconsulte.Show();
-            this.Hide();
+            Application.OpenForms[0]!.Show();
         }
     }
 }

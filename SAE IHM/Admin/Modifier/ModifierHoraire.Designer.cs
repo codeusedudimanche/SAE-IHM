@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifierHoraire));
             panel1 = new Panel();
+            btnAnnuler = new Button();
+            btnValider = new Button();
             lblHoraire = new Label();
             pbEspaceAdmin = new PictureBox();
             flpHoraire = new FlowLayoutPanel();
@@ -38,13 +40,13 @@
             lblLigne = new Label();
             cbLigne = new ComboBox();
             lblTitre = new Label();
-            btnValider = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnAnnuler);
             panel1.Controls.Add(btnValider);
             panel1.Controls.Add(lblHoraire);
             panel1.Controls.Add(pbEspaceAdmin);
@@ -54,15 +56,37 @@
             panel1.Controls.Add(lblLigne);
             panel1.Controls.Add(cbLigne);
             panel1.Controls.Add(lblTitre);
-            panel1.Location = new Point(202, 67);
+            panel1.Location = new Point(202, 28);
             panel1.Name = "panel1";
-            panel1.Size = new Size(729, 611);
+            panel1.Size = new Size(729, 672);
             panel1.TabIndex = 0;
+            // 
+            // btnAnnuler
+            // 
+            btnAnnuler.BackColor = Color.FromArgb(192, 64, 0);
+            btnAnnuler.ForeColor = SystemColors.ControlText;
+            btnAnnuler.Location = new Point(114, 509);
+            btnAnnuler.Name = "btnAnnuler";
+            btnAnnuler.Size = new Size(501, 39);
+            btnAnnuler.TabIndex = 23;
+            btnAnnuler.Text = "Annuler les changements";
+            btnAnnuler.UseVisualStyleBackColor = false;
+            btnAnnuler.Click += btnAnnuler_Click;
+            // 
+            // btnValider
+            // 
+            btnValider.Enabled = false;
+            btnValider.Location = new Point(114, 595);
+            btnValider.Name = "btnValider";
+            btnValider.Size = new Size(501, 40);
+            btnValider.TabIndex = 22;
+            btnValider.Text = "Valider les modifications";
+            btnValider.UseVisualStyleBackColor = true;
             // 
             // lblHoraire
             // 
             lblHoraire.AutoSize = true;
-            lblHoraire.Location = new Point(114, 259);
+            lblHoraire.Location = new Point(114, 240);
             lblHoraire.Name = "lblHoraire";
             lblHoraire.Size = new Size(145, 20);
             lblHoraire.TabIndex = 21;
@@ -72,7 +96,7 @@
             // 
             pbEspaceAdmin.Image = (Image)resources.GetObject("pbEspaceAdmin.Image");
             pbEspaceAdmin.InitialImage = (Image)resources.GetObject("pbEspaceAdmin.InitialImage");
-            pbEspaceAdmin.Location = new Point(34, 535);
+            pbEspaceAdmin.Location = new Point(27, 595);
             pbEspaceAdmin.Name = "pbEspaceAdmin";
             pbEspaceAdmin.Size = new Size(43, 42);
             pbEspaceAdmin.SizeMode = PictureBoxSizeMode.Zoom;
@@ -82,7 +106,7 @@
             // 
             // flpHoraire
             // 
-            flpHoraire.Location = new Point(114, 292);
+            flpHoraire.Location = new Point(114, 273);
             flpHoraire.Name = "flpHoraire";
             flpHoraire.Size = new Size(501, 220);
             flpHoraire.TabIndex = 19;
@@ -133,15 +157,6 @@
             lblTitre.TabIndex = 14;
             lblTitre.Text = "Modifier un horaire";
             // 
-            // btnValider
-            // 
-            btnValider.Location = new Point(114, 526);
-            btnValider.Name = "btnValider";
-            btnValider.Size = new Size(501, 40);
-            btnValider.TabIndex = 22;
-            btnValider.Text = "Valider les modifications";
-            btnValider.UseVisualStyleBackColor = true;
-            // 
             // ModifierHoraire
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -170,5 +185,6 @@
         private PictureBox pbEspaceAdmin;
         private Label lblHoraire;
         private Button btnValider;
+        private Button btnAnnuler;
     }
 }
