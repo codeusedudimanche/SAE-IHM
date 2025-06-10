@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Base;
+using MySql.Data.MySqlClient;
 
 namespace SAE_IHM
 {
@@ -15,6 +17,7 @@ namespace SAE_IHM
         public Consultercarte()
         {
             InitializeComponent();
+
 
         }
 
@@ -52,6 +55,13 @@ namespace SAE_IHM
         {
             ConsulterReseau FormConsulRes = new ConsulterReseau();
             FormConsulRes.Show();
+            this.Hide();
+        }
+
+        private void btnHoraires_Click(object sender, EventArgs e)
+        {
+            ConsulterHoraire FormConsulHor = new ConsulterHoraire();
+            FormConsulHor.Show();
             this.Hide();
         }
     }

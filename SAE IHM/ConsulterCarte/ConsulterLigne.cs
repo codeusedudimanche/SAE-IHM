@@ -28,7 +28,7 @@ namespace SAE_IHM
                 try
                 {
                     conn.Open();
-                    string requete = "SELECT N°Ligne FROM Ligne"; // Adaptez le nom de la table/colonne si besoin
+                    string requete = "SELECT N°Ligne FROM Ligne"; 
                     using (var cmd = new MySqlCommand(requete, conn))
                     using (var reader = cmd.ExecuteReader())
                     {

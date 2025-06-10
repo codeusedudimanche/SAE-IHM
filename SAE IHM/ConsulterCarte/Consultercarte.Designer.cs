@@ -80,6 +80,7 @@
             btnHoraires.TabIndex = 3;
             btnHoraires.Text = "Les horaires";
             btnHoraires.UseVisualStyleBackColor = true;
+            btnHoraires.Click += btnHoraires_Click;
             // 
             // linkLabel1
             // 

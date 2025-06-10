@@ -88,9 +88,9 @@
             // btnValider
             // 
             btnValider.Enabled = false;
-            btnValider.Location = new Point(79, 449);
+            btnValider.Location = new Point(122, 449);
             btnValider.Name = "btnValider";
-            btnValider.Size = new Size(525, 58);
+            btnValider.Size = new Size(449, 58);
             btnValider.TabIndex = 14;
             btnValider.Text = "Valider";
             btnValider.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             // 
             pbEspaceAdmin.Image = (Image)resources.GetObject("pbEspaceAdmin.Image");
             pbEspaceAdmin.InitialImage = (Image)resources.GetObject("pbEspaceAdmin.InitialImage");
-            pbEspaceAdmin.Location = new Point(19, 475);
+            pbEspaceAdmin.Location = new Point(38, 465);
             pbEspaceAdmin.Name = "pbEspaceAdmin";
             pbEspaceAdmin.Size = new Size(43, 42);
             pbEspaceAdmin.SizeMode = PictureBoxSizeMode.Zoom;
@@ -127,7 +127,7 @@
             pnlBackround.Controls.Add(lblTitre);
             pnlBackround.Location = new Point(270, 101);
             pnlBackround.Name = "pnlBackround";
-            pnlBackround.Size = new Size(671, 541);
+            pnlBackround.Size = new Size(671, 547);
             pnlBackround.TabIndex = 16;
             pnlBackround.Paint += panel1_Paint;
             // 
@@ -144,9 +144,9 @@
             // 
             gbPeriode.Controls.Add(cbSemaine);
             gbPeriode.Controls.Add(cbJourFerie);
-            gbPeriode.Location = new Point(122, 345);
+            gbPeriode.Location = new Point(122, 341);
             gbPeriode.Name = "gbPeriode";
-            gbPeriode.Size = new Size(415, 85);
+            gbPeriode.Size = new Size(449, 89);
             gbPeriode.TabIndex = 21;
             gbPeriode.TabStop = false;
             gbPeriode.Text = "Choisissez la période :";
@@ -154,7 +154,7 @@
             // lblHoraire
             // 
             lblHoraire.AutoSize = true;
-            lblHoraire.Location = new Point(122, 262);
+            lblHoraire.Location = new Point(122, 255);
             lblHoraire.Name = "lblHoraire";
             lblHoraire.Size = new Size(141, 20);
             lblHoraire.TabIndex = 4;
@@ -172,7 +172,7 @@
             // 
             // nudMinute
             // 
-            nudMinute.Location = new Point(230, 299);
+            nudMinute.Location = new Point(234, 288);
             nudMinute.Name = "nudMinute";
             nudMinute.Size = new Size(47, 27);
             nudMinute.TabIndex = 7;
@@ -180,7 +180,7 @@
             // 
             // nudHeure
             // 
-            nudHeure.Location = new Point(124, 299);
+            nudHeure.Location = new Point(122, 288);
             nudHeure.Name = "nudHeure";
             nudHeure.Size = new Size(47, 27);
             nudHeure.TabIndex = 5;
@@ -189,7 +189,7 @@
             // lblMinute
             // 
             lblMinute.AutoSize = true;
-            lblMinute.Location = new Point(279, 302);
+            lblMinute.Location = new Point(287, 295);
             lblMinute.Name = "lblMinute";
             lblMinute.Size = new Size(61, 20);
             lblMinute.TabIndex = 8;
@@ -198,7 +198,7 @@
             // lblHeure
             // 
             lblHeure.AutoSize = true;
-            lblHeure.Location = new Point(173, 303);
+            lblHeure.Location = new Point(173, 295);
             lblHeure.Name = "lblHeure";
             lblHeure.Size = new Size(55, 20);
             lblHeure.TabIndex = 6;
