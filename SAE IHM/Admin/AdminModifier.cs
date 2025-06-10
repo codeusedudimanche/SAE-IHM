@@ -61,5 +61,12 @@ namespace SAE_IHM
             modifierLigne.Show();
             this.Hide();
         }
+
+        private void pbModifierHorraire_Click(object sender, EventArgs e)
+        {
+            ModifierHoraire modifierHoraire = new ModifierHoraire(this);
+            modifierHoraire.Show();
+            this.Hide();
+        }
     }
 }

@@ -145,6 +145,7 @@
             pbModifierHorraire.SizeMode = PictureBoxSizeMode.Zoom;
             pbModifierHorraire.TabIndex = 0;
             pbModifierHorraire.TabStop = false;
+            pbModifierHorraire.Click += pbModifierHorraire_Click;
             // 
             // AdminModifier
             // 

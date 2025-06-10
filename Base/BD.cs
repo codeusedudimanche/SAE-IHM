@@ -712,5 +712,37 @@ namespace Base
 
 
         }
+
+        public static (List<Horaire>, List<int>) GetHoraireLigneArret(int idLigne, int idArret)
+        {
+            string requeteSQL = "SELECT Horaire, Jour_Semaine FROM Horaire " +
+                                "WHERE `N°Ligne` = @idLigne AND `N°Arret` = @idArret " +
+                                "ORDER BY Jour_Semaine, Horaire";
+            MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
+            cmd.Parameters.AddWithValue("@idLigne", idLigne);
+
+            cmd.Parameters.AddWithValue("@idArret", idArret);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            List<Horaire> horaires = new List<Horaire>();
+            List<int> joursSemaine = new List<int>();
+            while (reader.Read())
+            {
+                TimeSpan heure = reader.GetTimeSpan(0);
+                int jourSemaine = reader.GetInt32(1);
+                horaires.Add(new Horaire(heure, jourSemaine, idLigne, idArret));            
+                joursSemaine.Add(jourSemaine);
+            }
+            reader.Close();
+            cmd.Dispose();
+            if (horaires.Count > 0)
+            {
+                return (horaires, joursSemaine);
+            }
+            else
+            {
+                
+                return (new List<Horaire>(), new List<int>());
+            }
+        }
     }
 }
