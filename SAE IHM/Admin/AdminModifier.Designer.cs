@@ -56,7 +56,7 @@
             pnlBackround.Controls.Add(pbModifierLigne);
             pnlBackround.Controls.Add(pbModifierArret);
             pnlBackround.Controls.Add(pbModifierHorraire);
-            pnlBackround.Location = new Point(314, 218);
+            pnlBackround.Location = new Point(233, 275);
             pnlBackround.Name = "pnlBackround";
             pnlBackround.Size = new Size(598, 372);
             pnlBackround.TabIndex = 5;
@@ -113,37 +113,39 @@
             // 
             // pbModifierLigne
             // 
-            pbModifierLigne.BackColor = Color.Transparent;
-            pbModifierLigne.BackgroundImage = Properties.Resources.feuille_de_route;
-            pbModifierLigne.BackgroundImageLayout = ImageLayout.Zoom;
+            pbModifierLigne.BackColor = Color.White;
+            pbModifierLigne.Image = (Image)resources.GetObject("pbModifierLigne.Image");
             pbModifierLigne.Location = new Point(238, 159);
             pbModifierLigne.Name = "pbModifierLigne";
             pbModifierLigne.Size = new Size(125, 62);
+            pbModifierLigne.SizeMode = PictureBoxSizeMode.Zoom;
             pbModifierLigne.TabIndex = 1;
             pbModifierLigne.TabStop = false;
+            pbModifierLigne.Click += pbModifierLigne_Click;
             // 
             // pbModifierArret
             // 
-            pbModifierArret.BackColor = Color.Transparent;
-            pbModifierArret.BackgroundImage = Properties.Resources.emplacement;
-            pbModifierArret.BackgroundImageLayout = ImageLayout.Zoom;
+            pbModifierArret.BackColor = Color.White;
+            pbModifierArret.Image = (Image)resources.GetObject("pbModifierArret.Image");
             pbModifierArret.Location = new Point(52, 159);
             pbModifierArret.Name = "pbModifierArret";
             pbModifierArret.Size = new Size(125, 62);
+            pbModifierArret.SizeMode = PictureBoxSizeMode.Zoom;
             pbModifierArret.TabIndex = 2;
             pbModifierArret.TabStop = false;
             pbModifierArret.Click += pbModifierArret_Click;
             // 
             // pbModifierHorraire
             // 
-            pbModifierHorraire.BackColor = Color.Transparent;
-            pbModifierHorraire.BackgroundImage = Properties.Resources.temps;
-            pbModifierHorraire.BackgroundImageLayout = ImageLayout.Zoom;
+            pbModifierHorraire.BackColor = Color.White;
+            pbModifierHorraire.Image = (Image)resources.GetObject("pbModifierHorraire.Image");
             pbModifierHorraire.Location = new Point(424, 159);
             pbModifierHorraire.Name = "pbModifierHorraire";
             pbModifierHorraire.Size = new Size(125, 62);
+            pbModifierHorraire.SizeMode = PictureBoxSizeMode.Zoom;
             pbModifierHorraire.TabIndex = 0;
             pbModifierHorraire.TabStop = false;
+            pbModifierHorraire.Click += pbModifierHorraire_Click;
             // 
             // AdminModifier
             // 

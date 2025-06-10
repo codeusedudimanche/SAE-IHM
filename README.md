@@ -13,8 +13,6 @@ Ajout Horraire
 MODIFICATION ADMIN
 
 
-SUPPRESSION ADMIN
-
 -Consulter la carte : Julie
 
 -Configuer son trajet 

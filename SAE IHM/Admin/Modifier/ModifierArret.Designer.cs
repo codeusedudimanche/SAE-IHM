@@ -32,6 +32,7 @@
             pbEspaceAdmin = new PictureBox();
             pnlBackround = new Panel();
             gbLigne = new GroupBox();
+            btnAnnuler = new Button();
             lbLigne = new ListBox();
             lblLigneDeservie = new Label();
             btnValider = new Button();
@@ -83,6 +84,7 @@
             // 
             // gbLigne
             // 
+            gbLigne.Controls.Add(btnAnnuler);
             gbLigne.Controls.Add(lbLigne);
             gbLigne.Controls.Add(lblLigneDeservie);
             gbLigne.Location = new Point(538, 144);
@@ -91,6 +93,17 @@
             gbLigne.TabIndex = 24;
             gbLigne.TabStop = false;
             gbLigne.Enter += gbLigne_Enter;
+            // 
+            // btnAnnuler
+            // 
+            btnAnnuler.BackColor = Color.FromArgb(192, 64, 0);
+            btnAnnuler.Location = new Point(6, 224);
+            btnAnnuler.Name = "btnAnnuler";
+            btnAnnuler.Size = new Size(309, 29);
+            btnAnnuler.TabIndex = 23;
+            btnAnnuler.Text = "Annuler les changements";
+            btnAnnuler.UseVisualStyleBackColor = false;
+            btnAnnuler.Click += btnRetour_Click;
             // 
             // lbLigne
             // 
@@ -114,6 +127,7 @@
             // 
             // btnValider
             // 
+            btnValider.Enabled = false;
             btnValider.Location = new Point(234, 422);
             btnValider.Name = "btnValider";
             btnValider.Size = new Size(518, 55);
@@ -138,6 +152,7 @@
             txtLongitude.Name = "txtLongitude";
             txtLongitude.Size = new Size(163, 27);
             txtLongitude.TabIndex = 19;
+            txtLongitude.TextChanged += txtLongitude_TextChanged;
             // 
             // lblLatitude
             // 
@@ -155,6 +170,7 @@
             txtLatitude.Name = "txtLatitude";
             txtLatitude.Size = new Size(163, 27);
             txtLatitude.TabIndex = 17;
+            txtLatitude.TextChanged += txtLatitude_TextChanged;
             // 
             // lblArret
             // 
@@ -172,12 +188,13 @@
             txtNom.Name = "txtNom";
             txtNom.Size = new Size(346, 27);
             txtNom.TabIndex = 15;
+            txtNom.TextChanged += VerifModification;
             // 
             // lblChoisissez
             // 
             lblChoisissez.AutoSize = true;
             lblChoisissez.Font = new Font("Segoe UI", 10F);
-            lblChoisissez.Location = new Point(400, 84);
+            lblChoisissez.Location = new Point(270, 84);
             lblChoisissez.Name = "lblChoisissez";
             lblChoisissez.Size = new Size(153, 23);
             lblChoisissez.TabIndex = 14;
@@ -201,7 +218,6 @@
             cbArret.Size = new Size(422, 28);
             cbArret.TabIndex = 12;
             cbArret.SelectedIndexChanged += cbArret_SelectedIndexChanged;
-            cbArret.SelectedIndexChanged += lbLigne_SelectedIndexChanged;
             // 
             // ModifierArret
             // 
@@ -213,6 +229,7 @@
             Name = "ModifierArret";
             Text = "ModifierArret";
             FormClosed += ModifierArret_FormClosed;
+            Load += ModifierArret_Load;
             ((System.ComponentModel.ISupportInitialize)pbEspaceAdmin).EndInit();
             pnlBackround.ResumeLayout(false);
             pnlBackround.PerformLayout();
@@ -238,5 +255,6 @@
         private Label lblLigneDeservie;
         private Button btnValider;
         private GroupBox gbLigne;
+        private Button btnAnnuler;
     }
 }

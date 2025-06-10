@@ -71,6 +71,7 @@
             pbEspaceAdmin.SizeMode = PictureBoxSizeMode.Zoom;
             pbEspaceAdmin.TabIndex = 12;
             pbEspaceAdmin.TabStop = false;
+            pbEspaceAdmin.Click += pbEspaceAdmin_Click;
             // 
             // btnSupp
             // 
@@ -89,6 +90,7 @@
             comboBoxArret.Name = "comboBoxArret";
             comboBoxArret.Size = new Size(265, 23);
             comboBoxArret.TabIndex = 1;
+            comboBoxArret.SelectedIndexChanged += comboBoxArret_SelectedIndexChanged;
             // 
             // lblTitre
             // 

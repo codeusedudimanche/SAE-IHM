@@ -71,6 +71,7 @@
             pbAcceuil.SizeMode = PictureBoxSizeMode.Zoom;
             pbAcceuil.TabIndex = 11;
             pbAcceuil.TabStop = false;
+            pbAcceuil.Click += pbAcceuil_Click;
             // 
             // label4
             // 
@@ -112,36 +113,36 @@
             // 
             // pbSuppLigne
             // 
-            pbSuppLigne.BackColor = Color.Transparent;
-            pbSuppLigne.BackgroundImage = Properties.Resources.feuille_de_route;
-            pbSuppLigne.BackgroundImageLayout = ImageLayout.Zoom;
+            pbSuppLigne.BackColor = Color.White;
+            pbSuppLigne.Image = (Image)resources.GetObject("pbSuppLigne.Image");
             pbSuppLigne.Location = new Point(238, 159);
             pbSuppLigne.Name = "pbSuppLigne";
             pbSuppLigne.Size = new Size(125, 61);
+            pbSuppLigne.SizeMode = PictureBoxSizeMode.Zoom;
             pbSuppLigne.TabIndex = 1;
             pbSuppLigne.TabStop = false;
             pbSuppLigne.Click += pbSuppLigne_Click;
             // 
             // pbSuppArret
             // 
-            pbSuppArret.BackColor = Color.Transparent;
-            pbSuppArret.BackgroundImage = Properties.Resources.emplacement;
-            pbSuppArret.BackgroundImageLayout = ImageLayout.Zoom;
+            pbSuppArret.BackColor = Color.White;
+            pbSuppArret.Image = (Image)resources.GetObject("pbSuppArret.Image");
             pbSuppArret.Location = new Point(53, 159);
             pbSuppArret.Name = "pbSuppArret";
             pbSuppArret.Size = new Size(125, 61);
+            pbSuppArret.SizeMode = PictureBoxSizeMode.Zoom;
             pbSuppArret.TabIndex = 2;
             pbSuppArret.TabStop = false;
             pbSuppArret.Click += pbSuppArret_Click;
             // 
             // pbSuppHorraire
             // 
-            pbSuppHorraire.BackColor = Color.Transparent;
-            pbSuppHorraire.BackgroundImage = Properties.Resources.temps;
-            pbSuppHorraire.BackgroundImageLayout = ImageLayout.Zoom;
+            pbSuppHorraire.BackColor = Color.White;
+            pbSuppHorraire.Image = (Image)resources.GetObject("pbSuppHorraire.Image");
             pbSuppHorraire.Location = new Point(424, 159);
             pbSuppHorraire.Name = "pbSuppHorraire";
             pbSuppHorraire.Size = new Size(125, 61);
+            pbSuppHorraire.SizeMode = PictureBoxSizeMode.Zoom;
             pbSuppHorraire.TabIndex = 0;
             pbSuppHorraire.TabStop = false;
             pbSuppHorraire.Click += pbSuppHorraire_Click;

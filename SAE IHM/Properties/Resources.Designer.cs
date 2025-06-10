@@ -63,19 +63,9 @@ namespace SAE_IHM.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap emplacement {
+        internal static System.Drawing.Bitmap bouton_daccueil {
             get {
-                object obj = ResourceManager.GetObject("emplacement", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap feuille_de_route {
-            get {
-                object obj = ResourceManager.GetObject("feuille-de-route", resourceCulture);
+                object obj = ResourceManager.GetObject("bouton-daccueil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,16 +116,6 @@ namespace SAE_IHM.Properties {
         internal static System.Drawing.Bitmap poubelle {
             get {
                 object obj = ResourceManager.GetObject("poubelle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap temps {
-            get {
-                object obj = ResourceManager.GetObject("temps", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
