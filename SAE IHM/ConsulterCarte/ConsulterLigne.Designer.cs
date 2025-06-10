@@ -75,7 +75,7 @@
             cbLigne.Name = "cbLigne";
             cbLigne.Size = new Size(345, 28);
             cbLigne.TabIndex = 3;
-            cbLigne.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
+            cbLigne.SelectedIndexChanged += cbLigne_SelectedIndexChanged_1;
             // 
             // lblSelectionezLigne
             // 
@@ -95,7 +95,6 @@
             lblConsulterLigne.Size = new Size(320, 46);
             lblConsulterLigne.TabIndex = 0;
             lblConsulterLigne.Text = "Consulter une ligne";
-            lblConsulterLigne.Click += label1_Click;
             // 
             // panelCarte
             // 
@@ -152,6 +151,7 @@
             Controls.Add(pnlBackroundConsulter);
             Name = "ConsulterLigne";
             Text = "ConsulterLigne";
+            FormClosing += ConsulterLigne_FormClosing;
             Load += ConsulterLigne_Load;
             pnlBackroundConsulter.ResumeLayout(false);
             pnlBackroundConsulter.PerformLayout();

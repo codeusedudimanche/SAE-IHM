@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Base;
 using MySql.Data.MySqlClient;
+using static System.Net.WebRequestMethods;
 
 namespace SAE_IHM
 {
@@ -56,17 +58,19 @@ namespace SAE_IHM
 
         }
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            panelCarte.Visible = true;
-            lblNomLigne.Text = cbLigne.SelectedItem!.ToString();
-        }
+        
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             {
                 string numligne = cbLigne.SelectedItem!.ToString().Replace("Ligne ", "");
-                var url = "https://transitapp.com/fr/region/tulsa/tulsa-transit/bus-" + numligne;
+                string url;
+                url = "https://transitapp.com/fr/region/tulsa/tulsa-transit/bus-" + numligne;
+                if (numligne == 700.ToString())
+                {
+                    url = "https://transitapp.com/fr/region/tulsa/tulsa-transit/aero-700";
+                }
+
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = url,
@@ -78,7 +82,7 @@ namespace SAE_IHM
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
-            Application.OpenForms[0]!.Show();
+
         }
 
 
@@ -90,6 +94,17 @@ namespace SAE_IHM
         private void lblNomLigne_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ConsulterLigne_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.OpenForms[0]!.Show();
+        }
+
+        private void cbLigne_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            panelCarte.Visible = true;
+            lblNomLigne.Text = cbLigne.SelectedItem!.ToString();
         }
     }
 }
