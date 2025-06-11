@@ -11,7 +11,7 @@ using Base;
 using SAE_IHM.Admin.Modifier;
 
 namespace SAE_IHM
-{
+{ 
 
     public partial class AdminModifier : Form
     {
