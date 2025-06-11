@@ -111,6 +111,7 @@
             flpHoraire.Name = "flpHoraire";
             flpHoraire.Size = new Size(501, 220);
             flpHoraire.TabIndex = 19;
+            flpHoraire.Paint += flpHoraire_Paint;
             // 
             // lblArret
             // 

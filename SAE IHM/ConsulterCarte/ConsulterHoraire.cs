@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Base;
 using MySql.Data.MySqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -14,6 +15,7 @@ namespace SAE_IHM
 {
     public partial class ConsulterHoraire : Form
     {
+        private List<Arret> _listeArret = new List<Arret>();
         public ConsulterHoraire()
         {
             InitializeComponent();
@@ -104,7 +106,7 @@ namespace SAE_IHM
                 {
                     conn.Open();
                     string requete = "SELECT NomArret FROM Horaire, Arret WHERE Arret.N°Arret = Horaire.N°Arret AND Horaire.N°Ligne=@numLigne";
-
+                    _listeArret = new List<Arret>();
                     using (var cmd = new MySqlCommand(requete, conn))
                     {
                         cmd.Parameters.AddWithValue("@numLigne", LigneSelectionnee);

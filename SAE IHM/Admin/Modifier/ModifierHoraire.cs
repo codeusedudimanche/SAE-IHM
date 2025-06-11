@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Base;
@@ -15,7 +16,7 @@ namespace SAE_IHM.Admin.Modifier
 {
     public partial class ModifierHoraire : Form
     {
-        private bool changement = false; 
+        private bool changement = false;
         private List<Horaire> _horaires;
         private List<Horaire> _horairesBackup;
         private List<int> _semaineBackup;
@@ -240,31 +241,47 @@ namespace SAE_IHM.Admin.Modifier
         }
         private void txtHorraire_TextChanged(object sender, EventArgs e)
         {
-           
             if (changement)
-                return; 
+                return;
+
             if (sender is TextBox txt && txt.Tag is Horaire horaire)
             {
-                // Exemple de mise à jour de l'objet Horaire selon le texte
-                if (TimeSpan.TryParse(txt.Text, out TimeSpan heure))
+                string input = txt.Text;
+
+                // Ne tente de parser que si le texte correspond à un format complet
+                if (Regex.IsMatch(input, @"^\d{1,2}:\d{1,2}$"))
                 {
-                    horaire.Heure = heure;
+                    if (TimeSpan.TryParse(input, out TimeSpan heure))
+                    {
+                        horaire.Heure = heure;
+                    }
+                    else
+                    {
+                        AfficherErreur(txt, horaire);
+                    }
+                }
+                else if (input.Length >= 5) // Si la saisie est complète mais non valide
+                {
+                    AfficherErreur(txt, horaire);
                 }
                 else
                 {
-                    changement = true; // On empêche les modifications supplémentaires
-                    txt.Text = string.Empty; // ou afficher un message d'erreur
-                    horaire.Heure = null; 
-                    MessageBox.Show(txt.Text + " n'est pas un horaire valide. Veuillez entrer un horaire au format HH:mm.", "Erreur de format", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    changement = false; // On réactive les modifications après la mise à jour
+                    horaire.Heure = null; // En cours de saisie
                 }
-                
-
             }
-            
-            VerifModif();
 
+            VerifModif();
         }
+
+        private void AfficherErreur(TextBox txt, Horaire horaire)
+        {
+            changement = true;
+            txt.Text = string.Empty;
+            horaire.Heure = null;
+            MessageBox.Show("Ce n'est pas un horaire valide. Veuillez entrer un horaire au format HH:mm.", "Erreur de format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            changement = false;
+        }
+
 
 
         private void pbEspaceAdmin_Click(object sender, EventArgs e)
@@ -413,13 +430,13 @@ namespace SAE_IHM.Admin.Modifier
                 Text = "",
                 Height = 24,
                 Margin = new Padding(0, 2, 10, 0),
-                
+
             };
 
             tbHoraire.TextChanged += txtHorraire_TextChanged; // Ajout de l'événement TextChanged pour vérifier les modifications
 
-            
-            
+
+
             panelHoraire.Controls.Add(tbHoraire);
 
             // Checkbox jour de semaine
@@ -471,7 +488,6 @@ namespace SAE_IHM.Admin.Modifier
         {
             if (sender is CheckBox cb && cb.Tag is int id)
             {
-                MessageBox.Show(cb.Checked.ToString());
 
                 if (cb.Checked)
                 {
@@ -595,10 +611,7 @@ namespace SAE_IHM.Admin.Modifier
                 {
                     MessageBox.Show("Horaire supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                {
-                    MessageBox.Show("Aucun horaire à supprimer.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+
 
                 foreach (Horaire h in _horaireAAjouter)
                 {
@@ -606,7 +619,7 @@ namespace SAE_IHM.Admin.Modifier
                     {
                         if (BD.AjoutHoraire(h.NLigne, h.NArret, h.JourSemaine, h.Heure.Value))
                         {
-                            
+
                         }
                         else
                         {
@@ -619,12 +632,13 @@ namespace SAE_IHM.Admin.Modifier
                 {
                     MessageBox.Show("Horaire ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                {
-                    MessageBox.Show("Aucun horaire à ajouter.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
 
             }
+        }
+
+        private void flpHoraire_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
