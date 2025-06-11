@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsulterHoraire));
             pnlHoraire = new Panel();
-            label2 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            lstvHoraireWEF = new ListView();
             lstvHoraire = new ListView();
             lblNomLigne = new Label();
             lblNomArrêt = new Label();
@@ -49,7 +51,9 @@
             // pnlHoraire
             // 
             pnlHoraire.BackColor = SystemColors.ControlLightLight;
-            pnlHoraire.Controls.Add(label2);
+            pnlHoraire.Controls.Add(label4);
+            pnlHoraire.Controls.Add(label3);
+            pnlHoraire.Controls.Add(lstvHoraireWEF);
             pnlHoraire.Controls.Add(lstvHoraire);
             pnlHoraire.Controls.Add(lblNomLigne);
             pnlHoraire.Controls.Add(lblNomArrêt);
@@ -59,35 +63,53 @@
             pnlHoraire.TabIndex = 3;
             pnlHoraire.Visible = false;
             // 
-            // label2
+            // label4
             // 
-            label2.Font = new Font("Segoe UI", 13.8F);
-            label2.Location = new Point(317, 133);
-            label2.MaximumSize = new Size(800, 200);
-            label2.Name = "label2";
-            label2.Size = new Size(176, 46);
-            label2.TabIndex = 5;
-            label2.Text = "Horaires";
-            label2.TextAlign = ContentAlignment.MiddleRight;
+            label4.AutoSize = true;
+            label4.Location = new Point(314, 174);
+            label4.Name = "label4";
+            label4.Size = new Size(157, 20);
+            label4.TabIndex = 8;
+            label4.Text = "Week-end/Jours Fériés";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(110, 174);
+            label3.Name = "label3";
+            label3.Size = new Size(97, 20);
+            label3.TabIndex = 7;
+            label3.Text = "Jour Semaine";
+            // 
+            // lstvHoraireWEF
+            // 
+            lstvHoraireWEF.Location = new Point(276, 211);
+            lstvHoraireWEF.Name = "lstvHoraireWEF";
+            lstvHoraireWEF.Size = new Size(237, 230);
+            lstvHoraireWEF.TabIndex = 6;
+            lstvHoraireWEF.UseCompatibleStateImageBehavior = false;
+            lstvHoraireWEF.SelectedIndexChanged += lstvHoraireWEF_SelectedIndexChanged;
             // 
             // lstvHoraire
             // 
-            lstvHoraire.Location = new Point(57, 192);
+            lstvHoraire.Location = new Point(40, 211);
             lstvHoraire.Name = "lstvHoraire";
-            lstvHoraire.Size = new Size(436, 230);
+            lstvHoraire.Size = new Size(237, 230);
             lstvHoraire.TabIndex = 4;
             lstvHoraire.UseCompatibleStateImageBehavior = false;
+            lstvHoraire.SelectedIndexChanged += lstvHoraire_SelectedIndexChanged;
             // 
             // lblNomLigne
             // 
             lblNomLigne.AutoSize = true;
             lblNomLigne.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNomLigne.Location = new Point(57, 143);
+            lblNomLigne.Location = new Point(214, 131);
             lblNomLigne.Name = "lblNomLigne";
-            lblNomLigne.Size = new Size(182, 31);
+            lblNomLigne.Size = new Size(118, 31);
             lblNomLigne.TabIndex = 3;
-            lblNomLigne.Text = "Nom de la Ligne";
+            lblNomLigne.Text = "Ligne XXX";
             lblNomLigne.Visible = false;
+            lblNomLigne.Click += lblNomLigne_Click;
             // 
             // lblNomArrêt
             // 
@@ -207,6 +229,8 @@
         private Label lblSelectionezLigne;
         private Label lblConsulterLigne;
         private ListView lstvHoraire;
-        private Label label2;
+        private ListView lstvHoraireWEF;
+        private Label label4;
+        private Label label3;
     }
 }

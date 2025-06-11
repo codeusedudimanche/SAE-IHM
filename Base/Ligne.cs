@@ -55,9 +55,26 @@ namespace Base
             return false;
         }
 
+        /// <summary>
         public override int GetHashCode()
         {
             return NLigne.GetHashCode();
+        }
+
+        //Getters pour la classe Ligne
+        public int GetNLigne()
+        {
+            return _NLigne;
+        }
+
+        public string GetNomLigne()
+        {
+            return _NomLigne;
+        }
+
+        public string GetDestination()
+        {
+            return _Destination;
         }
 
     }

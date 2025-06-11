@@ -23,6 +23,7 @@ namespace Base
             _mesHoraires.Add(horaire);
         }
 
+
         public void SupprimerHoraire(Horaire horaire)
         {
             _mesHoraires.Remove(horaire);

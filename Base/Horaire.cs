@@ -20,7 +20,6 @@ namespace Base
             NLigne = nLigne;
             NArret = nArret;
         }
-        
 
         
         public override string ToString()
@@ -51,5 +50,7 @@ namespace Base
         {
             return HashCode.Combine(Heure, JourSemaine, NLigne, NArret);
         }
+
+
     }
 }

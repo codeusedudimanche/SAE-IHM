@@ -53,7 +53,7 @@ namespace SAE_IHM
                 try
                 {
                     conn.Open();
-                    string requete = "SELECT Horaire FROM Horaire, Arret WHERE " +
+                    string requete = "SELECT Horaire, Jour_Semaine FROM Horaire, Arret WHERE " +
                         "Arret.N°Arret = Horaire.N°Arret AND Horaire.N°Ligne= @numligne AND " +
                         "NomArret = @nomarret";
 
@@ -65,15 +65,32 @@ namespace SAE_IHM
                         {
                             while (reader.Read())
                             {
-                                lstvHoraire.Items.Add(reader.GetTimeSpan(0).ToString());
+                                TimeSpan horaire = reader.GetTimeSpan(0);
+                                int jourSemaine = reader.GetInt16(1);
+
+                                switch (jourSemaine)
+                                {
+                                    case 1:
+                                        lstvHoraire.Items.Add(horaire.ToString());
+                                        break;
+
+                                    case 2:
+                                        lstvHoraireWEF.Items.Add(horaire.ToString());
+                                        break;
+                                    case 3:
+                                        lstvHoraireWEF.Items.Add(horaire.ToString());
+                                        lstvHoraire.Items.Add(horaire.ToString());
+                                        break;
+
+                                }
+
                             }
                         }
                     }
                 }
-
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur lors du chargement des arrêts : " + ex.Message);
+                    MessageBox.Show("Erreur lors du chargement des horaires : " + ex.Message);
                 }
             }
         }
@@ -138,6 +155,8 @@ namespace SAE_IHM
             }
         }
 
+
+
         private void cbArret_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblNomLigne.Visible = true;
@@ -170,6 +189,26 @@ namespace SAE_IHM
         {
             this.Close();
             Application.OpenForms[0]!.Show();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstvHoraire_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNomLigne_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstvHoraireWEF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
