@@ -25,7 +25,7 @@ namespace SAE_IHM.Admin
 
         private void btnValiderEmail_Click(object sender, EventArgs e)
         {
-            
+
             // Regex standard pour valider un e-mail
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
 
@@ -40,21 +40,24 @@ namespace SAE_IHM.Admin
                 lblCode.Visible = true;
                 txtCode.Visible = true;
             }
-            
+
         }
 
         private void btnValiderCode_Click(object sender, EventArgs e)
         {
             if (BD.VerifCode(txtCode.Text, txtMail.Text))
             {
-                MessageBox.Show("Code vérifié avec succès. Vous pouvez maintenant réinitialiser votre mot de passe.");
+
+
+                MessageBox.Show("Code vérifié avec succès. Vous pouvez maintenant réinitialiser votre mot de passe.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information); 
                 this.Hide();
                 ModifierMotDePasse modifMdp = new ModifierMotDePasse(txtMail.Text, this);
+                modifMdp.Show();
 
             }
             else
             {
-                MessageBox.Show("Code incorrect. Veuillez réessayer.");
+                MessageBox.Show("Code incorrect. Veuillez réessayer.","Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -66,6 +69,11 @@ namespace SAE_IHM.Admin
         private void MotDePasseOublie_FormClosed(object sender, FormClosedEventArgs e)
         {
             Parent.Show();
+        }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -95,14 +95,14 @@ namespace Base
             MySqlCommand cmd = new MySqlCommand(requeteSQL, conn);
             cmd.Parameters.AddWithValue("@mail", email);
             MySqlDataReader reader = cmd.ExecuteReader();
-            string codeRecupere = null;
+            int? codeRecupere = null;
             if (reader.Read())
             {
-                codeRecupere = reader.GetString(0);
+                codeRecupere = reader.GetInt32(0);
             }
             reader.Close();
             cmd.Dispose();
-            if (codeRecupere == code)
+            if (codeRecupere == Convert.ToInt32(code))
             {
                 return true;
             }

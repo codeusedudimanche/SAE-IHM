@@ -25,9 +25,16 @@ namespace SAE_IHM.Admin.Modifier
         private void btnValiderEmail_Click(object sender, EventArgs e)
         {
 
-            BD.ModiferLeMotDePasse(mail, txtMDP.Text);
+            if (BD.ModiferLeMotDePasse(mail, txtMDP.Text))
+            {
+                MessageBox.Show("Mot de passe modifié avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Erreur lors de la modification du mot de passe. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
         private void pbAcceuil_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -87,6 +87,7 @@
             txtCode.Size = new Size(385, 27);
             txtCode.TabIndex = 5;
             txtCode.Visible = false;
+            txtCode.TextChanged += txtCode_TextChanged;
             // 
             // lblCode
             // 
