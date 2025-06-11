@@ -12,6 +12,7 @@ namespace SAE_IHM
         {
             InitializeComponent();
             BD.Connexion();
+            pnlBackround.BackColor = Color.FromArgb(250,Color.White); // Set the background color to white
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
